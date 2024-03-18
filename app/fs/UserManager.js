@@ -151,10 +151,29 @@ async function test() {
     try {
         const gestorDeUsuarios = new UserManager();
         await gestorDeUsuarios.create({
-            photo: ``,
+            photo: `franco.jpg`,
             email: 'soler_franco@hotmail.com',
             password: 'franco1234'
-        });
+        })
+
+
+        await gestorDeUsuarios.create({
+            photo: 'ana.jpg',
+            email: 'kocian_ana@hotmail.com',
+            password: 'Ana1234'
+        })
+        await gestorDeUsuarios.create({
+            photo: `Matilda.jpg`,
+            email: 'soler_Matilda@hotmail.com',
+            password: 'franco1234'
+        })
+
+
+        await gestorDeUsuarios.create({
+            photo: 'Pedro.jpg',
+            email: 'Pedro@hotmail.com',
+            password: 'Ana1234'
+        })
         await gestorDeUsuarios.read();
         await gestorDeUsuarios.readOne("6c4eb6b65642c7e55c533719")
         await gestorDeUsuarios.destroy("45fd22cf0e699b4973d696e5")
