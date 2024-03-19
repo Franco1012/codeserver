@@ -16,11 +16,3 @@ Eliminar Usuario: Elimina un usuario según su ID.
 Implementación
 Manejo de Errores: Se utiliza try/catch para manejar errores en todas las operaciones CRUD.
 Almacenamiento de Datos: Las clases ProductsManager y UsersManager ofrecen la capacidad de manejar datos tanto en memoria como en el sistema de archivos.
-Ejecución del Código: El programa puede ejecutarse utilizando el comando node app.js en la terminal.
-Uso
-Clona este repositorio en tu máquina local.
-Instala las dependencias necesarias con npm install.
-Ejecuta el programa con node app.js para comenzar a utilizar la aplicación.
-Notas
-Asegúrate de tener instalado Node.js en tu sistema antes de ejecutar la aplicación.
-Para modificar la configuración o ampliar las funcionalidades, consulta el código fuente en los archivos ProductsManager.js, UsersManager.js y app.js.
