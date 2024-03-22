@@ -1,0 +1,74 @@
+[
+  {
+    "id": "db8ef251d700cb15fbc3ac51",
+    "title": "zapatilla",
+    "photo": "img.jpg",
+    "category": "calzado",
+    "price": 75000,
+    "stock": 500
+  },
+  {
+    "id": "f75bd2bb1e94cb5bc1236ea7",
+    "title": "remera",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 15000,
+    "stock": 200
+  },
+  {
+    "id": "9625c78de129a729f5d93777",
+    "title": "pantalón",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 30000,
+    "stock": 500
+  },
+  {
+    "id": "1733a3f039db38250d9e90d0",
+    "title": "bufanda",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 12000,
+    "stock": 150
+  },
+  {
+    "id": "ee19483b0498fa7ce165f49c",
+    "title": "camisa",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 45000,
+    "stock": 300
+  },
+  {
+    "id": "1cda3af1f4173613f3263efc",
+    "title": "botas",
+    "photo": "img.jpg",
+    "category": "calzado",
+    "price": 95000,
+    "stock": 300
+  },
+  {
+    "id": "60549513158159fc886bf50b",
+    "title": "pollera",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 25000,
+    "stock": 200
+  },
+  {
+    "id": "c436db5cc1c3367dccc42800",
+    "title": "short",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 45000,
+    "stock": 100
+  },
+  {
+    "id": "dfbd8f6cdb3eb490ed842a81",
+    "title": "gorra",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 15000,
+    "stock": 900
+  }
+]
