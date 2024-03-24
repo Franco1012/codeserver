@@ -32,7 +32,7 @@
     "stock": 150
   },
   {
-    "id": "ee19483b0498fa7ce165f49c",
+    "id": "7c07d43bda1c205f",
     "title": "camisa",
     "photo": "img.jpg",
     "category": "ropa",
@@ -40,7 +40,7 @@
     "stock": 300
   },
   {
-    "id": "1cda3af1f4173613f3263efc",
+    "id": "f2e2c242b94019fa",
     "title": "botas",
     "photo": "img.jpg",
     "category": "calzado",
@@ -48,7 +48,7 @@
     "stock": 300
   },
   {
-    "id": "60549513158159fc886bf50b",
+    "id": "ca7f51cf8358e9e5",
     "title": "pollera",
     "photo": "img.jpg",
     "category": "ropa",
@@ -56,7 +56,7 @@
     "stock": 200
   },
   {
-    "id": "c436db5cc1c3367dccc42800",
+    "id": "e82a80e002f3a9d0",
     "title": "short",
     "photo": "img.jpg",
     "category": "ropa",
@@ -64,11 +64,83 @@
     "stock": 100
   },
   {
-    "id": "dfbd8f6cdb3eb490ed842a81",
+    "id": "6d79aeb1142999f4",
     "title": "gorra",
     "photo": "img.jpg",
     "category": "ropa",
     "price": 15000,
     "stock": 900
+  },
+  {
+    "id": "cc1df7bc3410d07e",
+    "title": "cinto",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 25000,
+    "stock": 150
+  },
+  {
+    "id": "98ac9bda1b09b1e2",
+    "title": "sandalia",
+    "photo": "img.jpg",
+    "category": "calzado",
+    "price": 60000,
+    "stock": 250
+  },
+  {
+    "id": "ad9bca1a2b08c3d6",
+    "title": "pantalón corto",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 18000,
+    "stock": 120
+  },
+  {
+    "id": "b7ebf5a7c08b23c1",
+    "title": "mochila",
+    "photo": "img.jpg",
+    "category": "accesorio",
+    "price": 40000,
+    "stock": 90
+  },
+  {
+    "id": "dfa1e5c51f32b2e9",
+    "title": "falda",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 28000,
+    "stock": 110
+  },
+  {
+    "id": "a5f3e1c4b67d20b8",
+    "title": "gafas de sol",
+    "photo": "img.jpg",
+    "category": "accesorio",
+    "price": 30000,
+    "stock": 80
+  },
+  {
+    "id": "b23e579f4c0adfa5",
+    "title": "abrigo",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 70000,
+    "stock": 70
+  },
+  {
+    "id": "f94e0535c2f4e81a",
+    "title": "botines",
+    "photo": "img.jpg",
+    "category": "calzado",
+    "price": 90000,
+    "stock": 180
+  },
+  {
+    "id": "76dbdbd64cc7278c",
+    "title": "suéter",
+    "photo": "img.jpg",
+    "category": "ropa",
+    "price": 35000,
+    "stock": 100
   }
 ]

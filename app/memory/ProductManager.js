@@ -108,76 +108,148 @@ class ProductManager {
 const gestorDeProductos = new ProductManager()
 
 gestorDeProductos.create({
-    title: `zapatilla`,
-    photo: `img.jpg`,
-    category: `calzado`,
+    title: "zapatilla",
+    photo: "img.jpg",
+    category: "calzado",
     price: 75000,
     stock: 500
-})
+});
 
 gestorDeProductos.create({
-    title: `remera`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "remera",
+    photo: "img.jpg",
+    category: "ropa",
     price: 15000,
     stock: 200
-})
+});
+
 gestorDeProductos.create({
-    title: `pantalón`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "pantalón",
+    photo: "img.jpg",
+    category: "ropa",
     price: 30000,
     stock: 500
-})
+});
+
 gestorDeProductos.create({
-    title: `bufanda`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "bufanda",
+    photo: "img.jpg",
+    category: "ropa",
     price: 12000,
     stock: 150
-})
+});
+
 gestorDeProductos.create({
-    title: `camisa`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "camisa",
+    photo: "img.jpg",
+    category: "ropa",
     price: 45000,
     stock: 300
-})
+});
+
 gestorDeProductos.create({
-    title: `botas`,
-    photo: `img.jpg`,
-    category: `calzado`,
+    title: "botas",
+    photo: "img.jpg",
+    category: "calzado",
     price: 95000,
     stock: 300
-})
+});
+
 gestorDeProductos.create({
-    title: `pollera`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "pollera",
+    photo: "img.jpg",
+    category: "ropa",
     price: 25000,
     stock: 200
-})
+});
+
 gestorDeProductos.create({
-    title: `short`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "short",
+    photo: "img.jpg",
+    category: "ropa",
     price: 45000,
     stock: 100
-})
+});
+
 gestorDeProductos.create({
-    title: `gorra`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "gorra",
+    photo: "img.jpg",
+    category: "ropa",
     price: 15000,
     stock: 900
-})
+});
+
 gestorDeProductos.create({
-    title: `cinto`,
-    photo: `img.jpg`,
-    category: `ropa`,
+    title: "cinto",
+    photo: "img.jpg",
+    category: "ropa",
     price: 25000,
     stock: 150
-})
+});
+
+gestorDeProductos.create({
+    title: "sandalia",
+    photo: "img.jpg",
+    category: "calzado",
+    price: 60000,
+    stock: 250
+});
+
+gestorDeProductos.create({
+    title: "pantalón corto",
+    photo: "img.jpg",
+    category: "ropa",
+    price: 18000,
+    stock: 120
+});
+
+gestorDeProductos.create({
+    title: "mochila",
+    photo: "img.jpg",
+    category: "accesorio",
+    price: 40000,
+    stock: 90
+});
+
+gestorDeProductos.create({
+    title: "falda",
+    photo: "img.jpg",
+    category: "ropa",
+    price: 28000,
+    stock: 110
+});
+
+gestorDeProductos.create({
+    title: "gafas de sol",
+    photo: "img.jpg",
+    category: "accesorio",
+    price: 30000,
+    stock: 80
+});
+
+gestorDeProductos.create({
+    title: "abrigo",
+    photo: "img.jpg",
+    category: "ropa",
+    price: 70000,
+    stock: 70
+});
+
+gestorDeProductos.create({
+    title: "botines",
+    photo: "img.jpg",
+    category: "calzado",
+    price: 90000,
+    stock: 180
+});
+
+gestorDeProductos.create({
+    title: "suéter",
+    photo: "img.jpg",
+    category: "ropa",
+    price: 35000,
+    stock: 100
+});
 
 console.log(gestorDeProductos.read())
 console.log(gestorDeProductos.readOne(2))

@@ -1,10 +1,10 @@
-const fs = require(`fs`)
+import fs from "fs"
 
 //modulo crypto para generar códigos aleatorios
-const crypto = require(`crypto`);
+import crypto from "crypto";
 
 //ruta donde se va a guardar el archivo
-const path = `./fs/files/users.json`
+const path = `./app/fs/files/users.json`
 
 class UserManager {
     constructor() {
@@ -147,7 +147,7 @@ class UserManager {
     }
 }
 
-async function test() {
+/*async function test() {
     try {
         const gestorDeUsuarios = new UserManager();
         await gestorDeUsuarios.create({
@@ -183,9 +183,9 @@ async function test() {
         console.log(error)
     }
 }
-test()
+test()*/
 
+const gestorDeUsuarios = new UserManager();
 
-
-
+export default gestorDeUsuarios;
 
