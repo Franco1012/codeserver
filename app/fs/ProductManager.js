@@ -60,13 +60,14 @@ class ProductManager {
 
 
             } else {
-                return null
+                throw new Error("el producto no se ha podido crear")
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log(error)
+            console.log("Ocurrió un error " + error.message)
+            return null
         }
 
     }
@@ -82,12 +83,13 @@ class ProductManager {
 
                 return products
             } else {
-                /*throw new Error(`No hay productos`)*/
-                return null
+                throw new Error("No hay productos")
+
             }
         }
         catch (error) {
-            console.log(error)
+            console.log("ocurrió un error" + error.message)
+            return null
         }
     }
     async readOne(id) {
@@ -102,16 +104,17 @@ class ProductManager {
                     console.log(one)
                     return one
                 } else {
-                    /*throw new Error(`No se encontró el producto`)*/
-                    return null
+                    throw new Error(`No se encontró el producto`)
+
                 }
             } else {
-                /*throw new Error(`No hay productos`)*/
-                return null
+                throw new Error(`No hay productos`)
+
             }
         }
         catch (error) {
-            console.log(error)
+            console.log("ocurrió un error: " + error.message)
+            return null
         }
     }
     async destroy(id) {
@@ -130,16 +133,17 @@ class ProductManager {
                     //retornamos como objeto el array 
                     return JSON.parse(filtered)
                 } else {
-                    /*throw new Error(`No se encontró el producto`)*/
-                    return null
+                    throw new Error(`No se encontró el producto`)
+
                 }
             } else {
-                /*throw new Error(`No hay productos`)*/
-                return null
+                throw new Error(`No hay productos`)
+
             }
         }
         catch (error) {
-            console.log(error)
+            console.log(error.message)
+            return null
         }
     }
 }

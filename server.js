@@ -141,8 +141,8 @@ server.get("/api/users/create/:photo?/:email?/:password?", async (req, resp) => 
 
     try {
 
-        const { photo, email, password} = req.params
-        const data = { photo,email,password,role }
+        const { photo, email, password } = req.params
+        const data = { photo, email, password, role }
         console.log(data)
         const user = await gestorDeUsuarios.create(data)
         if (user) {
@@ -201,6 +201,7 @@ server.get("/api/users/:uid", async (req, res) => {
         const id = uid
 
         const user = await gestorDeUsuarios.readOne(id)
+
 
         if (user) {
 

@@ -1,30 +1,30 @@
 [
   {
-    "id": "95ffd38f5e2eb48a699a6ce3",
-    "photo": "default.jpg",
-    "email": "kocian_ana@hotmail.com",
-    "password": "ana1234",
-    "role": 0
-  },
-  {
-    "id": "95ffd38f5e2eb48a699a6ce3",
-    "photo": "default.jpg",
-    "email": "soler_matilda@hotmail.com",
-    "password": "matilda1234",
-    "role": 1
-  },
-  {
-    "id": "95ffd38f5e2eb48a699a6ce3",
-    "photo": "default.jpg",
-    "email": "colazo_maria@hotmail.com",
-    "password": "maria1234",
-    "role": 1
-  },
-  {
-    "id": "95ffd38f5e2eb48a699a6ce3",
-    "photo": "default.jpg",
+    "id": "db8ef251d700",
+    "photo": "franco.jpg",
     "email": "soler_franco@hotmail.com",
     "password": "franco1234",
     "role": 0
+  },
+  {
+    "id": "f75bd2bb1e94",
+    "photo": "ana.jpg",
+    "email": "kocian_ana@hotmail.com",
+    "password": "Ana1234",
+    "role": 1
+  },
+  {
+    "id": "9625c78de129",
+    "photo": "Matilda.jpg",
+    "email": "soler_Matilda@hotmail.com",
+    "password": "franco1234",
+    "role": 0
+  },
+  {
+    "id": "1733a3f039db",
+    "photo": "Pedro.jpg",
+    "email": "Pedro@hotmail.com",
+    "password": "Ana1234",
+    "role": 1
   }
 ]

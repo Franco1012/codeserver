@@ -29,7 +29,7 @@ class UserManager {
 
     async create(data) {
         //se desestructura el objeto
-        const { photo, email, password} = data
+        const { photo, email, password } = data
         // Si no se proporciona una imagen, establecer una imagen por defecto
         const defaultPhoto = 'default.jpg';
         try {
@@ -55,24 +55,24 @@ class UserManager {
 
 
             } else {
-
-                return null
+                throw new Error("el usuario no se ha podido crear")
 
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log(`ocurrió un error:${error}`)
+            console.log("Ocurrió un error " + error.message)
+            return null
         }
 
     }
-    async read(role="") {
-       
+    async read(role = "") {
+
         try {
             let users = await fs.promises.readFile(this.path, "utf-8")
             users = JSON.parse(users)
-            if (role!=="") {
+            if (role !== "") {
                 users = users.filter(user => user.role === parseInt(role));
             }
             //se verifica si el array tiene elementos
@@ -80,12 +80,13 @@ class UserManager {
                 console.log(users)
                 return users
             } else {
-                /*throw new Error(`No hay usuarios`)*/
-                return null
+                throw new Error(`No hay usuarios`)
+
             }
         }
         catch (error) {
-            console.log(error)
+            console.log("ocurrió un error " + error.message)
+            return null
         }
     }
     async readOne(id) {
@@ -99,16 +100,17 @@ class UserManager {
                     console.log(one)
                     return one
                 } else {
-                    /*throw new Error(`No se encontró el usuario`)*/
-                    return null
+                    throw new Error(`No se encontró el usuario`)
+
                 }
             } else {
-                /*throw new Error(`No hay usuarios`)*/
-                return null
+                throw new Error(`No hay usuarios`)
+
             }
         }
         catch (error) {
-            console.log(error)
+            console.log("ocurrió un error: " + error.message)
+            return null
         }
     }
     async destroy(id) {
@@ -127,16 +129,17 @@ class UserManager {
                     //retornamos como objeto el array
                     return JSON.parse(filtered)
                 } else {
-                    /*throw new Error(`No se encontró el usuario`)*/
-                    return null
+                    throw new Error(`No se encontró el usuario`)
+
                 }
             } else {
-                /*throw new Error(`No hay usuarios`)*/
-                return null
+                throw new Error(`No hay usuarios`)
+
             }
         }
         catch (error) {
-            console.log(error)
+            console.log(`se generó un error: ${error.message}`)
+            return null
         }
     }
 }
