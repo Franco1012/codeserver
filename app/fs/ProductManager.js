@@ -28,8 +28,10 @@ class ProductManager {
     }
 
     async create(data) {
+
         //se desestructura el objeto
         const { title, photo, category, price, stock } = data
+
         // Si no se proporciona una imagen, establecer una imagen por defecto
         const defaultPhoto = 'default.jpg';
         try {
@@ -53,35 +55,18 @@ class ProductManager {
                 //se sobrescribe el contenido del archivo
                 await fs.promises.writeFile(this.path, products)
                 console.log(`producto creado`)
+
                 return product
 
 
             } else {
-                //se recorre las propiedades del objeto con un bucle for in en búsqueda de una propiedad vacía
-                function buscarPropiedadVacia() {
-                    for (let prop in data) {
-                        if (data[prop] === '') {
-                            const propiedadVacia = prop;
-                            //se lanza una excepción
-                            return propiedadVacia
-                        }
-                    }
-                }
-                const propiedadVacia = buscarPropiedadVacia()
-                //si existe un propiedad vacía se maneja el error 
-                if (propiedadVacia) {
-                    throw new Error(`No se han introducido  los datos en la propiedad ${propiedadVacia}`)
-                } else {
-                    throw new Error(`la propiedad no existe`)
-                }
-
-
+                return null
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log(`ocurrió un error:${error.message}`)
+            console.log(error)
         }
 
     }
@@ -94,7 +79,7 @@ class ProductManager {
             }
             //se verifica si el array tiene elementos
             if (products.length !== 0) {
-                console.log(products)
+
                 return products
             } else {
                 /*throw new Error(`No hay productos`)*/
@@ -102,7 +87,7 @@ class ProductManager {
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log(error)
         }
     }
     async readOne(id) {
@@ -125,7 +110,7 @@ class ProductManager {
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log(error)
         }
     }
     async destroy(id) {

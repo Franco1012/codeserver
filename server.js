@@ -17,24 +17,31 @@ server.use(express.urlencoded({ extended: true }));//obligo al servidor a usar l
 
 // Ruta para crear un nuevo producto
 
-server.get("/api/products/:title/:photo/:category/:price/:stock", async (req, resp) => {
+server.get("/api/products/create/:title?/:photo?/:category?/:price?/:stock?", async (req, resp) => {
 
     try {
 
         const { title, photo, category, price, stock } = req.params
         const data = { title, photo, category, price, stock }
+        console.log(data)
         const product = await gestorDeProductos.create(data)
-        console.log(product)
-        return resp.status(201).json({
-            respuesta: product,
-            succes: true
-
-        })
+        if (product) {
+            return resp.status(201).json({
+                respuesta: product,
+                succes: true
+    
+            })
+        } else {
+            const error=new Error("BAD REQUEST")
+            error.statusCode=400;
+            throw error
+        }
+      
 
     } catch (error) {
         console.log(error)
-        return resp.status(500).json({
-            respuesta: "coder Api error",
+        return resp.status(error.statusCode).json({
+            respuesta: error.message,
             succes: false
         })
     }
