@@ -92,7 +92,7 @@ class ProductManager {
     }
     async readOne(id) {
         try {
-            console.log("se paso el id" + id)
+
             let products = await fs.promises.readFile(this.path, "utf-8")
             products = JSON.parse(products)
             if (products.length !== 0) {
@@ -102,7 +102,8 @@ class ProductManager {
                     console.log(one)
                     return one
                 } else {
-                    throw new Error(`No se encontró el producto`)
+                    /*throw new Error(`No se encontró el producto`)*/
+                    return null
                 }
             } else {
                 /*throw new Error(`No hay productos`)*/
@@ -129,14 +130,16 @@ class ProductManager {
                     //retornamos como objeto el array 
                     return JSON.parse(filtered)
                 } else {
-                    throw new Error(`No se encontró el producto`)
+                    /*throw new Error(`No se encontró el producto`)*/
+                    return null
                 }
             } else {
-                throw new Error(`No hay productos`)
+                /*throw new Error(`No hay productos`)*/
+                return null
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log(error)
         }
     }
 }

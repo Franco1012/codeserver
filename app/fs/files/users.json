@@ -1,10 +1,24 @@
 [
   {
-    "id": "6c4eb6b65642c7e55c533719",
+    "id": "95ffd38f5e2eb48a699a6ce3",
     "photo": "default.jpg",
-    "email": "soler_franco@hotmail.com",
-    "password": "franco1234",
+    "email": "kocian_ana@hotmail.com",
+    "password": "ana1234",
     "role": 0
+  },
+  {
+    "id": "95ffd38f5e2eb48a699a6ce3",
+    "photo": "default.jpg",
+    "email": "soler_matilda@hotmail.com",
+    "password": "matilda1234",
+    "role": 1
+  },
+  {
+    "id": "95ffd38f5e2eb48a699a6ce3",
+    "photo": "default.jpg",
+    "email": "colazo_maria@hotmail.com",
+    "password": "maria1234",
+    "role": 1
   },
   {
     "id": "95ffd38f5e2eb48a699a6ce3",
@@ -14,4 +28,3 @@
     "role": 0
   }
 ]
-
