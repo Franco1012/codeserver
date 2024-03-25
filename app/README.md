@@ -32,7 +32,10 @@ Este proyecto consiste en una aplicación Node.js que proporciona funcionalidade
   -Ruta para crear productos:`localhost:8080/api/products/create/title/photo/category/price/stock`
   -Ruta para crear usuarios: `localhost:8080/api/users/create/photo/email/password`    
   -Ruta para eliminar productos: `localhost:8080/api/products/delete/pid`        
-  -Ruta para eliminar usuarios: `localhost:8080/api/users/delete/uid`   
+  -Ruta para eliminar usuarios: `localhost:8080/api/users/delete/uid`
+  -Ruta para filtrar por categoria en productos:`http://localhost:8080/api/products?category=calzado`
+  -Ruta para filtrar por role en usuarios:`http://localhost:8080/api/users?role=0`
+
 ## Ejecución
 
 Para ejecutar el código de esta aplicación, primero debes asegurarte de tener Node.js instalado en tu sistema. Luego, sigue estos pasos:
