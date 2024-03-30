@@ -1,10 +1,10 @@
-const fs = require(`fs`)
+import fs from "fs"
 
 //modulo crypto para generar códigos aleatorios
-const crypto = require(`crypto`);
+import crypto from "crypto";
 
 //ruta donde se va a guardar el archivo
-const path = `./fs/files/users.json`
+const path = `./app/fs/files/users.json`
 
 class UserManager {
     constructor() {
@@ -55,48 +55,38 @@ class UserManager {
 
 
             } else {
-                //se recorre las propiedades del objeto con un bucle for in en búsqueda de una propiedad vacía
-                function buscarPropiedadVacia() {
-                    for (let prop in data) {
-                        if (data[prop] === '') {
-                            const propiedadVacia = prop;
-                            //se lanza una excepción
-                            return propiedadVacia
-                        }
-                    }
-                }
-                const propiedadVacia = buscarPropiedadVacia()
-                //si existe un propiedad vacía se maneja el error 
-                if (propiedadVacia) {
-                    throw new Error(`No se han introducido  los datos en la propiedad ${propiedadVacia}`)
-                } else {
-                    throw new Error(`la propiedad no existe`)
-                }
-
+                throw new Error("el usuario no se ha podido crear")
 
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log(`ocurrió un error:${error.message}`)
+            console.log("Ocurrió un error " + error.message)
+            return null
         }
 
     }
-    async read() {
+    async read(role = "") {
+
         try {
             let users = await fs.promises.readFile(this.path, "utf-8")
             users = JSON.parse(users)
+            if (role !== "") {
+                users = users.filter(user => user.role === parseInt(role));
+            }
             //se verifica si el array tiene elementos
             if (users.length !== 0) {
                 console.log(users)
                 return users
             } else {
                 throw new Error(`No hay usuarios`)
+
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log("ocurrió un error " + error.message)
+            return null
         }
     }
     async readOne(id) {
@@ -111,13 +101,16 @@ class UserManager {
                     return one
                 } else {
                     throw new Error(`No se encontró el usuario`)
+
                 }
             } else {
                 throw new Error(`No hay usuarios`)
+
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log("ocurrió un error: " + error.message)
+            return null
         }
     }
     async destroy(id) {
@@ -133,21 +126,25 @@ class UserManager {
                     filtered = JSON.stringify(filtered, null, 2)
                     await fs.promises.writeFile(this.path, filtered)
                     console.log(`usuario eliminado`)
-                    return filtered
+                    //retornamos como objeto el array
+                    return JSON.parse(filtered)
                 } else {
                     throw new Error(`No se encontró el usuario`)
+
                 }
             } else {
                 throw new Error(`No hay usuarios`)
+
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log(`se generó un error: ${error.message}`)
+            return null
         }
     }
 }
 
-async function test() {
+/*async function test() {
     try {
         const gestorDeUsuarios = new UserManager();
         await gestorDeUsuarios.create({
@@ -183,9 +180,9 @@ async function test() {
         console.log(error)
     }
 }
-test()
+test()*/
 
+const gestorDeUsuarios = new UserManager();
 
-
-
+export default gestorDeUsuarios;
 

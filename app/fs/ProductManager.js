@@ -1,10 +1,10 @@
-const fs = require(`fs`)
+import fs from "fs"
 
 //modulo crypto para generar códigos aleatorios
-const crypto = require(`crypto`);
+import crypto from "crypto";
 
 //ruta donde se va a guardar el archivo
-const path = `./fs/files/products.json`
+const path = `./app/fs/files/products.json`
 
 class ProductManager {
     constructor() {
@@ -28,12 +28,14 @@ class ProductManager {
     }
 
     async create(data) {
+
         //se desestructura el objeto
         const { title, photo, category, price, stock } = data
+
         // Si no se proporciona una imagen, establecer una imagen por defecto
         const defaultPhoto = 'default.jpg';
         try {
-            if (title && photo && category && price && stock) {
+            if (title && category && price && stock) {
                 const product = {
                     id: crypto.randomBytes(12).toString("hex"),
                     title: title,
@@ -54,54 +56,45 @@ class ProductManager {
                 await fs.promises.writeFile(this.path, products)
                 console.log(`producto creado`)
 
+                return product
+
 
             } else {
-                //se recorre las propiedades del objeto con un bucle for in en búsqueda de una propiedad vacía
-                function buscarPropiedadVacia() {
-                    for (let prop in data) {
-                        if (data[prop] === '') {
-                            const propiedadVacia = prop;
-                            //se lanza una excepción
-                            return propiedadVacia
-                        }
-                    }
-                }
-                const propiedadVacia = buscarPropiedadVacia()
-                //si existe un propiedad vacía se maneja el error 
-                if (propiedadVacia) {
-                    throw new Error(`No se han introducido  los datos en la propiedad ${propiedadVacia}`)
-                } else {
-                    throw new Error(`la propiedad no existe`)
-                }
-
-
+                throw new Error("el producto no se ha podido crear")
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log(`ocurrió un error:${error.message}`)
+            console.log("Ocurrió un error " + error.message)
+            return null
         }
 
     }
-    async read() {
+    async read(category = "") {
         try {
             let products = await fs.promises.readFile(this.path, "utf-8")
             products = JSON.parse(products)
+            if (category !== '') {
+                products = products.filter(product => product.category === category);
+            }
             //se verifica si el array tiene elementos
             if (products.length !== 0) {
-                console.log(products)
+
                 return products
             } else {
-                throw new Error(`No hay productos`)
+                throw new Error("No hay productos")
+
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log("ocurrió un error" + error.message)
+            return null
         }
     }
     async readOne(id) {
         try {
+
             let products = await fs.promises.readFile(this.path, "utf-8")
             products = JSON.parse(products)
             if (products.length !== 0) {
@@ -112,13 +105,16 @@ class ProductManager {
                     return one
                 } else {
                     throw new Error(`No se encontró el producto`)
+
                 }
             } else {
                 throw new Error(`No hay productos`)
+
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log("ocurrió un error: " + error.message)
+            return null
         }
     }
     async destroy(id) {
@@ -134,24 +130,28 @@ class ProductManager {
                     filtered = JSON.stringify(filtered, null, 2)
                     await fs.promises.writeFile(this.path, filtered)
                     console.log(`producto eliminado`)
-                    return filtered
+                    //retornamos como objeto el array 
+                    return JSON.parse(filtered)
                 } else {
                     throw new Error(`No se encontró el producto`)
+
                 }
             } else {
                 throw new Error(`No hay productos`)
+
             }
         }
         catch (error) {
-            console.log(`Ocurrió un error: ${error.message}`)
+            console.log(error.message)
+            return null
         }
     }
 }
 
-async function test() {
+/*async function test() {
     try {
         const gestorDeProductos = new ProductManager();
-        /*await gestorDeProductos.create({
+        await gestorDeProductos.create({
             title: `zapatilla`,
             photo: `img.jpg`,
             category: `calzado`,
@@ -221,8 +221,8 @@ async function test() {
             category: `ropa`,
             price: 25000,
             stock: 150
-        })*/
-        /*await gestorDeProductos.read();*/
+        })
+        await gestorDeProductos.read()
         await gestorDeProductos.readOne("f75bd2bb1e94cb5bc1236ea7")
         await gestorDeProductos.destroy("69d1c0656c923a545631ad2d")
 
@@ -231,9 +231,9 @@ async function test() {
         console.log(error)
     }
 }
-test()
-
-
+test()*/
+const gestorDeProductos = new ProductManager()
+export default gestorDeProductos
 
 
 
