@@ -5,43 +5,26 @@ class ProductManager {
         //se desestructura el objeto
         const { title, photo, category, price, stock } = data
         try {
-            if (title && photo && category && price && stock) {
+            if (title) {
                 const product = {
-                    id: ProductManager.#products.length === 0 ? 1 : ProductManager.#products.length + 1,
+                    id: ProductManager.#products.lenght === 0 ? 1 : ProductManager.#products.length + 1,
                     title: title,
-                    photo: photo,
-                    category: category,
-                    price: price,
-                    stock: stock
+                    photo: photo || "default.jpg",
+                    category: category || "uncategorized",
+                    price: price || 1,
+                    stock: stock || 1
                 }
                 //se agrega el producto al array
                 ProductManager.#products.push(product);
                 console.log(`producto creado`)
             } else {
-                //se recorre las propiedades del objeto con un bucle for in
-                function buscarPropiedadVacia() {
-                    for (let prop in data) {
-                        if (data[prop] === '') {
-                            const propiedadVacia = prop;
-                            //se lanza una excepción
-                            return propiedadVacia
-                        }
-                    }
-                }
-                const propiedadVacia = buscarPropiedadVacia()
-                if (propiedadVacia) {
-                    throw new Error(`No se han introducido  los datos en la propiedad ${propiedadVacia}`)
-                } else {
-                    throw new Error(`la propiedad no existe`)
-                }
-
-
+                const error = new Error("NOT CREATE")
+                error.statusCode = 404
+                throw error
             }
 
-        }
-        //se captura la excepción y se maneja el error
-        catch (error) {
-            console.log(`ocurrió un error:${error.message}`)
+        } catch (error) {
+            console.log(error.message)
         }
 
     }
@@ -51,13 +34,15 @@ class ProductManager {
             if (ProductManager.#products.length !== 0) {
                 return ProductManager.#products
             } else {
-                throw new Error(`no hay productos para leer`)
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+
             }
-
-
         }
         catch (error) {
-            console.log(`ocurrió un error:${error.message}`)
+            console.log(error.message)
+
         }
 
     }
@@ -69,13 +54,15 @@ class ProductManager {
             if (one) {
                 return one
             } else {
-                throw new Error(`No se encontró el producto`)
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+
             }
         }
-
-
         catch (error) {
-            console.log(`hubo un error: ${error}`)
+            console.log(error.message)
+
         }
 
     }
@@ -93,27 +80,53 @@ class ProductManager {
                 ProductManager.#products = within
                 console.log("se eliminó el producto")
             } else {
-                throw new Error("one no esta definido")
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+
             }
-
-
         }
         catch (error) {
-            console.log(`se generó un error: ${error.message}`)
+            console.log(error.message)
+
         }
 
     }
+
+    update(id, data) {
+        try {
+
+            let products = this.read()
+            let product = products.find(p => p.id === id)
+            console.log("product", product)
+
+            if (product) {
+                for (let prop in data) {
+                    product[prop] = data[prop]
+                }
+
+                console.log("producto actualizado")
+                return product
+
+            } else {
+                console.log("pasa por else")
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+            }
+
+        } catch (error) {
+            console.log(error.message)
+
+        }
+    }
 }
+
+
 
 const gestorDeProductos = new ProductManager()
 
-gestorDeProductos.create({
-    title: "zapatilla",
-    photo: "img.jpg",
-    category: "calzado",
-    price: 75000,
-    stock: 500
-});
+
 
 gestorDeProductos.create({
     title: "remera",
@@ -121,9 +134,13 @@ gestorDeProductos.create({
     category: "ropa",
     price: 15000,
     stock: 200
+})
+gestorDeProductos.update(2, {
+    title: "zapatiaaaaaa"
+
 });
 
-gestorDeProductos.create({
+/*gestorDeProductos.create({
     title: "pantalón",
     photo: "img.jpg",
     category: "ropa",
@@ -249,7 +266,7 @@ gestorDeProductos.create({
     category: "ropa",
     price: 35000,
     stock: 100
-});
+});*/
 
-console.log(gestorDeProductos.read())
-console.log(gestorDeProductos.readOne(2))
+/*console.log(gestorDeProductos.read())*/
+/*console.log(gestorDeProductos.readOne(2))*/

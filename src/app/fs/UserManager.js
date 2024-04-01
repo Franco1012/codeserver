@@ -4,7 +4,7 @@ import fs from "fs"
 import crypto from "crypto";
 
 //ruta donde se va a guardar el archivo
-const path = `./app/fs/files/users.json`
+const path = `./src/app/fs/files/users.json`
 
 class UserManager {
     constructor() {
@@ -30,13 +30,12 @@ class UserManager {
     async create(data) {
         //se desestructura el objeto
         const { photo, email, password } = data
-        // Si no se proporciona una imagen, establecer una imagen por defecto
-        const defaultPhoto = 'default.jpg';
+       
         try {
             if (email && password) {
                 const user = {
                     id: crypto.randomBytes(12).toString("hex"),
-                    photo: photo || defaultPhoto,
+                    photo: photo || 'default.jpg',
                     email: email,
                     password: password,
                     role: 0
@@ -52,18 +51,19 @@ class UserManager {
                 //se sobrescribe el contenido del archivo
                 await fs.promises.writeFile(this.path, users)
                 console.log(`usuario creado`)
-
+                return user
 
             } else {
-                throw new Error("el usuario no se ha podido crear")
+                const error = new Error("NOT CREATE")
+                error.statusCode = 404
+                throw error
 
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log("Ocurrió un error " + error.message)
-            return null
+            throw error
         }
 
     }
@@ -77,72 +77,99 @@ class UserManager {
             }
             //se verifica si el array tiene elementos
             if (users.length !== 0) {
-                console.log(users)
+
                 return users
             } else {
-                throw new Error(`No hay usuarios`)
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
 
             }
         }
         catch (error) {
-            console.log("ocurrió un error " + error.message)
-            return null
+            console.log(error)
+            throw error
         }
     }
-    async readOne(id) {
+    async readOne(uid) {
         try {
-            let users = await fs.promises.readFile(this.path, "utf-8")
-            users = JSON.parse(users)
-            if (users.length !== 0) {
-                //se utiliza el método find para encontrar el usuario cuyo id coincide con el id que se pasa por parámetro en el método readOne
-                let one = users.find((user) => user.id === id)
-                if (one) {
-                    console.log(one)
-                    return one
-                } else {
-                    throw new Error(`No se encontró el usuario`)
+            let users = await this.read()
 
-                }
+            //se utiliza el método find para encontrar el usuario cuyo id coincide con el id que se pasa por parámetro en el método readOne
+            let one = users.find((user) => user.id === uid)
+
+            if (one) {
+
+                return one
             } else {
-                throw new Error(`No hay usuarios`)
-
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
             }
+
         }
         catch (error) {
             console.log("ocurrió un error: " + error.message)
-            return null
+            throw error
         }
     }
-    async destroy(id) {
+    async destroy(uid) {
         try {
-            let users = await fs.promises.readFile(this.path, "utf-8")
-            users = JSON.parse(users)
-            if (users.length !== 0) {
-                let one = users.find((user) => user.id === id)
-                //verificamos que exista el usuario a eliminar
-                if (one) {
-                    //filtramos los usuarios cuyo id No coincidan con el id que se pasa como parámetro del método destroy
-                    let filtered = users.filter((user) => user.id !== id)
-                    filtered = JSON.stringify(filtered, null, 2)
-                    await fs.promises.writeFile(this.path, filtered)
-                    console.log(`usuario eliminado`)
-                    //retornamos como objeto el array
-                    return JSON.parse(filtered)
-                } else {
-                    throw new Error(`No se encontró el usuario`)
+            let users = await this.read()
 
-                }
+            let one = users.find((user) => user.id === uid)
+            //verificamos que exista el usuario a eliminar
+            if (one) {
+                //filtramos los usuarios cuyo id No coincidan con el id que se pasa como parámetro del método destroy
+                let filtered = users.filter((user) => user.id !== id)
+                filtered = JSON.stringify(filtered, null, 2)
+                await fs.promises.writeFile(this.path, filtered)
+                console.log(`usuario eliminado`)
+                return one
             } else {
-                throw new Error(`No hay usuarios`)
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
 
             }
+
         }
         catch (error) {
-            console.log(`se generó un error: ${error.message}`)
-            return null
+            throw error
+        }
+    }
+
+    async update(uid, data) {
+        try {
+
+            let users = await this.read()
+            let user = users.find(u => u.id === uid)
+            console.log("user", user)
+
+            if (user) {
+                for (let prop in data) {
+                    user[prop] = data[prop]
+                }
+
+                users = JSON.stringify(users, null, 2)
+                await fs.promises.writeFile(this.path, users)
+                console.log("usuario actualizado")
+                return user
+
+            } else {
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+            }
+
+        } catch (error) {
+            throw error
+
         }
     }
 }
+
+
 
 /*async function test() {
     try {

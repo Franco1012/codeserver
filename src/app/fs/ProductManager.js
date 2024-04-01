@@ -4,7 +4,7 @@ import fs from "fs"
 import crypto from "crypto";
 
 //ruta donde se va a guardar el archivo
-const path = `./app/fs/files/products.json`
+const path = `./src/app/fs/files/products.json`
 
 class ProductManager {
     constructor() {
@@ -32,17 +32,15 @@ class ProductManager {
         //se desestructura el objeto
         const { title, photo, category, price, stock } = data
 
-        // Si no se proporciona una imagen, establecer una imagen por defecto
-        const defaultPhoto = 'default.jpg';
         try {
-            if (title && category && price && stock) {
+            if (title) {
                 const product = {
                     id: crypto.randomBytes(12).toString("hex"),
                     title: title,
-                    photo: photo || defaultPhoto,
-                    category: category,
-                    price: price,
-                    stock: stock
+                    photo: photo || "default.jpg",
+                    category: category || "uncategorized",
+                    price: price || 1,
+                    stock: stock || 1
                 }
                 //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable products
                 let products = await fs.promises.readFile(this.path, "utf8")
@@ -55,19 +53,19 @@ class ProductManager {
                 //se sobrescribe el contenido del archivo
                 await fs.promises.writeFile(this.path, products)
                 console.log(`producto creado`)
-
                 return product
 
 
             } else {
-                throw new Error("el producto no se ha podido crear")
+                const error = new Error("NOT CREATE")
+                error.statusCode = 404
+                throw error
             }
 
         }
         //se captura la excepción y se maneja el error
         catch (error) {
-            console.log("Ocurrió un error " + error.message)
-            return null
+            throw error
         }
 
     }
@@ -83,67 +81,91 @@ class ProductManager {
 
                 return products
             } else {
-                throw new Error("No hay productos")
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
 
             }
         }
         catch (error) {
-            console.log("ocurrió un error" + error.message)
-            return null
+            console.log(error)
+            throw error
         }
     }
-    async readOne(id) {
+    async readOne(pid) {
         try {
 
-            let products = await fs.promises.readFile(this.path, "utf-8")
-            products = JSON.parse(products)
-            if (products.length !== 0) {
-                //se utiliza el método find para encontrar el producto cuyo id coincide con el id que se pasa por parámetro en el método readOne
-                let one = products.find((product) => product.id === id)
-                if (one) {
-                    console.log(one)
-                    return one
-                } else {
-                    throw new Error(`No se encontró el producto`)
+            let products = await this.read()
 
-                }
+            //se utiliza el método find para encontrar el producto cuyo id coincide con el id que se pasa por parámetro en el método readOne
+            let one = products.find((product) => product.id === pid)
+            if (one) {
+                console.log(one)
+                return one
             } else {
-                throw new Error(`No hay productos`)
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
 
             }
+
         }
         catch (error) {
             console.log("ocurrió un error: " + error.message)
-            return null
+            throw error
         }
     }
-    async destroy(id) {
+    async destroy(pid) {
         try {
-            let products = await fs.promises.readFile(this.path, "utf-8")
-            products = JSON.parse(products)
-            if (products.length !== 0) {
-                let one = products.find((product) => product.id === id)
-                //verificamos que exista el producto a eliminar
-                if (one) {
-                    //filtramos los productos cuyo id No coincidan con el id que se pasa como parámetro del método destroy
-                    let filtered = products.filter((product) => product.id !== id)
-                    filtered = JSON.stringify(filtered, null, 2)
-                    await fs.promises.writeFile(this.path, filtered)
-                    console.log(`producto eliminado`)
-                    //retornamos como objeto el array 
-                    return JSON.parse(filtered)
-                } else {
-                    throw new Error(`No se encontró el producto`)
 
-                }
+            let products = await this.read()
+
+            let one = products.find((product) => product.id === pid)
+            //verificamos que exista el producto a eliminar
+            if (one) {
+                //filtramos los productos cuyo id No coincidan con el id que se pasa como parámetro del método destroy
+                let filtered = products.filter((product) => product.id !== pid)
+                filtered = JSON.stringify(filtered, null, 2)
+                await fs.promises.writeFile(this.path, filtered)
+                console.log(`producto eliminado`)
+                return one
             } else {
-                throw new Error(`No hay productos`)
-
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
             }
         }
         catch (error) {
-            console.log(error.message)
-            return null
+            throw error
+
+        }
+    }
+    async update(pid, data) {
+        try {
+
+            let products = await this.read()
+            let product = products.find(p => p.id === pid)
+            console.log("product", product)
+
+            if (product) {
+                for (let prop in data) {
+                    product[prop] = data[prop]
+                }
+
+                products = JSON.stringify(products, null, 2)
+                await fs.promises.writeFile(this.path, products)
+                console.log("producto actualizado")
+                return product
+
+            } else {
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+            }
+
+        } catch (error) {
+            throw error
+
         }
     }
 }
@@ -158,7 +180,7 @@ class ProductManager {
             price: 75000,
             stock: 500
         })
-
+ 
         await gestorDeProductos.create({
             title: `remera`,
             photo: `img.jpg`,
@@ -225,7 +247,7 @@ class ProductManager {
         await gestorDeProductos.read()
         await gestorDeProductos.readOne("f75bd2bb1e94cb5bc1236ea7")
         await gestorDeProductos.destroy("69d1c0656c923a545631ad2d")
-
+ 
     }
     catch (error) {
         console.log(error)
