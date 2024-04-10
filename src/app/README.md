@@ -25,17 +25,26 @@ Este proyecto consiste en una aplicación Node.js que proporciona funcionalidade
 - Manejo de Errores: Se utiliza try/catch para manejar errores en todas las operaciones CRUD.
 - Almacenamiento de Datos: Las clases ProductsManager y UsersManager ofrecen la capacidad de manejar datos tanto en     memoria como en el sistema de archivos.
 - Servidor con Express: Se agregó un servidor Express para manejar las solicitudes HTTP.
-- Configuración de Router: Se configuraron rutas tanto para el gestor de productos como para el gestor de usuarios.
-  - Ruta de Productos: `localhost:8080/api/products`
-  - Ruta de Usuarios: `localhost:8080/api/users`
-  - Búsqueda por ID: `localhost:8080/api/products/pid` / `localhost:8080/api/products/uid`
-  -Ruta para crear productos:`localhost:8080/api/products/create/title/photo/category/price/stock`
-  -Ruta para crear usuarios: `localhost:8080/api/users/create/photo/email/password`    
-  -Ruta para eliminar productos: `localhost:8080/api/products/delete/pid`        
-  -Ruta para eliminar usuarios: `localhost:8080/api/users/delete/uid`
-  -Ruta para filtrar por categoria en productos:`http://localhost:8080/api/products?category=calzado`
-  -Ruta para filtrar por role en usuarios:`http://localhost:8080/api/users?role=0`
+- Enrutamiento: Utiliza el enrutador de Express para organizar los endpoints de manera modular.
+Middleware
+Implementa middleware para el manejo de errores, solicitudes de rutas no encontradas y registro de solicitudes.
+- errorHandler: Maneja los errores generados por la aplicación.
+- pathHandler: Maneja el error de las solicitudes de  rutas no encontradas.
+-morgan:Registra información sobre las solicitudes recibidas por la API.
 
+Endpoints
+
+- GET /productos: Obtiene todos los productos.
+- GET /productos/:id: Obtiene un producto por su ID.
+- POST /productos: Crea un nuevo producto.
+- PUT /productos/:id: Actualiza un producto existente por su ID.
+- DELETE /productos/:id: Elimina un producto por su ID.
+
+- GET /usuarios: Obtiene todos los usuarios.
+- GET /usuarios/:id: Obtiene un usuario por su ID.
+- POST /usuarios: Crea un nuevo usuario.
+- PUT /usuarios/:id: Actualiza un usuario existente por su ID.
+- DELETE /usuarios/:id: Elimina un usuario por su ID.
 ## Ejecución
 
 Para ejecutar el código de esta aplicación, primero debes asegurarte de tener Node.js instalado en tu sistema. Luego, sigue estos pasos:
