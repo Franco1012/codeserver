@@ -35,7 +35,7 @@ class UserManager {
 
             const user = {
                 id: crypto.randomBytes(12).toString("hex"),
-                photo: photo || 'default.jpg',
+                photo: photo || 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png',
                 email: email,
                 password: password,
                 role: 0

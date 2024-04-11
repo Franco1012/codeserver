@@ -37,7 +37,7 @@ class ProductManager {
             const product = {
                 id: crypto.randomBytes(12).toString("hex"),
                 title: title,
-                photo: photo || "default.jpg",
+                photo: photo || "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
                 category: category || "uncategorized",
                 price: price || 1,
                 stock: stock || 1
