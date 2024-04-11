@@ -33,36 +33,30 @@ class ProductManager {
         const { title, photo, category, price, stock } = data
 
         try {
-            if (title) {
-                const product = {
-                    id: crypto.randomBytes(12).toString("hex"),
-                    title: title,
-                    photo: photo || "default.jpg",
-                    category: category || "uncategorized",
-                    price: price || 1,
-                    stock: stock || 1
-                }
-                //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable products
-                let products = await fs.promises.readFile(this.path, "utf8")
-                //se convierte el contenido del archivo ,que es una cadena json , en un objeto
-                products = JSON.parse(products)
-                //se agrega el producto creado al array de objetos
-                products.push(product)
-                //se convierte el array de objetos en una cadena json
-                products = JSON.stringify(products, null, 2)
-                //se sobrescribe el contenido del archivo
-                await fs.promises.writeFile(this.path, products)
-                console.log(`producto creado`)
-                return product
 
-
-            } else {
-                const error = new Error("NOT CREATE")
-                error.statusCode = 404
-                throw error
+            const product = {
+                id: crypto.randomBytes(12).toString("hex"),
+                title: title,
+                photo: photo || "default.jpg",
+                category: category || "uncategorized",
+                price: price || 1,
+                stock: stock || 1
             }
+            //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable products
+            let products = await fs.promises.readFile(this.path, "utf8")
+            //se convierte el contenido del archivo ,que es una cadena json , en un objeto
+            products = JSON.parse(products)
+            //se agrega el producto creado al array de objetos
+            products.push(product)
+            //se convierte el array de objetos en una cadena json
+            products = JSON.stringify(products, null, 2)
+            //se sobrescribe el contenido del archivo
+            await fs.promises.writeFile(this.path, products)
+            console.log(`producto creado`)
+            return product
 
         }
+
         //se captura la excepción y se maneja el error
         catch (error) {
             throw error
@@ -76,16 +70,9 @@ class ProductManager {
             if (category !== '') {
                 products = products.filter(product => product.category === category);
             }
-            //se verifica si el array tiene elementos
-            if (products.length !== 0) {
 
-                return products
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
+            return products
 
-            }
         }
         catch (error) {
             console.log(error)
@@ -99,19 +86,12 @@ class ProductManager {
 
             //se utiliza el método find para encontrar el producto cuyo id coincide con el id que se pasa por parámetro en el método readOne
             let one = products.find((product) => product.id === pid)
-            if (one) {
-                console.log(one)
-                return one
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
 
-            }
+            return one
 
         }
         catch (error) {
-            console.log("ocurrió un error: " + error.message)
+            console.log(error)
             throw error
         }
     }

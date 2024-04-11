@@ -30,35 +30,28 @@ class UserManager {
     async create(data) {
         //se desestructura el objeto
         const { photo, email, password } = data
-       
+
         try {
-            if (email && password) {
-                const user = {
-                    id: crypto.randomBytes(12).toString("hex"),
-                    photo: photo || 'default.jpg',
-                    email: email,
-                    password: password,
-                    role: 0
-                }
-                //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable users
-                let users = await fs.promises.readFile(this.path, "utf8")
-                //se convierte el contenido del archivo ,que es una cadena json , en un objeto
-                users = JSON.parse(users)
-                //se agrega el usuario creado al array de objetos
-                users.push(user)
-                //se convierte el array de objetos en una cadena json
-                users = JSON.stringify(users, null, 2)
-                //se sobrescribe el contenido del archivo
-                await fs.promises.writeFile(this.path, users)
-                console.log(`usuario creado`)
-                return user
 
-            } else {
-                const error = new Error("NOT CREATE")
-                error.statusCode = 404
-                throw error
-
+            const user = {
+                id: crypto.randomBytes(12).toString("hex"),
+                photo: photo || 'default.jpg',
+                email: email,
+                password: password,
+                role: 0
             }
+            //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable users
+            let users = await fs.promises.readFile(this.path, "utf8")
+            //se convierte el contenido del archivo ,que es una cadena json , en un objeto
+            users = JSON.parse(users)
+            //se agrega el usuario creado al array de objetos
+            users.push(user)
+            //se convierte el array de objetos en una cadena json
+            users = JSON.stringify(users, null, 2)
+            //se sobrescribe el contenido del archivo
+            await fs.promises.writeFile(this.path, users)
+            console.log(`usuario creado`)
+            return user
 
         }
         //se captura la excepción y se maneja el error
@@ -75,16 +68,9 @@ class UserManager {
             if (role !== "") {
                 users = users.filter(user => user.role === parseInt(role));
             }
-            //se verifica si el array tiene elementos
-            if (users.length !== 0) {
 
-                return users
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
+            return users
 
-            }
         }
         catch (error) {
             console.log(error)
@@ -98,18 +84,11 @@ class UserManager {
             //se utiliza el método find para encontrar el usuario cuyo id coincide con el id que se pasa por parámetro en el método readOne
             let one = users.find((user) => user.id === uid)
 
-            if (one) {
-
-                return one
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
-            }
+            return one
 
         }
         catch (error) {
-            console.log("ocurrió un error: " + error.message)
+            console.log(error)
             throw error
         }
     }
@@ -121,7 +100,7 @@ class UserManager {
             //verificamos que exista el usuario a eliminar
             if (one) {
                 //filtramos los usuarios cuyo id No coincidan con el id que se pasa como parámetro del método destroy
-                let filtered = users.filter((user) => user.id !== id)
+                let filtered = users.filter((user) => user.id !== uid)
                 filtered = JSON.stringify(filtered, null, 2)
                 await fs.promises.writeFile(this.path, filtered)
                 console.log(`usuario eliminado`)

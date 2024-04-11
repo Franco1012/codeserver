@@ -1,11 +1,12 @@
 import { Router } from "express"
 import gestorDeProductos from "../../app/fs/ProductManager.js"
+import isTitle from "../../middlewares/isTitle.js"
 const productsRouter = Router()
 
 
 productsRouter.get("/",read)
 productsRouter.get("/:pid",readOne)
-productsRouter.post("/", create)
+productsRouter.post("/",isTitle, create)
 productsRouter.put("/:pid", update)
 productsRouter.delete("/:pid", destroy)
 
@@ -26,7 +27,6 @@ async function read(req, res, next) {
 
 
     } catch (error) {
-        console.log(error)
         return next(error)
     }
 }
@@ -52,7 +52,6 @@ async function readOne(req, res, next) {
             throw error
         }
     } catch (error) {
-        console.log(error)
         return next(error)
     }
 
@@ -64,7 +63,7 @@ async function create(req, res, next) {
         const product = await gestorDeProductos.create(data)
         return res.json({
             statusCode: 201,
-            message: "Product created" + product.id,
+            message: "PRODUCT CREATE: " + product.id,
 
         })
 
@@ -82,7 +81,7 @@ async function update(req, res, next) {
 
         return res.json({
             statusCode: 200,
-            message: "UPDATE ID" + product.id,
+            message: "UPDATE ID: " + product.id,
 
         })
     } catch (error) {
@@ -96,7 +95,7 @@ async function destroy(req, res, next) {
         const product = await gestorDeProductos.destroy(pid)
         return res.json({
             statusCode: 200,
-            message: "DELETE ID" + product.id,
+            message: "DELETE ID: " + product.id,
 
         })
     } catch (error) {

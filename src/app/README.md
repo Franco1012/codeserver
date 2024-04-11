@@ -26,6 +26,12 @@ Este proyecto consiste en una aplicación Node.js que proporciona funcionalidade
 - Almacenamiento de Datos: Las clases ProductsManager y UsersManager ofrecen la capacidad de manejar datos tanto en     memoria como en el sistema de archivos.
 - Servidor con Express: Se agregó un servidor Express para manejar las solicitudes HTTP.
 - Enrutamiento: Utiliza el enrutador de Express para organizar los endpoints de manera modular.
+-La aplicación utiliza Handlebars para crear las vistas y WebSocket para ver los productos en tiempo real:
+localhost:8080/ 
+localhost:8080/products/real
+localhost:8080/users/:uid 
+localhost:8080/users/register 
+
 Middleware
 Implementa middleware para el manejo de errores, solicitudes de rutas no encontradas y registro de solicitudes.
 - errorHandler: Maneja los errores generados por la aplicación.

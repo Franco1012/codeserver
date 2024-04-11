@@ -1,11 +1,12 @@
 import { Router } from "express"
 import gestorDeUsuarios from "../../app/fs/UserManager.js"
+import isEmailAndPassword from "../../middlewares/isEmailAndPassword.js"
 const usersRouter = Router()
 
 
-usersRouter.get("/",read)
-usersRouter.get("/:uid",readOne)
-usersRouter.post("/", create)
+usersRouter.get("/", read)
+usersRouter.get("/:uid", readOne)
+usersRouter.post("/",isEmailAndPassword, create)
 usersRouter.put("/:uid", update)
 usersRouter.delete("/:uid", destroy)
 
@@ -26,7 +27,7 @@ async function read(req, res, next) {
 
 
     } catch (error) {
-        console.log(error)
+
         return next(error)
     }
 }
@@ -52,7 +53,7 @@ async function readOne(req, res, next) {
             throw error
         }
     } catch (error) {
-        console.log(error)
+
         return next(error)
     }
 
@@ -64,7 +65,7 @@ async function create(req, res, next) {
         const user = await gestorDeUsuarios.create(data)
         return res.json({
             statusCode: 201,
-            message: "User created" + user.id,
+            message: "USER CREATE: " + user.id,
 
         })
 
@@ -82,7 +83,7 @@ async function update(req, res, next) {
 
         return res.json({
             statusCode: 200,
-            message: "UPDATE ID" + user.id,
+            message: "UPDATE ID: " + user.id,
 
         })
     } catch (error) {
@@ -96,7 +97,7 @@ async function destroy(req, res, next) {
         const user = await gestorDeUsuarios.destroy(uid)
         return res.json({
             statusCode: 200,
-            message: "DELETE ID" + user.id,
+            message: "DELETE ID: " + user.id,
 
         })
     } catch (error) {
