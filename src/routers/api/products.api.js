@@ -1,12 +1,14 @@
 import { Router } from "express"
 import gestorDeProductos from "../../app/fs/ProductManager.js"
 import isTitle from "../../middlewares/isTitle.js"
+import uploader from "../../middlewares/multer.js"
+import isPhoto from "../../middlewares/isPhoto.js"
 const productsRouter = Router()
 
 
 productsRouter.get("/",read)
 productsRouter.get("/:pid",readOne)
-productsRouter.post("/",isTitle, create)
+productsRouter.post("/",uploader.single("photo"),isTitle,isPhoto, create)
 productsRouter.put("/:pid", update)
 productsRouter.delete("/:pid", destroy)
 

@@ -1,6 +1,8 @@
 function isEmailAndPassword(req, res, next) {
     try {
+        console.log(req.body)
         const {email,password} = req.body
+    
         if (!email || !password) {
 
             const err = new Error("INSERT EMAIL AND PASSWORD")

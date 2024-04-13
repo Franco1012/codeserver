@@ -1,17 +1,20 @@
 import { Router } from "express"
 import gestorDeUsuarios from "../../app/fs/UserManager.js"
 import isEmailAndPassword from "../../middlewares/isEmailAndPassword.js"
-const usersRouter = Router()
+import uploader from "../../middlewares/multer.js"
+import isPhoto from "../../middlewares/isPhoto.js"
 
+const usersRouter = Router()
 
 usersRouter.get("/", read)
 usersRouter.get("/:uid", readOne)
-usersRouter.post("/",isEmailAndPassword, create)
+usersRouter.post("/", uploader.single("photo"), isEmailAndPassword, isPhoto, create)
 usersRouter.put("/:uid", update)
 usersRouter.delete("/:uid", destroy)
 
 async function read(req, res, next) {
     try {
+
         const { role } = req.query
         const users = await gestorDeUsuarios.read(role);
         if (users) {
@@ -61,6 +64,7 @@ async function readOne(req, res, next) {
 
 async function create(req, res, next) {
     try {
+        console.log(req.body)
         const data = req.body
         const user = await gestorDeUsuarios.create(data)
         return res.json({
