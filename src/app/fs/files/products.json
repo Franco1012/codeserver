@@ -318,5 +318,14 @@
     "category": "accesorio",
     "price": 60000,
     "stock": 120
+  },
+  {
+    "id": "5f4aff5cba13384ffdff3436",
+    "title": "triciclo",
+    "photo": "C:\\Users\\Usuario\\Desktop\\lenguaje-programacion.webp",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
   }
+ 
 ]

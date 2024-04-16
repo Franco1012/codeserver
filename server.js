@@ -20,6 +20,7 @@ const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer)
 nodeServer.listen(port, ready);
 socketServer.on("connection", socketCb)
+export{socketServer}
 
 
 //estructura código handlebars
