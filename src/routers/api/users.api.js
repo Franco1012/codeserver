@@ -1,21 +1,25 @@
 import { Router } from "express"
-import gestorDeProductos from "../../app/fs/ProductManager.js"
-const productsRouter = Router()
+import gestorDeUsuarios from "../../app/fs/UserManager.js"
+import isEmailAndPassword from "../../middlewares/isEmailAndPassword.js"
+import uploader from "../../middlewares/multer.js"
+import isPhoto from "../../middlewares/isPhoto.js"
 
+const usersRouter = Router()
 
-productsRouter.get("/",read)
-productsRouter.get("/:pid",readOne)
-productsRouter.post("/", create)
-productsRouter.put("/:pid", update)
-productsRouter.delete("/:pid", destroy)
+usersRouter.get("/", read)
+usersRouter.get("/:uid", readOne)
+usersRouter.post("/", uploader.single("photo"), isEmailAndPassword, isPhoto, create)
+usersRouter.put("/:uid", update)
+usersRouter.delete("/:uid", destroy)
 
 async function read(req, res, next) {
     try {
-        const { category } = req.query
-        const products = await gestorDeProductos.read(category);
-        if (products) {
+
+        const { role } = req.query
+        const users = await gestorDeUsuarios.read(role);
+        if (users) {
             return res.status(200).json({
-                response: products,
+                response: users,
                 succes: true
             })
         } else {
@@ -26,22 +30,22 @@ async function read(req, res, next) {
 
 
     } catch (error) {
-        console.log(error)
+
         return next(error)
     }
 }
 
+
 async function readOne(req, res, next) {
-
     try {
-        const { pid } = req.params
+        const { uid } = req.params
 
-        const product = await gestorDeProductos.readOne(pid)
+        const user = await gestorDeUsuarios.readOne(uid)
 
-        if (product) {
+        if (user) {
 
             return res.status(200).json({
-                response: product,
+                response: user,
                 succes: true
             })
 
@@ -52,7 +56,7 @@ async function readOne(req, res, next) {
             throw error
         }
     } catch (error) {
-        console.log(error)
+
         return next(error)
     }
 
@@ -60,11 +64,12 @@ async function readOne(req, res, next) {
 
 async function create(req, res, next) {
     try {
+        console.log(req.body)
         const data = req.body
-        const product = await gestorDeProductos.create(data)
+        const user = await gestorDeUsuarios.create(data)
         return res.json({
             statusCode: 201,
-            message: "Product created" + product.id,
+            message: "USER CREATE: " + user.id,
 
         })
 
@@ -76,13 +81,13 @@ async function create(req, res, next) {
 
 async function update(req, res, next) {
     try {
-        const { pid } = req.params
+        const { uid } = req.params
         const data = req.body
-        const product = await gestorDeProductos.update(pid, data)
+        const user = await gestorDeUsuarios.update(uid, data)
 
         return res.json({
             statusCode: 200,
-            message: "UPDATE ID" + product.id,
+            message: "UPDATE ID: " + user.id,
 
         })
     } catch (error) {
@@ -92,11 +97,11 @@ async function update(req, res, next) {
 }
 async function destroy(req, res, next) {
     try {
-        const { pid } = req.params
-        const product = await gestorDeProductos.destroy(pid)
+        const { uid } = req.params
+        const user = await gestorDeUsuarios.destroy(uid)
         return res.json({
             statusCode: 200,
-            message: "DELETE ID" + product.id,
+            message: "DELETE ID: " + user.id,
 
         })
     } catch (error) {
@@ -107,4 +112,4 @@ async function destroy(req, res, next) {
 }
 
 
-export default productsRouter
+export default usersRouter
