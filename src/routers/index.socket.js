@@ -3,7 +3,7 @@ import { socketServer } from "../../server.js"
 
 export default async (socket) => {
     console.log("client id: ", socket.id)
-    socketServer.emit("products", await gestorDeProductos.read())
+    socket.emit("products", await gestorDeProductos.read())
     socket.on("add", async (data) => {
         console.log(data)
         await gestorDeProductos.create(data)

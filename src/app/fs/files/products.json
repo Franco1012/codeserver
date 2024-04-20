@@ -322,10 +322,57 @@
   {
     "id": "5f4aff5cba13384ffdff3436",
     "title": "triciclo",
-    "photo": "C:\\Users\\Usuario\\Desktop\\lenguaje-programacion.webp",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "6fc70dae1b03df9c3f530bc4",
+    "title": "prueba1",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "4e3328e454bbb117f5416980",
+    "title": "prueba3",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "5cd3c7c0026243107d60392c",
+    "title": "prueba4",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "0470fac0a8998d3cd7442fca",
+    "title": "prueba55",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "3edc59f82766cb6bb53111a7",
+    "title": "prueba56",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "category": "uncategorized",
+    "price": 1,
+    "stock": 1
+  },
+  {
+    "id": "f7a44120e436c9562d2b4d77",
+    "title": "prueba57",
+    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
     "category": "uncategorized",
     "price": 1,
     "stock": 1
   }
- 
 ]
