@@ -1,25 +1,27 @@
 import { Router } from "express"
-import gestorDeProductos from "../../app/fs/ProductManager.js"
+//import gestorDeProductos from "../../app/fs/ProductManager.js"
+import gestorDeProductos from "../../app/mongo/ProductManager.mongo.js"
 import isTitle from "../../middlewares/isTitle.js"
 import uploader from "../../middlewares/multer.js"
 import isPhoto from "../../middlewares/isPhoto.js"
 const productsRouter = Router()
 
 
-productsRouter.get("/",read)
-productsRouter.get("/:pid",readOne)
-productsRouter.post("/",uploader.single("photo"),isTitle,isPhoto, create)
+productsRouter.get("/", read)
+productsRouter.get("/:pid", readOne)
+productsRouter.post("/", uploader.single("photo"), isTitle, isPhoto, create)
 productsRouter.put("/:pid", update)
 productsRouter.delete("/:pid", destroy)
 
 async function read(req, res, next) {
     try {
         const { category } = req.query
-        const products = await gestorDeProductos.read(category);
+        const products = await gestorDeProductos.read({ category });
         if (products) {
-            return res.status(200).json({
+            return res.json({
+                statusCode: 200,
                 response: products,
-                succes: true
+
             })
         } else {
             const error = new Error("NOT FOUND")
@@ -42,9 +44,10 @@ async function readOne(req, res, next) {
 
         if (product) {
 
-            return res.status(200).json({
+            return res.json({
+                statusCode: 200,
                 response: product,
-                succes: true
+
             })
 
 
@@ -65,7 +68,7 @@ async function create(req, res, next) {
         const product = await gestorDeProductos.create(data)
         return res.json({
             statusCode: 201,
-            message: "PRODUCT CREATE: " + product.id,
+            message: "PRODUCT CREATED: " + product.id,
 
         })
 
