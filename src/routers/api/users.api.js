@@ -1,5 +1,6 @@
 import { Router } from "express"
-import gestorDeUsuarios from "../../app/fs/UserManager.js"
+//import gestorDeUsuarios from "../../app/fs/UserManager.js"
+import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js"
 import isEmailAndPassword from "../../middlewares/isEmailAndPassword.js"
 import uploader from "../../middlewares/multer.js"
 import isPhoto from "../../middlewares/isPhoto.js"
@@ -18,9 +19,10 @@ async function read(req, res, next) {
         const { role } = req.query
         const users = await gestorDeUsuarios.read(role);
         if (users) {
-            return res.status(200).json({
+            return res.json({
+                statusCode: 200,
                 response: users,
-                succes: true
+
             })
         } else {
             const error = new Error("NOT FOUND")
@@ -44,9 +46,10 @@ async function readOne(req, res, next) {
 
         if (user) {
 
-            return res.status(200).json({
+            return res.json({
+                statusCode: 200,
                 response: user,
-                succes: true
+
             })
 
 
@@ -69,7 +72,7 @@ async function create(req, res, next) {
         const user = await gestorDeUsuarios.create(data)
         return res.json({
             statusCode: 201,
-            message: "USER CREATE: " + user.id,
+            message: "USER CREATED: " + user.id,
 
         })
 
