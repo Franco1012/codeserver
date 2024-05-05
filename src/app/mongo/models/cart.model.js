@@ -3,8 +3,8 @@ import { Schema, Types, model } from "mongoose";
 const colecction = "carts"
 
 const cartSchema = new Schema({
-    user_id: { type: Types.ObjectId, ref: "users", required: true },
-    product_id: { type: Types.ObjectId, ref: "products", required: true },
+    user_id: { type: Types.ObjectId, ref: "users", required: true, index: true },
+    product_id: { type: Types.ObjectId, ref: "products", required: true, index: true },
     quantity: { type: Number, required: true },
     state: { type: String, enum: ["reserved", "paid", "delivered"], default: "reserved" }
 

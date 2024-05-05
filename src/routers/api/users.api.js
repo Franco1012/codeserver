@@ -17,7 +17,14 @@ async function read(req, res, next) {
     try {
 
         const { role } = req.query
-        const users = await gestorDeUsuarios.read(role);
+        let users;
+        if (users) {
+            users = await gestorDeUsuarios.read({ filter: { role } });
+        } else {
+            users = await gestorDeUsuarios.read({ filter: {} });
+        }
+
+
         if (users) {
             return res.json({
                 statusCode: 200,

@@ -10,8 +10,8 @@ viewsRouter.use("/users", viewUsers)
 
 viewsRouter.get("/", async (req, res, next) => {
   try {
-    const products = await gestorDeProductos.read()
-    console.log("estos son los productos: ",products)
+    const products = await gestorDeProductos.read({})
+    // console.log("estos son los productos: ",products)
 
     return res.render("index", { products })
   } catch (error) {

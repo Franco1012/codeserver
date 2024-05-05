@@ -26,8 +26,8 @@ async function read(req, res, next) {
         const { user_id } = req.query
         console.log(user_id)
         if (user_id) {
-            const carts = await gestorDeCarritos.read({user_id})
-            if (carts.length>0) {
+            const carts = await gestorDeCarritos.read({filter:{ user_id }})
+            if (carts.length > 0) {
                 return res.json({
                     statusCode: 200,
                     response: carts,
@@ -44,6 +44,8 @@ async function read(req, res, next) {
         return next(error)
 
     }
+
+
 }
 
 export default cartsRouter;
