@@ -12,7 +12,7 @@ const template = (data) => `
 
 let currentPage = 1;
 const limitPerPage = 5;
-
+let totalPages;
 // Función para cargar la página inicial de productos
 function InitialPage(currentPage) {
   fetch(`/api/products/paginate?page=${currentPage}&&limit=${limitPerPage}`)
@@ -22,18 +22,21 @@ function InitialPage(currentPage) {
       const products = res.response;
       const productsHtml = products.map(product => template(product)).join("");
       document.querySelector("#products").innerHTML = productsHtml;
+      totalPages = res.info.totalPages
     })
     .catch(err => console.log(err));
 }
 
 // Función para cargar la siguiente página de productos
 function NextPage() {
-  currentPage++;
-  InitialPage(currentPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    InitialPage(currentPage);
+  }
 }
 // Función para cargar la página anterior de productos
 function PrevPage() {
-  if (currentPage > 1) { 
+  if (currentPage > 1) {
     currentPage--;
     InitialPage(currentPage);
   }
