@@ -47,7 +47,8 @@ async function read(req, res, next) {
 async function paginate(req, res, next) {
     try {
         const filter = {}
-        const opts = {}
+        const opts = {
+        }
 
         if (req.query.limit) {
             opts.limit = req.query.limit
@@ -59,6 +60,7 @@ async function paginate(req, res, next) {
             filter.user_id = req.query.user_id
         }
         const products = await gestorDeProductos.paginate({ filter, opts })
+        console.log(products)
         return res.json({
             statusCode: 200,
             response: products.docs,

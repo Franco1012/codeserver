@@ -1,6 +1,6 @@
-import { Router } from "express"
+/*import { Router } from "express"*/
 /*import gestorDeProductos from "../../app/fs/ProductManager.js"*/
-import gestorDeProductos from "../../app/mongo/ProductManager.mongo.js"
+/*import gestorDeProductos from "../../app/mongo/ProductManager.mongo.js"
 import viewProducts from "./products.view.js"
 import viewUsers from "./users.view.js"
 
@@ -19,4 +19,4 @@ viewsRouter.get("/", async (req, res, next) => {
   }
 })
 
-export default viewsRouter
+export default viewsRouter*/

@@ -3,7 +3,7 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import morgan from "morgan";
-import { engine } from "express-handlebars"
+/*import { engine } from "express-handlebars"*/
 
 import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js"
@@ -29,9 +29,9 @@ export { socketServer }
 
 
 //estructura código handlebars
-server.engine("handlebars", engine())
+/*server.engine("handlebars", engine())
 server.set('view engine', 'handlebars')
-server.set('views', __dirname + '/src/views')
+server.set('views', __dirname + '/src/views')*/
 
 
 

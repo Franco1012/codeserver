@@ -1,6 +1,6 @@
-import { Router } from "express";
+/*import { Router } from "express";*/
 //import gestorDeUsuarios from "../../app/fs/UserManager.js";
-import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js";
+/*import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js";
 
 const viewUsers = Router()
 
@@ -26,4 +26,4 @@ viewUsers.get("/:uid", async (req, res, next) => {
 })
 
 
-export default viewUsers;
+export default viewUsers;*/
