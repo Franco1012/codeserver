@@ -4,11 +4,13 @@ const cartsRouter = Router()
 
 cartsRouter.post("/", create)
 cartsRouter.get("/", read)
+cartsRouter.delete("/:cid", destroy)
 
 
 async function create(req, res, next) {
     try {
         const data = req.body;
+        console.log(data)
         const cart = await gestorDeCarritos.create(data)
         return res.json({
             statusCode: 201,
@@ -26,8 +28,8 @@ async function read(req, res, next) {
         const { user_id } = req.query
         console.log(user_id)
         if (user_id) {
-            const carts = await gestorDeCarritos.read({user_id})
-            if (carts.length>0) {
+            const carts = await gestorDeCarritos.read({ filter: { user_id } })
+            if (carts.length > 0) {
                 return res.json({
                     statusCode: 200,
                     response: carts,
@@ -44,6 +46,23 @@ async function read(req, res, next) {
         return next(error)
 
     }
+
+
+}
+async function destroy(req, res, next) {
+    try {
+        const { cid } = req.params
+        const productCart = await gestorDeCarritos.destroy(cid)
+        return res.json({
+            statusCode: 200,
+            response: productCart
+
+        })
+    } catch (error) {
+        console.log(error)
+        return next(error)
+    }
+
 }
 
 export default cartsRouter;

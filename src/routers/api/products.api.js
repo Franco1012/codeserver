@@ -8,6 +8,7 @@ const productsRouter = Router()
 
 
 productsRouter.get("/", read)
+productsRouter.get("/paginate", paginate) //ojo que los verbos no van en los endpoints, esto es una excepción a la regla
 productsRouter.get("/:pid", readOne)
 productsRouter.post("/", uploader.single("photo"), isTitle, isPhoto, create)
 productsRouter.put("/:pid", update)
@@ -16,7 +17,15 @@ productsRouter.delete("/:pid", destroy)
 async function read(req, res, next) {
     try {
         const { category } = req.query
-        const products = await gestorDeProductos.read({ category });
+        console.log(req.query)
+        let products;
+        if (category) {
+            products = await gestorDeProductos.read({ filter: { category } });
+        } else {
+            products = await gestorDeProductos.read({ filter: {} });
+        }
+
+
         if (products) {
             return res.json({
                 statusCode: 200,
@@ -32,6 +41,40 @@ async function read(req, res, next) {
 
     } catch (error) {
         return next(error)
+    }
+}
+
+async function paginate(req, res, next) {
+    try {
+        const filter = {}
+        const opts = {
+        }
+
+        if (req.query.limit) {
+            opts.limit = req.query.limit
+        }
+        if (req.query.page) {
+            opts.page = req.query.page
+        }
+        if (req.query.user_id) {
+            filter.user_id = req.query.user_id
+        }
+        const products = await gestorDeProductos.paginate({ filter, opts })
+        console.log(products)
+        return res.json({
+            statusCode: 200,
+            response: products.docs,
+            info: {
+                page: products.page,
+                totalPages: products.totalPages,
+                limit: products.limit,
+                prevPages: products.prevPage,
+                nextPages: products.nextPage,
+
+            }
+        })
+    } catch (error) {
+        next(error)
     }
 }
 
