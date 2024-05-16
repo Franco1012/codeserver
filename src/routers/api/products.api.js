@@ -4,13 +4,14 @@ import gestorDeProductos from "../../app/mongo/ProductManager.mongo.js"
 import isTitle from "../../middlewares/isTitle.js"
 import uploader from "../../middlewares/multer.js"
 import isPhoto from "../../middlewares/isPhoto.js"
+import isValidAdmin from "../../middlewares/isValidAdmin.js"
 const productsRouter = Router()
 
 
 productsRouter.get("/", read)
 productsRouter.get("/paginate", paginate) //ojo que los verbos no van en los endpoints, esto es una excepción a la regla
 productsRouter.get("/:pid", readOne)
-productsRouter.post("/", uploader.single("photo"), isTitle, isPhoto, create)
+productsRouter.post("/", uploader.single("photo"), isValidAdmin, isTitle, isPhoto, create)
 productsRouter.put("/:pid", update)
 productsRouter.delete("/:pid", destroy)
 

@@ -13,7 +13,8 @@ const template = (data) => `<div class="container d-flex flex-wrap justify-conte
         />
         <div class="card-body">
             <h5 class="card-title">${data.title}</h5>
-            <button class="btn btn-primary" onclick="addToCartButton('${data._id}')">Add Cart</button>
+            <input type="button" value="Add Cart" class="btn btn-primary" onclick="addToCartButton('${data._id}')">
+
         </div>
     </div>
 </div>`;
@@ -32,8 +33,13 @@ fetch("/api/products/" + pid)
 
 async function addToCartButton(pid) {
     try {
+        let res = await fetch("/api/sessions/online");
+        res = await res.json();
+        const userId = res.userId;
+        console.log(userId)
+       
         const data = {
-            user_id: "662d1bffa97e80a63ede5325",
+            user_id: userId,
             product_id: pid,
             quantity: 1
         };
@@ -46,7 +52,9 @@ async function addToCartButton(pid) {
             }
         };
 
-        const response = await fetch("/api/carts", opts);
+        let response = await fetch("/api/carts", opts);
+        response = await response.json()
+        console.log("carrito agregado", response)
 
 
     } catch (error) {

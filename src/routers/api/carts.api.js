@@ -29,6 +29,7 @@ async function read(req, res, next) {
         console.log(user_id)
         if (user_id) {
             const carts = await gestorDeCarritos.read({ filter: { user_id } })
+            console.log("soy el carrito",carts)
             if (carts.length > 0) {
                 return res.json({
                     statusCode: 200,

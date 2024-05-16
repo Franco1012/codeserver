@@ -8,7 +8,7 @@ function isTitle(req, res, next) {
             throw err
 
         }
-        next()
+        return next()
     } catch (error) {
         next(error)
     }
