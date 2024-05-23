@@ -1,48 +1,50 @@
 import { Router } from "express";
 import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js";
-import isValidEmail from "../../middlewares/isValidEmail.js";
-import isValidData from "../../middlewares/isValidData.js";
+//import isValidEmail from "../../middlewares/isValidEmail.js";
+//import isValidData from "../../middlewares/isValidData.js";
 import isValidPassword from "../../middlewares/isValidPassword.js";
 import isValidUser from "../../middlewares/isValidUser.js";
+//import createHashPassword from "../../middlewares/createHashPassword.js";
+import passport from "../../middlewares/passport.js";
 const sessionsRouter = Router();
 
-sessionsRouter.post("/register", isValidData, isValidEmail, async (req, res, next) => {
-    try {
-        const data = req.body
-        await gestorDeUsuarios.create(data);
-        return res.json({
-            statusCode: 201,
-            message: "Registered!"
-        })
-    } catch (error) {
-        return next(error)
-    }
-})
+sessionsRouter.post("/register",
+    //isValidData,
+    //isValidEmail,
+    // createHashPassword,
+    passport.authenticate("register", { session: false }),
 
-sessionsRouter.post("/login", isValidUser, isValidPassword, async (req, res, next) => {
-    try {
-        const { email } = req.body;
-        console.log(email)
-        const user = await gestorDeUsuarios.readByEmail(email);
-        //console.log(user._id)
+    async (req, res, next) => {
+        try {
 
-        req.session.email = email
-        req.session.role = user.role
-        req.session.online = true
-        req.session.userId = user._id
-        req.session.photo = user.photo
+            return res.json({
+                statusCode: 201,
+                message: "Registered!"
+            })
+        } catch (error) {
+            return next(error)
+        }
+    })
 
-        return res.json({
-            statusCode: 200,
-            message: "logged in!"
-        });
+sessionsRouter.post("/login",
+    //isValidUser,
+    //isValidPassword,
+    passport.authenticate("login", { session: false }),
+    async (req, res, next) => {
+        try {
 
 
+            return res.json({
+                statusCode: 200,
+                message: "logged in!"
+            });
 
-    } catch (error) {
-        return next(error);
-    }
-});
+
+
+        } catch (error) {
+            return next(error);
+        }
+    });
 
 
 sessionsRouter.get("/online", (req, res, next) => {
@@ -71,6 +73,17 @@ sessionsRouter.post("/signout", (req, res, next) => {
             statusCode: 200,
             message: "signed out!"
         });
+    } catch (error) {
+        return next(error)
+    }
+})
+
+sessionsRouter.get("/google", passport.authenticate("google", { scope: ["email", "profile"] }))
+sessionsRouter.get("/google/callback", passport.authenticate("google", { session: false, failureRedirect: "/" }), (req, res, next) => {
+    try {
+        //res.json({ statusCode: 200, message: "Logged in with google!" });
+        return res.redirect("/?success=true")
+
     } catch (error) {
         return next(error)
     }

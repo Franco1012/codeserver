@@ -41,7 +41,7 @@ class Manager {
   async readByEmail(email) {
     try {
       //console.log("email llega bien", email)
-      const one = await this.Model.findOne({email});
+      const one = await this.Model.findOne({ email });
       //console.log(one)
       return one;
     } catch (error) {

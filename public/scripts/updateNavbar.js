@@ -16,17 +16,17 @@ async function updateNavbar() {
         document.getElementById("cart").style.display = "block";
         document.getElementById("sessionNav").style.display = "block";
         document.getElementById("loginNav").style.display = "none";
-        document.getElementById("register").style.display="none"
-        document.getElementById("profile").style.display="block"
-        
-       
+        document.getElementById("register").style.display = "none"
+        document.getElementById("profile").style.display = "block"
+
+
     } else {
         document.getElementById("cart").style.display = "none";
         document.getElementById("sessionNav").style.display = "none";
-        document.getElementById("profile").style.display="none"
-       
+        document.getElementById("profile").style.display = "none"
+
     }
-    document.getElementById("navbar").style.display="block"
+    document.getElementById("navbar").style.display = "block"
 
 }
 document.addEventListener("DOMContentLoaded", function () {

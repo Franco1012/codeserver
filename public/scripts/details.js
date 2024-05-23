@@ -37,7 +37,7 @@ async function addToCartButton(pid) {
         res = await res.json();
         const userId = res.userId;
         console.log(userId)
-       
+
         const data = {
             user_id: userId,
             product_id: pid,

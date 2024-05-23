@@ -3,7 +3,7 @@ function isTitle(req, res, next) {
         const title = req.body.title
         if (!title) {
 
-            const err = new Error("INSERT TITLE")
+            const err = new Error("Insert Title")
             err.statusCode = 404
             throw err
 

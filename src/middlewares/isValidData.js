@@ -4,7 +4,7 @@ async function isValidData(req, res, next) {
         const { email, password } = req.body
         if (!email || !password) {
 
-            const error = new Error("INSERT EMAIL AND PASSWORD")
+            const error = new Error("Please enter email and data")
             error.statusCode = 404
             throw error
 

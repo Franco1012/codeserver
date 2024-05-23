@@ -8,10 +8,10 @@ import sessionsRouter from "./session.api.js"
 const apiRouter = Router()
 
 apiRouter.use("/products", productsRouter)
-apiRouter.use("/users",usersRouter)
-apiRouter.use("/carts",cartsRouter)
-apiRouter.use("/tickets",ticketsRouter)
-apiRouter.use("/cookies",cookiesRouter)
-apiRouter.use("/sessions",sessionsRouter)
+apiRouter.use("/users", usersRouter)
+apiRouter.use("/carts", cartsRouter)
+apiRouter.use("/tickets", ticketsRouter)
+apiRouter.use("/cookies", cookiesRouter)
+apiRouter.use("/sessions", sessionsRouter)
 
 export default apiRouter

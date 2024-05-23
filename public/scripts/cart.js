@@ -20,12 +20,12 @@ async function cart() {
         let response = await fetch("/api/sessions/online");
         response = await response.json();
         const userId = response.userId;
-          console.log("soy el userID"+userId)
+        console.log("soy el userID" + userId)
         let products = await fetch("/api/carts?user_id=" + userId);
         products = await products.json();
         products = products.response; // Acceder directamente a products.response
 
-        
+
 
         if (products && products.length > 0) { // Verificar si products es válido y tiene elementos
             const productsCartHtml = products.map((product) => template(product)).join("");

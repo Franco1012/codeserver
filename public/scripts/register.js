@@ -4,7 +4,7 @@ document.querySelector("#registerUser").addEventListener("click", async () => {
         email: document.querySelector("#email").value,
         password: document.querySelector("#password").value
     }
-    console.log("soy la data",data)
+    console.log("soy la data", data)
     const opts = {
         method: "POST",
         headers: {
