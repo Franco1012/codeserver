@@ -8,11 +8,12 @@ class Manager {
       return one;
     } catch (error) {
       throw error;
+
     }
   }
   async read({ filter }) {
     try {
-      console.log("categoria llega bien", filter)
+      //console.log("categoria llega bien", filter)
       const all = await this.Model.find(filter).lean();
       return all;
     } catch (error) {
@@ -32,6 +33,17 @@ class Manager {
   async readOne(id) {
     try {
       const one = await this.Model.findById(id).lean();
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async readByEmail(email) {
+    try {
+      //console.log("email llega bien", email)
+      const one = await this.Model.findOne({ email });
+      //console.log(one)
       return one;
     } catch (error) {
       throw error;
@@ -61,6 +73,7 @@ class Manager {
       throw error;
     }
   }
+
 }
 
 

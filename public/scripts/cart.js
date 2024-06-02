@@ -15,17 +15,36 @@ const template = (data) => `<div class="container d-flex flex-wrap justify-conte
 </div>
 `;
 
+async function cart() {
+    try {
+        let response = await fetch("/api/sessions/online");
+        response = await response.json();
+        const userId = response.userId;
+        console.log("soy el userID" + userId)
+        let products = await fetch("/api/carts?user_id=" + userId);
+        products = await products.json();
+        products = products.response; // Acceder directamente a products.response
 
-fetch("/api/carts?user_id=662d1bffa97e80a63ede5325")
-    .then(res => res.json())
-    .then(res => {
-        console.log(res.response)
-        const productsCart = res.response
-        const productsCartHtml = productsCart.map((product) => template(product)).join("");
-        document.querySelector("#productsOnCart").innerHTML = productsCartHtml
-    })
-    .catch(err => console.log(err))
 
+
+        if (products && products.length > 0) { // Verificar si products es válido y tiene elementos
+            const productsCartHtml = products.map((product) => template(product)).join("");
+            document.querySelector("#productsOnCart").innerHTML = productsCartHtml;
+        } else {
+            document.querySelector("#productsOnCart").innerHTML = "<strong class='product-title' style='width: 100%; text-align: center'>No hay productos en tu carrito</strong>";
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    cart(); // Llama a la función cart() cuando se carga el DOM
+});
 async function destroy(cid) {
     try {
 

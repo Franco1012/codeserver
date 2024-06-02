@@ -12,5 +12,5 @@ const storage = multer.diskStorage({
     }
 })
 //inicializamos multer pasandole el objeto que contiene las configuraciones de almacenamiento
-const uploader = multer({storage})
+const uploader = multer({ storage })
 export default uploader

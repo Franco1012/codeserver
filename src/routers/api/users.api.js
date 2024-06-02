@@ -1,7 +1,6 @@
 import { Router } from "express"
 //import gestorDeUsuarios from "../../app/fs/UserManager.js"
 import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js"
-import isEmailAndPassword from "../../middlewares/isEmailAndPassword.js"
 import uploader from "../../middlewares/multer.js"
 import isPhoto from "../../middlewares/isPhoto.js"
 
@@ -9,7 +8,7 @@ const usersRouter = Router()
 
 usersRouter.get("/", read)
 usersRouter.get("/:uid", readOne)
-usersRouter.post("/", uploader.single("photo"), isEmailAndPassword, isPhoto, create)
+usersRouter.post("/", uploader.single("photo"), isPhoto, create)
 usersRouter.put("/:uid", update)
 usersRouter.delete("/:uid", destroy)
 
