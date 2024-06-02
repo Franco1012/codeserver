@@ -33,13 +33,8 @@ fetch("/api/products/" + pid)
 
 async function addToCartButton(pid) {
     try {
-        let res = await fetch("/api/sessions/online");
-        res = await res.json();
-        const userId = res.userId;
-        console.log(userId)
 
         const data = {
-            user_id: userId,
             product_id: pid,
             quantity: 1
         };

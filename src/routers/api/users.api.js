@@ -1,17 +1,24 @@
-import { Router } from "express"
+//import { Router } from "express"
 //import gestorDeUsuarios from "../../app/fs/UserManager.js"
+import CustomRouter from "./CustomRouter.js"
 import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js"
 import uploader from "../../middlewares/multer.js"
 import isPhoto from "../../middlewares/isPhoto.js"
 
-const usersRouter = Router()
+class UsersRouter extends CustomRouter {
+    init() {
+        this.read("/", read)
+        this.read("/:uid", readOne)
+        this.create("/", uploader.single("photo"), isPhoto, create)
+        this.update("/:uid", update)
+        this.destroy("/:uid", destroy)
+    }
+}
 
-usersRouter.get("/", read)
-usersRouter.get("/:uid", readOne)
-usersRouter.post("/", uploader.single("photo"), isPhoto, create)
-usersRouter.put("/:uid", update)
-usersRouter.delete("/:uid", destroy)
 
+
+const usersRouter = new UsersRouter()
+export default usersRouter.getRouter()
 async function read(req, res, next) {
     try {
 
@@ -119,6 +126,3 @@ async function destroy(req, res, next) {
     }
 
 }
-
-
-export default usersRouter

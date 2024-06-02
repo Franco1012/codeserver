@@ -17,11 +17,8 @@ const template = (data) => `<div class="container d-flex flex-wrap justify-conte
 
 async function cart() {
     try {
-        let response = await fetch("/api/sessions/online");
-        response = await response.json();
-        const userId = response.userId;
-        console.log("soy el userID" + userId)
-        let products = await fetch("/api/carts?user_id=" + userId);
+
+        let products = await fetch("/api/carts");
         products = await products.json();
         products = products.response; // Acceder directamente a products.response
 
@@ -60,5 +57,22 @@ async function destroy(cid) {
         location.reload()//recarga la página
     } catch (error) {
         console.error(error);
+    }
+}
+
+document.querySelector("#vaciarCarrito").addEventListener("click", vaciarCarrito)
+async function vaciarCarrito() {
+    try {
+
+        const opts = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        const response = await fetch("/api/carts/all", opts);
+        location.reload()//recarga la página
+    } catch (error) {
+        console.log(error)
     }
 }

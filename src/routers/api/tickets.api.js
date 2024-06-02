@@ -1,44 +1,48 @@
-import { Router } from "express";
+//import { Router } from "express";
+import CustomRouter from "./CustomRouter.js";
 import gestorDeCarritos from "../../app/mongo/CartManager.mongo.js";
 import { Types } from "mongoose";
-const ticketsRouter = Router()
 
-ticketsRouter.get("/:uid", async (req, res, next) => {
-    try {
-        const { uid } = req.params
-        console.log("este es el uid", uid)
-        //generar un agregation
-        const ticket = await gestorDeCarritos.aggregate([
-            //instrucciones
-            {
-                $match: {
-                    user_id: new Types.ObjectId(uid)
-                }
-            },
-            {
-                $lookup: {
-                    foreignField: "_id",
-                    from: "products",
-                    localField: "product_id",
-                    as: "product_id",
-                }
-            },
+class TicketsRouter extends CustomRouter {
+    init() {
+        this.read("/", ["USER"], async (req, res, next) => {
+            try {
+                const { _id } = req.user
+                //generar un agregation
+                const ticket = await gestorDeCarritos.aggregate([
+                    //instrucciones
+                    {
+                        $match: {
+                            user_id: new Types.ObjectId(_id)
+                        }
+                    },
+                    {
+                        $lookup: {
+                            foreignField: "_id",
+                            from: "products",
+                            localField: "product_id",
+                            as: "product_id",
+                        }
+                    },
 
-            { $replaceRoot: { newRoot: { $mergeObjects: [{ $arrayElemAt: ["$product_id", 0] }, "$$ROOT"] } } },
-            { $set: { subTotal: { $multiply: ["$quantity", "$price"] } } },
+                    { $replaceRoot: { newRoot: { $mergeObjects: [{ $arrayElemAt: ["$product_id", 0] }, "$$ROOT"] } } },
+                    { $set: { subTotal: { $multiply: ["$quantity", "$price"] } } },
 
-            { $group: { _id: "$user_id", total: { $sum: "$subTotal" } } },
-            { $project: { _id: 0, user_id: "$_id", total: "$total", date: new Date() } },
-            { $merge: { into: "bills" } }
-        ])
-        return res.json({
-            statusCode: 200,
-            response: ticket
+                    { $group: { _id: "$user_id", total: { $sum: "$subTotal" } } },
+                    { $project: { _id: 0, user_id: "$_id", total: "$total", date: new Date() } },
+                    { $merge: { into: "tickets" } }
+                ])
+                return res.json({
+                    statusCode: 200,
+                    response: ticket
+                })
+            } catch (error) {
+                return next(error)
+            }
+
         })
-    } catch (error) {
-        return next(error)
     }
+}
 
-})
-
-export default ticketsRouter
+const ticketsRouter = new TicketsRouter()
+export default ticketsRouter.getRouter()
