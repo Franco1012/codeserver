@@ -3,6 +3,7 @@ import productsRouter from "./products.api.js"
 import usersRouter from "./users.api.js"
 import cartsRouter from "./carts.api.js"
 import ticketsRouter from "./tickets.api.js"
+
 import cookiesRouter from "./cookie.api.js"
 import sessionsRouter from "./session.api.js"
 const apiRouter = Router()

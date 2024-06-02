@@ -8,6 +8,7 @@ class Manager {
       return one;
     } catch (error) {
       throw error;
+
     }
   }
   async read({ filter }) {
@@ -72,6 +73,7 @@ class Manager {
       throw error;
     }
   }
+
 }
 
 
