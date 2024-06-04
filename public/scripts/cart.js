@@ -18,7 +18,9 @@ const template = (data) => `<div class="container d-flex flex-wrap justify-conte
 async function cart() {
     try {
 
+
         let products = await fetch("/api/carts");
+
         products = await products.json();
         products = products.response; // Acceder directamente a products.response
 
@@ -60,6 +62,7 @@ async function destroy(cid) {
     }
 }
 
+
 document.querySelector("#vaciarCarrito").addEventListener("click", vaciarCarrito)
 async function vaciarCarrito() {
     try {
@@ -76,3 +79,4 @@ async function vaciarCarrito() {
         console.log(error)
     }
 }
+

@@ -2,6 +2,7 @@
 import CustomRouter from "./CustomRouter.js";
 import gestorDeCarritos from "../../app/mongo/CartManager.mongo.js";
 
+
 class CartsRouter extends CustomRouter {
     init() {
         this.create("/", ["USER"], create)
@@ -13,13 +14,16 @@ class CartsRouter extends CustomRouter {
     }
 }
 
+
 const cartsRouter = new CartsRouter()
 export default cartsRouter.getRouter()
 
 async function create(req, res, next) {
     try {
         const data = req.body;
+
         data.user_id = req.user._id
+
         const cart = await gestorDeCarritos.create(data)
         //console.log(cart)
         /*return res.json({
@@ -39,8 +43,10 @@ async function read(req, res, next) {
         const user_id = req.user._id
         if (user_id) {
             const carts = await gestorDeCarritos.read({ filter: { user_id } })
+
             if (carts.length > 0) {
                 /*return res.json({
+
                     statusCode: 200,
                     response: carts,
 
@@ -61,6 +67,7 @@ async function read(req, res, next) {
 
 
 }
+
 async function readOne(req, res, next) {
     try {
         const { cid } = req.params;
@@ -92,6 +99,7 @@ async function update(req, res, next) {
         return next(error);
     }
 }
+
 async function destroy(req, res, next) {
     try {
         const { cid } = req.params

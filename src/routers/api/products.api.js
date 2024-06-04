@@ -7,6 +7,7 @@ import uploader from "../../middlewares/multer.js"
 import isPhoto from "../../middlewares/isPhoto.js"
 import isValidAdmin from "../../middlewares/isValidAdmin.js"
 
+
 class ProductsRouter extends CustomRouter {
     init() {
         this.read("/", ["PUBLIC"], read)
@@ -22,15 +23,18 @@ class ProductsRouter extends CustomRouter {
 const productsRouter = new ProductsRouter()
 export default productsRouter.getRouter();
 
+
 async function read(req, res, next) {
     try {
         const { category } = req.query
+
         let products;
         if (category) {
             products = await gestorDeProductos.read({ filter: { category } });
         } else {
             products = await gestorDeProductos.read({ filter: {} });
         }
+
 
         if (products) {
             /*return res.json({
@@ -68,6 +72,7 @@ async function paginate(req, res, next) {
         }
         const products = await gestorDeProductos.paginate({ filter, opts })
 
+
         /*return res.json({
             statusCode: 200,
             response: products.docs,
@@ -82,6 +87,7 @@ async function paginate(req, res, next) {
             nextPages: products.nextPage,
         }
         return res.paginate(products.docs, info)
+
     } catch (error) {
         next(error)
     }

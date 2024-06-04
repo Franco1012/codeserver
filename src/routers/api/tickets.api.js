@@ -1,3 +1,4 @@
+
 //import { Router } from "express";
 import CustomRouter from "./CustomRouter.js";
 import gestorDeCarritos from "../../app/mongo/CartManager.mongo.js";
@@ -46,3 +47,4 @@ class TicketsRouter extends CustomRouter {
 
 const ticketsRouter = new TicketsRouter()
 export default ticketsRouter.getRouter()
+
