@@ -7,11 +7,11 @@ import isPhoto from "../../middlewares/isPhoto.js"
 
 class UsersRouter extends CustomRouter {
     init() {
-        this.read("/", read)
-        this.read("/:uid", readOne)
-        this.create("/", uploader.single("photo"), isPhoto, create)
-        this.update("/:uid", update)
-        this.destroy("/:uid", destroy)
+        this.read("/", ["USER"], read)
+        this.read("/:uid", ["USER"], readOne)
+        this.create("/", ["ADMIN"], uploader.single("photo"), isPhoto, create)
+        this.update("/:uid", ["ADMIN"], update)
+        this.destroy("/:uid", ["ADMIN"], destroy)
     }
 }
 
