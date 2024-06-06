@@ -1,9 +1,11 @@
 async function isOnline() {
     try {
+
         //no es necesario porque el token ahora está en una cookie y viaja automaticamente en el objeto requerimiento
         /*const opts = {
             headers: { token: localStorage.getItem("token") }
         }*/
+
         let response = await fetch("/api/sessions/online");
         const usuarioOnline = await response.json();
         return usuarioOnline.statusCode === 200;

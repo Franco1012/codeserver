@@ -17,6 +17,7 @@ class UsersRouter extends CustomRouter {
 
 
 
+
 const usersRouter = new UsersRouter()
 export default usersRouter.getRouter()
 async function read(req, res, next) {

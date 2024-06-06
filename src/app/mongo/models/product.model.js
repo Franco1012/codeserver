@@ -4,7 +4,9 @@ const colecction = "products"
 
 const productSchema = new Schema({
     //por defecto los campos no son obligatorios
+
     title: { type: String, required: true, unique: true, index: true },
+
     photo: { type: String, default: "img.jpg" },
     category: { type: String, default: "uncategorized", enum: ["uncategorized", "calzado", "ropa", "accesorio"], index: true },
     price: { type: Number, default: 1 },

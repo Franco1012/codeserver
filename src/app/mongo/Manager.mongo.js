@@ -8,6 +8,7 @@ class Manager {
       return one;
     } catch (error) {
       throw error;
+
     }
   }
   async read({ filter }) {
@@ -41,7 +42,9 @@ class Manager {
   async readByEmail(email) {
     try {
       //console.log("email llega bien", email)
+
       const one = await this.Model.findOne({ email }).lean();
+
       //console.log(one)
       return one;
     } catch (error) {
@@ -58,6 +61,7 @@ class Manager {
   }
   async destroy(id) {
     try {
+
         if (id) {
             const one = await this.Model.findByIdAndDelete(id);
             return one;
@@ -74,10 +78,12 @@ class Manager {
     try {
       const result = await this.Model.aggregate(obj);
       return result;
+
     } catch (error) {
       throw error;
     }
   }
+
 }
 
 

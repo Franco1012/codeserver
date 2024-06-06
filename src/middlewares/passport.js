@@ -1,10 +1,14 @@
 import passport from "passport";
+
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt"
+
 import { Strategy as localStrategy } from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2"
 import gestorDeUsuarios from "../app/mongo/UserManager.mongo.js";
 import { createHash, veryfyHash } from "../utils/hash.util.js";
+
 import { createToken } from "../utils/token.util.js";
+
 
 passport.use(
     "register",
@@ -17,9 +21,13 @@ passport.use(
 
                 if (!email || !password) {//no necesito desestructurar las propiedades (email,password) la callback ya las necesita y las configura
 
+
                     const error = new Error("Please enter email and password")
                     error.statusCode = 401
                     return done(null,null,error)// el done se encarga directamente, no hace falta arrojar el error para que lo tome el catch
+
+                   
+
                 }
 
                 const one = await gestorDeUsuarios.readByEmail(email);
@@ -29,8 +37,10 @@ passport.use(
                     return done(error)
 
                 }
+
                 const hashPassword = createHash(password);//se hashea l contraseña
                 req.body.password = hashPassword //le asignamos el valor de la contraseña hasheada a la propiedad password
+
                 const user = await gestorDeUsuarios.create(req.body)//la creación se tiene que dar también en la estrategía
 
                 return done(null, user)
@@ -61,6 +71,7 @@ passport.use(
                 const verify = veryfyHash(password, user.password)
 
                 if (verify) {
+
                     //req.session.email = email
                     //req.session.role = user.role
                     //req.session.online = true
@@ -76,6 +87,7 @@ passport.use(
                     const token = createToken(data)
                     user.token = token //agrega la propieda token al objeto user
                     return done(null, user)//agrega la propiedad user al objeto de requerimientos
+
 
                 }
 
@@ -123,6 +135,7 @@ passport.use("google",
         }
     )
 )
+
 passport.use("jwt",
     new JWTStrategy({
         jwtFromRequest: ExtractJwt.fromExtractors([(req) => req?.cookies["token"]]),
@@ -144,4 +157,5 @@ passport.use("jwt",
         }
 
     ))
+
 export default passport
