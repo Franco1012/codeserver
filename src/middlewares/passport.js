@@ -1,4 +1,5 @@
 import passport from "passport";
+import environment from "../utils/env.util.js";
 
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt"
 
@@ -24,9 +25,9 @@ passport.use(
 
                     const error = new Error("Please enter email and password")
                     error.statusCode = 401
-                    return done(null,null,error)// el done se encarga directamente, no hace falta arrojar el error para que lo tome el catch
+                    return done(null, null, error)// el done se encarga directamente, no hace falta arrojar el error para que lo tome el catch
 
-                   
+
 
                 }
 
@@ -85,7 +86,7 @@ passport.use(
                         online: true
                     }
                     const token = createToken(data)
-                    user.token = token //agrega la propieda token al objeto user
+                    user.token = token //agrega la propiedad token al objeto user
                     return done(null, user)//agrega la propiedad user al objeto de requerimientos
 
 
@@ -103,8 +104,8 @@ passport.use(
 passport.use("google",
     new GoogleStrategy(
         {
-            clientID: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            clientID: environment.GOOGLE_CLIENT_ID,
+            clientSecret: environment.GOOGLE_CLIENT_SECRET,
             callbackURL: "http://localhost:8080/api/sessions/google/callback",
             passReqToCallback: true
         },
@@ -122,6 +123,7 @@ passport.use("google",
                     }
                     user = await gestorDeUsuarios.create(user)
                 }
+
                 req.session.email = user.email;
                 req.session.online = true;
                 req.session.role = user.role;
@@ -139,12 +141,12 @@ passport.use("google",
 passport.use("jwt",
     new JWTStrategy({
         jwtFromRequest: ExtractJwt.fromExtractors([(req) => req?.cookies["token"]]),
-        secretOrKey: process.env.SECRET_JWT
+        secretOrKey: environment.SECRET_JWT
     },
         (data, done) => {
             try {
                 if (data) {
-                    return done(null,data)
+                    return done(null, data)
                 } else {
                     const error = new Error("Forbidden from jwt!")
                     error.statusCode = 401;

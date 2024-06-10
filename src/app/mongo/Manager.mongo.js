@@ -11,7 +11,8 @@ class Manager {
 
     }
   }
-  async read({ filter }) {
+  //desestructuro filter y me queda {role}
+  async read(filter) {
     try {
       //console.log("categoria llega bien", filter)
       const all = await this.Model.find(filter).lean();
@@ -62,17 +63,17 @@ class Manager {
   async destroy(id) {
     try {
 
-        if (id) {
-            const one = await this.Model.findByIdAndDelete(id);
-            return one;
-        } else {
-            const all = await this.Model.deleteMany({});
-            return all;
-        }
+      if (id) {
+        const one = await this.Model.findByIdAndDelete(id);
+        return one;
+      } else {
+        const all = await this.Model.deleteMany({});
+        return all;
+      }
     } catch (error) {
-        throw error;
+      throw error;
     }
-}
+  }
 
   async aggregate(obj) {
     try {
