@@ -9,7 +9,7 @@ class UsersRouter extends CustomRouter {
     init() {
         this.read("/", ["USER"], read)
         this.read("/:uid", ["USER"], readOne)
-        this.create("/", ["PUBLIC"], uploader.single("photo"), isPhoto, create)
+        this.create("/", ["USER"], uploader.single("photo"), isPhoto, create)
         this.update("/:uid", ["ADMIN"], update)
         this.destroy("/:uid", ["ADMIN"], destroy)
     }
