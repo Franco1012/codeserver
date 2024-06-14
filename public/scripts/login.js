@@ -18,6 +18,11 @@ document.querySelector("#login").addEventListener("click", async () => {
         response = await response.json()
         console.log(response)
         if (response.statusCode === 200) {
+
+            //guardamos el token en el localStorage
+            //localStorage.setItem("token",response.token);
+
+
             location.replace("/")
 
         }

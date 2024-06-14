@@ -1,10 +1,11 @@
-import "dotenv/config.js" // Importa y configura las variables de entorno desde el archivo "config.js" utilizando dotenv
+import environment from "./src/utils/env.util.js";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import morgan from "morgan";
-
 import cookieParser from "cookie-parser";
+//importo el resultado de args.opts() desde args.util.js y le asigno un nombre de variable argsUtil
+import argsUtil from "./src/utils/args.util.js";
 import session from "express-session";
 //import fileStore from "session-file-store"
 import MongoStore from "connect-mongo";
@@ -20,7 +21,7 @@ import dbConnect from "./src/utils/dbConnect.js";
 console.log(process.env.MONGO_URI);
 
 const server = express();
-const port = process.env.PORT || 9000;
+const port =environment.PORT||argsUtil.p;
 const ready = async () => {
     console.log("server ready on port " + port);
     await dbConnect()
@@ -41,7 +42,7 @@ server.set('views', __dirname + '/src/views')*/
 
 
 //middlewares
-server.use(cookieParser(process.env.SECRET_COOKIE))
+server.use(cookieParser(environment.SECRET_COOKIE))
 //const FileSession = fileStore(session)
 server.use(session({
     /*file store*/
@@ -69,3 +70,20 @@ server.use(morgan("dev"));
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
+//console.log(argsUtil)
+//console.log(environment)
+
+/*process.on("exit",(code=>{
+    console.log("justo antes de cerrarse");
+    console.log(code)
+}))
+process.on("uncaughtException",(exc)=>{
+    console.log("excep no cacheada");
+    console.log(exc)
+})
+process.on("message",(message)=>{
+    console.log("cuando reciba mensaje de otro proceso")
+    console.log(message)
+})
+console()
+process.exit()*/

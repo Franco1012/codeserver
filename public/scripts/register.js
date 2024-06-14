@@ -1,7 +1,8 @@
 document.querySelector("#registerUser").addEventListener("click", async () => {
     try {
+        const photoInput = document.querySelector("#photo").value;
         const data = {
-            photo: document.querySelector("#photo").value,
+            photo: photoInput ? photoInput : undefined,
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         }

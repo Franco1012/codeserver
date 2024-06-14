@@ -1,107 +1,22 @@
-import { Router } from "express";
-import gestorDeCarritos from "../../app/mongo/CartManager.mongo.js";
-const cartsRouter = Router()
-
-cartsRouter.post("/", create)
-cartsRouter.get("/", read)
-cartsRouter.get("/:cid", readOne);
-cartsRouter.put("/:cid", update);
-
-cartsRouter.delete("/:cid", destroy)
+//import { Router } from "express";
+import CustomRouter from "./CustomRouter.js";
+import { create, read, readOne, update, destroy } from "../../controllers/carts.controllers.js"
 
 
-async function create(req, res, next) {
-    try {
-        const data = req.body;
-        console.log(data)
-        const cart = await gestorDeCarritos.create(data)
-        return res.json({
-            statusCode: 201,
-            message: "CART CREATED: " + cart.id,
-        })
-
-    } catch (error) {
-        return next(error)
+class CartsRouter extends CustomRouter {
+    init() {
+        this.create("/", ["USER"], create)
+        this.read("/", ["USER"], read)
+        this.read("/:cid", ["USER"], readOne);
+        this.update("/:cid", ["USER"], update);
+        this.destroy("/all", ["USER"], destroy)
+        this.destroy("/:cid", ["USER"], destroy)
     }
 }
 
 
-async function read(req, res, next) {
-    try {
-        const { user_id } = req.query
-        console.log(user_id)
-        if (user_id) {
-            const carts = await gestorDeCarritos.read({ filter: { user_id } })
-
-            console.log("soy el carrito", carts)
-
-            if (carts.length > 0) {
-                return res.json({
-                    statusCode: 200,
-                    response: carts,
-
-                })
-            }
-
-        }
-        const error = new Error("NOT FOUND");
-        error.statusCode = 404;
-        throw error;
-
-    } catch (error) {
-        return next(error)
-
-    }
+const cartsRouter = new CartsRouter()
+export default cartsRouter.getRouter()
 
 
-}
 
-async function readOne(req, res, next) {
-    try {
-        const { cid } = req.params;
-        const productCart = await gestorDeCarritos.readOne(cid);
-        if (one) {
-            return res.json({
-                statusCode: 200,
-                response: productCart,
-            });
-        } else {
-            const error = new Error("Not found!");
-            error.statusCode = 404;
-            throw error;
-        }
-    } catch (error) {
-        return next(error);
-    }
-}
-async function update(req, res, next) {
-    try {
-        const { cid } = req.params;
-        const data = req.body;
-        const productCart = await cartsManager.update(cid, data);
-        return res.json({
-            statusCode: 200,
-            response: productCart,
-        });
-    } catch (error) {
-        return next(error);
-    }
-}
-
-async function destroy(req, res, next) {
-    try {
-        const { cid } = req.params
-        const productCart = await gestorDeCarritos.destroy(cid)
-        return res.json({
-            statusCode: 200,
-            response: productCart
-
-        })
-    } catch (error) {
-        console.log(error)
-        return next(error)
-    }
-
-}
-
-export default cartsRouter;
