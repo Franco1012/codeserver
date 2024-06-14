@@ -4,6 +4,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+import cors from "cors"
 //importo el resultado de args.opts() desde args.util.js y le asigno un nombre de variable argsUtil
 import argsUtil from "./src/utils/args.util.js";
 import session from "express-session";
@@ -21,7 +22,7 @@ import dbConnect from "./src/utils/dbConnect.js";
 console.log(process.env.MONGO_URI);
 
 const server = express();
-const port =environment.PORT||argsUtil.p;
+const port = environment.PORT || argsUtil.p;
 const ready = async () => {
     console.log("server ready on port " + port);
     await dbConnect()
@@ -43,6 +44,7 @@ server.set('views', __dirname + '/src/views')*/
 
 //middlewares
 server.use(cookieParser(environment.SECRET_COOKIE))
+server.use(cors({ origin: true, credential: true }))
 //const FileSession = fileStore(session)
 server.use(session({
     /*file store*/
@@ -71,7 +73,7 @@ server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
 //console.log(argsUtil)
-//console.log(environment)
+console.log(environment)
 
 /*process.on("exit",(code=>{
     console.log("justo antes de cerrarse");
