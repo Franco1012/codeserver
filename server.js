@@ -22,7 +22,9 @@ import dbConnect from "./src/utils/dbConnect.js";
 console.log(process.env.MONGO_URI);
 
 const server = express();
+
 const port = environment.PORT || argsUtil.p;
+
 const ready = async () => {
     console.log("server ready on port " + port);
     await dbConnect()
@@ -73,6 +75,7 @@ server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
 //console.log(argsUtil)
+
 console.log(environment)
 
 /*process.on("exit",(code=>{
