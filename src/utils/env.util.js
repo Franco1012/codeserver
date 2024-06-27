@@ -4,7 +4,7 @@ import argsUtil from "./args.util.js"
 const { env } = argsUtil //me traigo en que ambiente estoy
 // si env es dev debo usar env.dev
 //si env es prod debo usar env.prod
-const path = env === "prod" ? "./.env.prod" : "./.env.dev"
+const path = env === "prod" ? "./.env.prod" : env === "test" ? "./.env.test" : "./.env.dev";
 //carga las variables de entorno desde el archivo especificado por path,estas variables se almacenan en process.env
 config({ path })
 //creo un objeto con acceso a esas variables 
