@@ -2,9 +2,6 @@ import { createService, readService, readOneService, updateService, destroyServi
 async function create(req, res, next) {
     try {
         const data = req.body;
-
-        data.user_id = req.user._id
-
         const cart = await createService(data)
         //console.log(cart)
         /*return res.json({
@@ -51,7 +48,7 @@ async function readOne(req, res, next) {
     try {
         const { cid } = req.params;
         const productCart = await readOneService(cid);
-        if (one) {
+        if (productCart) {
             return res.json({
                 statusCode: 200,
                 response: productCart,

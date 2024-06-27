@@ -1,31 +1,38 @@
 [
   {
-    "id": "db8ef251d700cb15fbc3ac72",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOeR49UdcAgaMFbxYeoSzS9um7JwM-6zjAIFD0naLmBA&s",
-    "email": "kocian_ana@hotmail.com",
-    "password": "ana1234",
-    "role": 1
+    "_id": "8f395a1ccd10862a7facbb16",
+    "email": "soler_franco@hotmail.com",
+    "password": "$2b$10$J9w4kvcHRE3dXuouYkh3qebvNWuNUPhJzvYCyWGAFKKCnkRXCNM6S",
+    "role": 1,
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
+    "createAt": "2024-06-26T22:06:49.822Z",
+    "updatedAt": "2024-06-26T22:06:49.822Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac73",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOeR49UdcAgaMFbxYeoSzS9um7JwM-6zjAIFD0naLmBA&s",
-    "email": "soler_Matilda@hotmail.com",
-    "password": "matilda1234",
-    "role": 1
-  },
-  
-  {
-    "id": "efacb555f76e44038319f215",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOeR49UdcAgaMFbxYeoSzS9um7JwM-6zjAIFD0naLmBA&s",
-    "email": "arturo@gmail",
-    "password": "arturo1234",
-    "role": 0
+    "_id": "ddf2ce8db450a1908476b0ec",
+    "email": "ana_@hotmail.com",
+    "password": "$2b$10$CP.l3KeC4T4h9npDbDXGEOA0lo1MJFR0SM.MAkjwaDmEXxCJEle26",
+    "role": 0,
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
+    "createAt": "2024-06-26T22:07:19.409Z",
+    "updatedAt": "2024-06-26T22:07:19.409Z"
   },
   {
-    "id": "431fcacae9a7b95db2fa87ed",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png",
-    "email": "franco@hotmail",
-    "password": "123456",
-    "role": 0
+    "_id": "f24fa22db45031d500d6d2c6",
+    "email": "matilda_@hotmail.com",
+    "password": "$2b$10$GYbYfp0banzdTg0rQzKMOuTiCfNtrNRXkFUPKYtoPzf7xsgBf5tUa",
+    "role": 0,
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
+    "createAt": "2024-06-26T22:09:29.957Z",
+    "updatedAt": "2024-06-26T22:09:29.957Z"
+  },
+  {
+    "_id": "58f3e1a659fd3dfb0af62b5d",
+    "email": "arturito_@hotmail.com",
+    "password": "$2b$10$SxSmP2wLxN3uuNTQbnE5CusDXngGXQWBhVpEr4FeNy46kPwbDNYbW",
+    "role": 0,
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
+    "createAt": "2024-06-26T22:10:16.138Z",
+    "updatedAt": "2024-06-26T22:10:16.138Z"
   }
 ]

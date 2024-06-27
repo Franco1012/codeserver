@@ -1,4 +1,4 @@
-import passport from "passport"
+import passport from "./passport.js"
 //es una función que depende de la estrategia a implementar y que devuelve:
 //el error si ocurre
 //los datos del usuario si existen

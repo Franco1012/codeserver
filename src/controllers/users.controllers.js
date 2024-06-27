@@ -1,21 +1,23 @@
 import { createService, readService, readOneService, updateService, destroyService } from "../services/users.service.js";
+//controlador llama a servicio
 
 class UsersControllers {
     async read(req, res, next) {
         try {
 
             const { role } = req.query
+            let filter = {}
             let users
-            let filter
-            if (filter) {
+
+
+            if (role !== undefined && role !== null && role !== '') {
                 filter = { role }
                 users = await readService(filter);
             } else {
-                filter = {}
                 users = await readService(filter);
             }
 
-            if (users) {
+            if (users.length > 0) {
                 return res.json({
                     statusCode: 200,
                     response: users,
@@ -69,7 +71,7 @@ class UsersControllers {
             const user = await createService(data)
             return res.json({
                 statusCode: 201,
-                message: "USER CREATED: " + user.id,
+                message: "USER CREATED: " + user._id,
 
             })
 

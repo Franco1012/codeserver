@@ -1,6 +1,6 @@
 
 //import { Router } from "express";
-import CustomRouter from "./CustomRouter.js"
+import CustomRouter from "../CustomRouter.js"
 import passport from "../../middlewares/passport.js";
 import passportCb from "../../middlewares/passportCb.js";
 import { register, login, signout, profile, google } from "../../controllers/sessions.controllers.js"

@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node server.js -p 9090",
     "dev": "nodemon server.js",
-    "argv": "nodemon server.js -p 8080 --env=prod --persistence=memory"
+    "argv": "nodemon server.js -p 8080 --env=prod --persistence=memory",
+    "memory": "nodemon server.js  --env=prod --persistence=memory",
+    "fs": "nodemon server.js  --env=prod --persistence=fs"
   },
   "keywords": [],
   "author": "",

@@ -6,7 +6,7 @@ const indexRouter=Router()
 indexRouter.use("/api",apiRouter)
 indexRouter.use("/", viewsRouter);*/
 import { fork } from "child_process"
-import CustomRouter from "./api/CustomRouter.js"
+import CustomRouter from "./CustomRouter.js"
 import apiRouter from "./api/index.api.js"
 
 //extendemos la clase
