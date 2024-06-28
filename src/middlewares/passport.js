@@ -9,6 +9,8 @@ import { createHash, veryfyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
 import usersRepository from "../repositories/users.rep.js";
 import UsersDTO from "../dto/users.dto.js";
+import sendEmail from "../utils/mailing.util.js";
+//import crypto from "crypto";
 
 const { usersManager } = dao
 passport.use(
@@ -39,6 +41,15 @@ passport.use(
                 const data = new UsersDTO(req.body)
 
                 const user = await usersRepository.createRepository(data)//la creación se tiene que dar también en la estrategía
+                //una vez que el usuario se crea
+                //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
+
+
+                await sendEmail({
+                    email,
+                    to: email,
+                    code: user.verifyCode
+                })
 
                 return done(null, user)
 

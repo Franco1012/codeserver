@@ -13,6 +13,8 @@ class UsersDTO {
         this.password = createHash(data.password);
         this.role = data.role || 0;
         this.photo = data.photo || "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png";
+        this.verify=false;
+        this.verifyCode=crypto.randomBytes(12).toString("ascii");
         (persistence !== "mongo") && (this.createAt = new Date());
         (persistence !== "mongo") && (this.updatedAt = new Date());
 
