@@ -1,3 +1,4 @@
+import { updateService, readByEmailService } from "../services/users.service.js";
 
 class SessionsController {
     async register(req, res, next) {
@@ -24,6 +25,27 @@ class SessionsController {
             return next(error);
         }
     }
+    async verifyCode(req, res, next) {
+        try {
+            const { email, code } = req.body
+            //console.log(email)
+            console.log(code)
+            const one = await readByEmailService(email)
+            console.log("one controllers",one)
+            const verify = code === one.verifyCode//la comparacion devuelve un booleano 
+            console.log(verify)
+            if (verify) {
+                const userUpdate=await updateService(one._id,{ verify })
+                //console.log("userUpdate",userUpdate)
+                return res.message200("Verified User!")
+            } else {
+                return res.error400("Invalid credentials")
+            }
+        } catch (error) {
+            return next(error)
+        }
+    }
+
     async profile(req, res, next) {
 
         try {
@@ -70,5 +92,5 @@ class SessionsController {
 }
 
 const sessionsController = new SessionsController()
-const { register, login, signout, profile, google } = sessionsController;
-export { register, login, signout, profile, google }
+const { register, login, signout, profile, google,verifyCode } = sessionsController;
+export { register, login, signout, profile, google,verifyCode }

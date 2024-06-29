@@ -9,7 +9,7 @@ const userSchema = new Schema({
     password: { type: String, required: true, unique: true },
     role: { type: Number, default: 0, index: true },
     verify: { type: Boolean, default: false },
-    verifyCode: { type: String, required: true }
+    verifyCode: {  type: String, required: true }
 
 }, {
     timestamps: true

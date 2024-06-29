@@ -5,7 +5,7 @@ const { GOOGLE_EMAIL, GOOGLE_PASSWORD } = environment
 
 async function sendEmail(data) {
     try {
-        console.log("soy el email", data)
+       
         //crear transporte
         const transport = createTransport({
             host: "smtp.gmail.com",

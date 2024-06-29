@@ -30,6 +30,10 @@ class Service {
             throw error
         }
     }
+    readByEmailService = async (email) => {
+        const one = await this.repository.readByEmailRepository(email)
+        return one;
+    }
     paginateService = async ({ filter, opts }) => {
         try {
             const products = await this.repository.paginateRepository({ filter, opts })

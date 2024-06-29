@@ -11,5 +11,5 @@ import Service from "./service.js"
 import usersRepository from "../repositories/users.rep.js"
 //servicio llama a repositorio
 const usersService = new Service(usersRepository)
-const { createService, readService, readOneService, updateService, destroyService } = usersService
-export { createService, readService, readOneService, updateService, destroyService }
+const { createService, readService, readOneService, updateService, destroyService,readByEmailService } = usersService
+export { createService, readService, readOneService, updateService, destroyService,readByEmailService }

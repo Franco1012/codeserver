@@ -3,7 +3,7 @@
 import CustomRouter from "../CustomRouter.js"
 import passport from "../../middlewares/passport.js";
 import passportCb from "../../middlewares/passportCb.js";
-import { register, login, signout, profile, google } from "../../controllers/sessions.controllers.js"
+import { register, login, signout, profile, google, verifyCode } from "../../controllers/sessions.controllers.js"
 
 class SessionRouter extends CustomRouter {
     init() {
@@ -15,6 +15,7 @@ class SessionRouter extends CustomRouter {
             //passport.authenticate("register", { session: false }),
             passportCb("register"),
             register)
+        this.create("/verify", ["PUBLIC"], verifyCode)
         this.create("/login",
             ["PUBLIC"],
             //isValidUser,
