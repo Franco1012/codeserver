@@ -76,9 +76,12 @@ passport.use(
                     return done(error)
 
                 }
-                const verify = veryfyHash(password, user.password)
+                //verificamos la contraseña
+                const verifyPass = veryfyHash(password, user.password)
+                //verificamos el usuario
+                const verifyAccount = user.verify
 
-                if (verify) {
+                if (verifyPass && verifyAccount) {
 
                     //req.session.email = email
                     //req.session.role = user.role
