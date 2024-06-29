@@ -27,12 +27,14 @@
     "updatedAt": "2024-06-26T22:09:29.957Z"
   },
   {
-    "_id": "58f3e1a659fd3dfb0af62b5d",
-    "email": "arturito_@hotmail.com",
-    "password": "$2b$10$SxSmP2wLxN3uuNTQbnE5CusDXngGXQWBhVpEr4FeNy46kPwbDNYbW",
+    "_id": "95b2c30ac3f8f30fb906f4af",
+    "email": "solerfrancogerman@gmail.com",
+    "password": "$2b$10$TLRh1x.uX700h5r4w0PS0ejJum6RGd5l.1IFepCzPEKugh5xBBY.y",
     "role": 0,
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
-    "createAt": "2024-06-26T22:10:16.138Z",
-    "updatedAt": "2024-06-26T22:10:16.138Z"
+    "verify": true,
+    "verifyCode": "99afad19b071410e2049151f",
+    "createAt": "2024-06-29T21:41:33.167Z",
+    "updatedAt": "2024-06-29T21:41:33.167Z"
   }
 ]

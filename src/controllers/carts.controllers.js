@@ -2,6 +2,7 @@ import { createService, readService, readOneService, updateService, destroyServi
 async function create(req, res, next) {
     try {
         const data = req.body;
+        data.user_id = req.user._id
         const cart = await createService(data)
         //console.log(cart)
         /*return res.json({
@@ -20,6 +21,7 @@ async function read(req, res, next) {
     try {
         const user_id = req.user._id
         const filter = { user_id }
+        console.log(filter)
         const carts = await readService(filter)
 
         if (carts.length > 0) {

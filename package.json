@@ -9,7 +9,7 @@
     "dev": "nodemon server.js",
     "argv": "nodemon server.js -p 8080 --env=prod",
     "memory": "nodemon server.js  --env=prod --persistence=memory",
-    "fs": "nodemon server.js  --env=test --persistence=fs"
+    "fs": "node server.js  --env=test --persistence=fs"
   },
   "keywords": [],
   "author": "",

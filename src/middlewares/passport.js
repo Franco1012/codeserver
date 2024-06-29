@@ -44,8 +44,8 @@ passport.use(
                 //una vez que el usuario se crea
                 //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
 
-
                 await sendEmail({
+                    
                     email,
                     to: email,
                     code: user.verifyCode

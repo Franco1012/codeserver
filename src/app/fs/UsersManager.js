@@ -79,7 +79,7 @@ class UserManager {
     //programar paginate en fs
     async readOne(id) {
         try {
-            let filter={}
+            let filter = {}
             let users = await this.read(filter)
 
             //se utiliza el método find para encontrar el usuario cuyo id coincide con el id que se pasa por parámetro en el método readOne
@@ -105,10 +105,11 @@ class UserManager {
         }
     }
     async update(id, data) {
+        let filter = {}
         try {
 
-            let users = await this.read()
-            let user = users.find(u => u.id === id)
+            let users = await this.read(filter)
+            let user = users.find(u => u._id === id)
             console.log("user", user)
 
             if (user) {

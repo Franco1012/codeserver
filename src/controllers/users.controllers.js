@@ -66,7 +66,6 @@ class UsersControllers {
 
     async create(req, res, next) {
         try {
-            console.log(req.body)
             const data = req.body
             const user = await createService(data)
             return res.json({

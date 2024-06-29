@@ -2,8 +2,10 @@ import { createTransport } from "nodemailer";
 import _dirname from "../../utils.js"//si se necesita enviar archivo
 import environment from "./env.util.js";
 const { GOOGLE_EMAIL, GOOGLE_PASSWORD } = environment
-
+console.log(GOOGLE_EMAIL)
+console.log(GOOGLE_PASSWORD)
 async function sendEmail(data) {
+    console.log("dataSend",data)
     try {
        
         //crear transporte
