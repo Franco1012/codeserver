@@ -53,15 +53,15 @@ class CustomRouter {
                     token = verifyToken(token)//verificamos el token/me devuelve el destokenizado
                     //el rol lo necesitopara autorizaciones 
                     //el email para buscar el usuario y agregar la propiedad user al objeto de req
-                    const { role, email } = token;
+                    const { role, email, online } = token;
                     if ((policies.includes("USER") && role === 0) || (policies.includes("ADMIN") && role === 1)) {
                         const user = await usersRepository.readByEmailRepository(email);
                         //proteger contraseña del usuario!!!
+                        user.online=online //le agregamos la propiedad online al objeto user
                         req.user = user;
                         delete user.password
-                        console.log(req.user)
                         return next();
-                    } else return res.error403();
+                    } else return res.error403(); 
                 } catch (error) {
                     return res.error400(error.message);
                 }

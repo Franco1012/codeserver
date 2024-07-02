@@ -13,8 +13,10 @@ document.querySelector("#verified").addEventListener("click", async () => {
     response = await response.json();
     //console.log(response);
     if (response.statusCode === 200) {
-        return alert(response.message)
+        alert(response.message)
+        location.replace("/")
     } else {
         return alert(response.message)
     }
+
 });

@@ -47,14 +47,14 @@ class SessionsController {
     }
 
     async profile(req, res, next) {
-
+       //console.log("profile",req.user)
         try {
             //if (req.session.online)
             if (req.user.online) {
                 return res.json({
                     statusCode: 200,
                     message: "Is online",
-                    userId: req.user._id,
+                    //userId: req.user._id,
                 });
             }
 

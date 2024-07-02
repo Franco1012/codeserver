@@ -9,12 +9,15 @@
     "dev": "nodemon server.js",
     "argv": "nodemon server.js -p 8080 --env=prod",
     "memory": "nodemon server.js  --env=prod --persistence=memory",
-    "fs": "node server.js  --env=test --persistence=fs"
+    "fs": "node server.js  --env=test --persistence=fs",
+    "products":"node ./src/mocks/products.mock.js",
+    "users":"node ./src/mocks/users.mock.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "nodemon": "^3.1.0"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 import passport from "passport";
 import environment from "../utils/env.util.js";
-import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt"
+//import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt"
 import { Strategy as localStrategy } from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2"
 //import gestorDeUsuarios from "../app/mongo/UserManager.mongo.js";
@@ -45,7 +45,7 @@ passport.use(
                 //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
 
                 await sendEmail({
-                    
+
                     email,
                     to: email,
                     code: user.verifyCode
@@ -76,6 +76,7 @@ passport.use(
                     return done(error)
 
                 }
+               console.log("uuuser",user)
                 //verificamos la contraseña
                 const verifyPass = veryfyHash(password, user.password)
                 //verificamos el usuario
@@ -148,7 +149,7 @@ passport.use("google",
     )
 )
 
-passport.use("jwt",
+/*passport.use("jwt",
     new JWTStrategy({
         jwtFromRequest: ExtractJwt.fromExtractors([(req) => req?.cookies["token"]]),
         secretOrKey: environment.SECRET_JWT
@@ -168,6 +169,6 @@ passport.use("jwt",
             }
         }
 
-    ))
+    ))*/
 
 export default passport

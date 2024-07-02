@@ -39,10 +39,9 @@ class UsersControllers {
 
     async readOne(req, res, next) {
         try {
-            const { uid } = req.params
-
+           const uid=req.user._id
             const user = await readOneService(uid)
-
+            
             if (user) {
 
                 return res.json({

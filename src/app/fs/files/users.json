@@ -1,40 +1,13 @@
 [
   {
-    "_id": "8f395a1ccd10862a7facbb16",
-    "email": "soler_franco@hotmail.com",
-    "password": "$2b$10$J9w4kvcHRE3dXuouYkh3qebvNWuNUPhJzvYCyWGAFKKCnkRXCNM6S",
-    "role": 1,
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
-    "createAt": "2024-06-26T22:06:49.822Z",
-    "updatedAt": "2024-06-26T22:06:49.822Z"
-  },
-  {
-    "_id": "ddf2ce8db450a1908476b0ec",
-    "email": "ana_@hotmail.com",
-    "password": "$2b$10$CP.l3KeC4T4h9npDbDXGEOA0lo1MJFR0SM.MAkjwaDmEXxCJEle26",
-    "role": 0,
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
-    "createAt": "2024-06-26T22:07:19.409Z",
-    "updatedAt": "2024-06-26T22:07:19.409Z"
-  },
-  {
-    "_id": "f24fa22db45031d500d6d2c6",
-    "email": "matilda_@hotmail.com",
-    "password": "$2b$10$GYbYfp0banzdTg0rQzKMOuTiCfNtrNRXkFUPKYtoPzf7xsgBf5tUa",
-    "role": 0,
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
-    "createAt": "2024-06-26T22:09:29.957Z",
-    "updatedAt": "2024-06-26T22:09:29.957Z"
-  },
-  {
-    "_id": "95b2c30ac3f8f30fb906f4af",
+    "_id": "e40ef49f6e06e15d0d3833a0",
     "email": "solerfrancogerman@gmail.com",
-    "password": "$2b$10$TLRh1x.uX700h5r4w0PS0ejJum6RGd5l.1IFepCzPEKugh5xBBY.y",
+    "password": "$2b$10$VGyPgczS9nHJ/tN9Ub4T/emc7L0OXizq.zpBsn3tBrELjDbBOBnuq",
     "role": 0,
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
     "verify": true,
-    "verifyCode": "99afad19b071410e2049151f",
-    "createAt": "2024-06-29T21:41:33.167Z",
-    "updatedAt": "2024-06-29T21:41:33.167Z"
+    "verifyCode": "1df4123def1e97bdf23ba829",
+    "createAt": "2024-07-02T23:19:56.759Z",
+    "updatedAt": "2024-07-02T23:19:56.759Z"
   }
 ]

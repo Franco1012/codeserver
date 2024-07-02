@@ -28,7 +28,7 @@ class SessionRouter extends CustomRouter {
         this.read("/online",
             ["USER", "ADMIN"],
             //passport.authenticate("jwt", { session: false }),
-            passportCb("jwt"),//probar de sacar autenticación de jwt con passport y dejar solo jwt en policies
+            //passportCb("jwt"),//probar de sacar autenticación de jwt con passport y dejar solo jwt en policies
             profile)
 
         this.create("/signout", ["USER", "ADMIN"], signout)
