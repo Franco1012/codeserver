@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 //importo el resultado de args.opts() desde args.util.js y le asigno un nombre de variable argsUtil
 import argsUtil from "./src/utils/args.util.js";
+import compression from "express-compression";
 import session from "express-session";
 //import fileStore from "session-file-store"
 import MongoStore from "connect-mongo";
@@ -78,6 +79,12 @@ server.use(pathHandler);
 //console.log(argsUtil)
 
 console.log(environment)
+
+//middleware compresión para mejorar el rendimiento del sitio web
+server.use(compression({
+    brotli: { enabled: true, zlib: {} }
+}
+))
 
 /*process.on("exit",(code=>{
     console.log("justo antes de cerrarse");

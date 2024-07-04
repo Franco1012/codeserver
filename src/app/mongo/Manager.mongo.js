@@ -15,7 +15,7 @@ class Manager {
   async read(filter) {
     try {
       //console.log("categoria llega bien", filter)
-      const all = await this.Model.find(filter).lean();
+      const all = await this.Model.find(filter).sort("title").lean();
       return all;
     } catch (error) {
       throw error;

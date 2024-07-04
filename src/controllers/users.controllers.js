@@ -18,15 +18,17 @@ class UsersControllers {
             }
 
             if (users.length > 0) {
-                return res.json({
+                /*return res.json({
                     statusCode: 200,
                     response: users,
 
-                })
+                })*/
+                return res.response200(users)
             } else {
-                const error = new Error("NOT FOUND")
+                /*const error = new Error("NOT FOUND")
                 error.statusCode = 404
-                throw error
+                throw error*/
+                return res.error404()
             }
 
 
@@ -39,22 +41,24 @@ class UsersControllers {
 
     async readOne(req, res, next) {
         try {
-           const uid=req.user._id
+            const uid = req.user._id
             const user = await readOneService(uid)
-            
+
             if (user) {
 
-                return res.json({
+                /*return res.json({
                     statusCode: 200,
                     response: user,
 
-                })
+                })*/
+                return res.response200(user)
 
 
             } else {
-                const error = new Error("NOT FOUND")
+                /*const error = new Error("NOT FOUND")
                 error.statusCode = 404
-                throw error
+                throw error*/
+                return res.error404()
             }
         } catch (error) {
 
@@ -67,11 +71,12 @@ class UsersControllers {
         try {
             const data = req.body
             const user = await createService(data)
-            return res.json({
+            /*return res.json({
                 statusCode: 201,
                 message: "USER CREATED: " + user._id,
 
-            })
+            })*/
+            return res.response201("USER CREATED: " + user._id)
 
         } catch (error) {
             console.log(error)
@@ -85,11 +90,12 @@ class UsersControllers {
             const data = req.body
             const user = await updateService(uid, data)
 
-            return res.json({
+            /*return res.json({
                 statusCode: 200,
                 message: "UPDATE ID: " + user.id,
 
-            })
+            })*/
+            return res.message200("UPDATE ID:")
         } catch (error) {
             console.log(error)
             return next(error)
@@ -99,11 +105,12 @@ class UsersControllers {
         try {
             const { uid } = req.params
             const user = await destroyService(uid)
-            return res.json({
+            /*return res.json({
                 statusCode: 200,
                 message: "DELETE ID: " + user.id,
 
-            })
+            })*/
+            return res.message200("DELETE ID:")
         } catch (error) {
             console.log(error)
             return next(error)
