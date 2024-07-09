@@ -14,7 +14,7 @@ async function read(req, res, next) {
         }
 
         if (products) {
-            console.log("soy el producto", products)
+          
             /*return res.json({
                 statusCode: 200,
                 response: products,
