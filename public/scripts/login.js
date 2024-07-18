@@ -6,6 +6,7 @@ document.querySelector("#login").addEventListener("click", async () => {
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         }
+        
         const opts = {
             method: "POST",
             headers: {

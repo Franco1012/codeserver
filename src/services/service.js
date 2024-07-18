@@ -1,11 +1,11 @@
 
 class Service {
-    constructor(manager) {
-        this.manager = (manager)
+    constructor(repository) {
+        this.repository = (repository)
     }
     createService = async (data) => {
         try {
-            const user = await this.manager.create(data)
+            const user = await this.repository.createRepository(data)
             return user
         } catch (error) {
             throw error
@@ -15,7 +15,7 @@ class Service {
     readService = async (filter) => {
         try {
             let users;
-            users = await this.manager.read(filter);
+            users = await this.repository.readRepository(filter);
             return users
 
         } catch (error) {
@@ -24,15 +24,19 @@ class Service {
     }
     readOneService = async (id) => {
         try {
-            const user = await this.manager.readOne(id)
+            const user = await this.repository.readOneRepository(id)
             return user
         } catch (error) {
             throw error
         }
     }
+    readByEmailService = async (email) => {
+        const one = await this.repository.readByEmailRepository(email)
+        return one;
+    }
     paginateService = async ({ filter, opts }) => {
         try {
-            const products = await this.manager.paginate({ filter, opts })
+            const products = await this.repository.paginateRepository({ filter, opts })
             return products
         } catch (error) {
             throw error
@@ -42,7 +46,7 @@ class Service {
     updateService = async (id, data) => {
         try {
 
-            const user = await this.manager.update(id, data)
+            const user = await this.repository.updateRepository(id, data)
             return user
         } catch (error) {
             throw error
@@ -50,7 +54,7 @@ class Service {
     }
     destroyService = async (id) => {
         try {
-            const user = await this.manager.destroy(id)
+            const user = await this.repository.destroyRepository(id)
             return user
         } catch (error) {
             throw (error)

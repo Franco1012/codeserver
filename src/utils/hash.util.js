@@ -9,6 +9,8 @@ const createHash = (password) => {
 }
 
 const veryfyHash = (reqBodyPass, mongoPass) => {
+    console.log("req.body.pass",reqBodyPass)
+    console.log("mongoPass",mongoPass)
     const verify = compareSync(reqBodyPass, mongoPass);
     return verify;
 }

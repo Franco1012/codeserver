@@ -1,16 +1,16 @@
 //import { Router } from "express";
-import CustomRouter from "./CustomRouter.js";
+import CustomRouter from "../CustomRouter.js";
 import { create, read, readOne, update, destroy } from "../../controllers/carts.controllers.js"
 
 
 class CartsRouter extends CustomRouter {
     init() {
-        this.create("/", ["USER"], create)
-        this.read("/", ["USER"], read)
-        this.read("/:cid", ["USER"], readOne);
-        this.update("/:cid", ["USER"], update);
-        this.destroy("/all", ["USER"], destroy)
-        this.destroy("/:cid", ["USER"], destroy)
+        this.create("/", ["USER", "ADMIN"], create)
+        this.read("/", ["USER", "ADMIN"], read)
+        this.read("/:cid", ["USER", "ADMIN"], readOne);
+        this.update("/:cid", ["USER", "ADMIN"], update);
+        this.destroy("/all", ["USER", "ADMIN"], destroy)
+        this.destroy("/:cid", ["USER", "ADMIN"], destroy)
     }
 }
 

@@ -1,7 +1,9 @@
 
 //import { Router } from "express";
-import CustomRouter from "./CustomRouter.js";
-import gestorDeCarritos from "../../app/mongo/CartManager.mongo.js";
+import CustomRouter from "../CustomRouter.js";
+//import gestorDeCarritos from "../../app/mongo/CartManager.mongo.js";
+import dao from "../../app/dao.factory.js"
+const { cartsManager } = dao
 import { Types } from "mongoose";
 
 class TicketsRouter extends CustomRouter {
@@ -10,7 +12,7 @@ class TicketsRouter extends CustomRouter {
             try {
                 const { _id } = req.user
                 //generar un agregation
-                const ticket = await gestorDeCarritos.aggregate([
+                const ticket = await cartsManager.aggregate([
                     //instrucciones
                     {
                         $match: {

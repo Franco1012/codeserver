@@ -2,21 +2,14 @@ class ProductManager {
     static #products = [];
     //método para crear el producto
     create(data) {
-        //se desestructura el objeto
-        const { title, photo, category, price, stock } = data
+
         try {
-            if (title) {
-                const product = {
-                    id: ProductManager.#products.lenght === 0 ? 1 : ProductManager.#products.length + 1,
-                    title: title,
-                    photo: photo || "default.jpg",
-                    category: category || "uncategorized",
-                    price: price || 1,
-                    stock: stock || 1
-                }
+            if (data.title) {
+
                 //se agrega el producto al array
-                ProductManager.#products.push(product);
+                ProductManager.#products.push(data);
                 console.log(`producto creado`)
+                return data
             } else {
                 const error = new Error("NOT CREATE")
                 error.statusCode = 404
@@ -24,27 +17,69 @@ class ProductManager {
             }
 
         } catch (error) {
-            console.log(error.message)
+            throw error
         }
 
     }
     //metodo para leer el array de productos
-    read() {
+    // Método para leer los productos
+    read(filter) {
+        const { category } = filter;
         try {
-            if (ProductManager.#products.length !== 0) {
-                return ProductManager.#products
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
+            let products = [...ProductManager.#products];
 
+            // Filtrar por categoría si se proporciona
+            if (category !== undefined && category !== null && category !== "") {
+                products = products.filter(product => product.category === category);
             }
-        }
-        catch (error) {
-            console.log(error.message)
 
-        }
+            return products;
 
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+    // Método para paginar los productos
+    paginate({ filter, opts }) {
+        try {
+            // Filtrar los productos según el filtro proporcionado
+            let filtered = [...ProductManager.#products];
+            if (filter) {
+                if (filter.title) {
+                    filtered = filtered.filter((product) => product.title.includes(filter.title));
+                }
+                if (filter.category) {
+                    filtered = filtered.filter((product) => product.category === filter.category);
+                }
+            }
+
+            // Valores predeterminados para las opciones de paginación
+            const page = opts.page || 1;
+            const limit = opts.limit || 10;
+
+            // Calcular índices de inicio y fin para la página actual
+            const start = (page - 1) * limit;
+            const end = start + limit;
+
+            // Obtener los elementos paginados
+            const paginatedItems = filtered.slice(start, end);
+
+            // Retornar el resultado paginado
+            return {
+                docs: paginatedItems,
+                totalDocs: filtered.length,
+                limit: limit,
+                page: page,
+                totalPages: Math.ceil(filtered.length / limit),
+                hasPrevPage: page > 1,
+                hasNextPage: end < filtered.length,
+                prevPage: page > 1 ? page - 1 : null,
+                nextPage: end < filtered.length ? page + 1 : null,
+            };
+        } catch (error) {
+            console.log(error.message);
+        }
     }
     //método para encontrar un producto 
     readOne(id) {
@@ -61,38 +96,11 @@ class ProductManager {
             }
         }
         catch (error) {
-            console.log(error.message)
+            throw error
 
         }
 
     }
-    //método para eliminar un producto 
-    destroy(id) {
-
-        try {
-            //verificamos si el producto existe
-            const one = this.readOne(id)
-
-            if (one) {
-
-                const within = ProductManager.#products.filter(producto => producto.id !== id)
-                //cambiamos la referencia de ProductManager.#products para que apunte al mismo array que within
-                ProductManager.#products = within
-                console.log("se eliminó el producto")
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
-
-            }
-        }
-        catch (error) {
-            console.log(error.message)
-
-        }
-
-    }
-
     update(id, data) {
         try {
 
@@ -116,10 +124,39 @@ class ProductManager {
             }
 
         } catch (error) {
-            console.log(error.message)
+            throw error
 
         }
     }
+    //método para eliminar un producto 
+    destroy(id) {
+
+        try {
+            //verificamos si el producto existe
+            const one = this.readOne(id)
+
+            if (one) {
+
+                const within = ProductManager.#products.filter(producto => producto.id !== id)
+                //cambiamos la referencia de ProductManager.#products para que apunte al mismo array que within
+                ProductManager.#products = within
+                console.log("se eliminó el producto")
+                return one
+            } else {
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+
+            }
+        }
+        catch (error) {
+            throw error
+
+        }
+
+    }
+
+
 }
 
 

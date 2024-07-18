@@ -7,7 +7,9 @@ const userSchema = new Schema({
     photo: { type: String, default: "img.jpg" },
     email: { type: String, required: true, unique: true, index: true },
     password: { type: String, required: true, unique: true },
-    role: { type: Number, default: 0, index: true }
+    role: { type: Number, default: 0, index: true },
+    verify: { type: Boolean, default: false },
+    verifyCode: {  type: String, required: true }
 
 }, {
     timestamps: true

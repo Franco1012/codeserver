@@ -2,7 +2,7 @@
 //console.log(location)
 const queries = new URL(location.href)
 const pid = queries.searchParams.get("id")
-//console.log(pid)
+
 
 const template = (data) => `<div class="container d-flex flex-wrap justify-content-center">
     <div class="card" style="width: 18rem;">
@@ -33,10 +33,8 @@ fetch("/api/products/" + pid)
 
 async function addToCartButton(pid) {
     try {
-
-
+    
         const data = {
-
             product_id: pid,
             quantity: 1
         };
@@ -52,7 +50,7 @@ async function addToCartButton(pid) {
 
         let response = await fetch("/api/carts", opts);
         response = await response.json()
-        console.log("carrito agregado", response)
+
 
 
 

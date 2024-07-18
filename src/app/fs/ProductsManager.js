@@ -29,32 +29,23 @@ class ProductManager {
 
     async create(data) {
 
-        //se desestructura el objeto
-        const { title, photo, category, price, stock } = data
-
         try {
+            if (data.title) {
 
-            const product = {
-                id: crypto.randomBytes(12).toString("hex"),
-                title: title,
-                photo: photo || "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-                category: category || "uncategorized",
-                price: price || 1,
-                stock: stock || 1
+                //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable products
+                let products = await fs.promises.readFile(this.path, "utf8")
+                //se convierte el contenido del archivo ,que es una cadena json , en un objeto
+                products = JSON.parse(products)
+                //se agrega el producto creado al array de objetos
+                products.push(data)
+                //se convierte el array de objetos en una cadena json
+                products = JSON.stringify(products, null, 2)
+                //se sobrescribe el contenido del archivo
+                await fs.promises.writeFile(this.path, products)
+                console.log(`producto creado`)
+                return data
+
             }
-            //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable products
-            let products = await fs.promises.readFile(this.path, "utf8")
-            //se convierte el contenido del archivo ,que es una cadena json , en un objeto
-            products = JSON.parse(products)
-            //se agrega el producto creado al array de objetos
-            products.push(product)
-            //se convierte el array de objetos en una cadena json
-            products = JSON.stringify(products, null, 2)
-            //se sobrescribe el contenido del archivo
-            await fs.promises.writeFile(this.path, products)
-            console.log(`producto creado`)
-            return product
-
         }
 
         //se captura la excepción y se maneja el error
@@ -63,11 +54,13 @@ class ProductManager {
         }
 
     }
-    async read(category = "") {
+    async read(filter) {
+        const { category } = filter
         try {
             let products = await fs.promises.readFile(this.path, "utf-8")
             products = JSON.parse(products)
-            if (category !== '') {
+
+            if (category !== undefined && category !== null && category !== '') {
                 products = products.filter(product => product.category === category);
             }
 
@@ -79,20 +72,76 @@ class ProductManager {
             throw error
         }
     }
-    async readOne(pid) {
+    // Método para paginar los productos
+    async paginate({ filter = {}, opts = {} }) {
+        try {
+            let products = await this.read(filter);
+
+            // Valores predeterminados para las opciones de paginación
+            const page = parseInt(opts.page, 10) || 1;
+            const limit = parseInt(opts.limit, 10) || 10;
+
+            // Calcular índices de inicio y fin para la página actual
+            const start = (page - 1) * limit;
+            const end = start + limit;
+
+            // Obtener los elementos paginados
+            const paginatedItems = products.slice(start, end);
+
+            // Retornar el resultado paginado
+            return {
+                docs: paginatedItems,
+                totalDocs: products.length,
+                limit: limit,
+                page: page,
+                totalPages: Math.ceil(products.length / limit),
+                hasPrevPage: page > 1,
+                hasNextPage: end < products.length,
+                prevPage: page > 1 ? page - 1 : null,
+                nextPage: end < products.length ? page + 1 : null,
+            };
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
+    async readOne(id) {
+        try {
+            let all = await fs.promises.readFile(this.path, "utf-8");
+            all = JSON.parse(all);
+            let one = all.find((each) => each._id === id);
+            return one;
+        } catch (error) {
+            throw error;
+        }
+    }
+    async update(pid, data) {
         try {
 
             let products = await this.read()
+            let product = products.find(p => p._id === pid)
+            console.log("product", product)
 
-            //se utiliza el método find para encontrar el producto cuyo id coincide con el id que se pasa por parámetro en el método readOne
-            let one = products.find((product) => product.id === pid)
+            if (product) {
+                for (let prop in data) {
+                    product[prop] = data[prop]
+                }
 
-            return one
+                products = JSON.stringify(products, null, 2)
+                await fs.promises.writeFile(this.path, products)
+                console.log("producto actualizado")
+                return product
 
-        }
-        catch (error) {
-            console.log(error)
+            } else {
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+            }
+
+        } catch (error) {
             throw error
+
         }
     }
     async destroy(pid) {
@@ -120,34 +169,7 @@ class ProductManager {
 
         }
     }
-    async update(pid, data) {
-        try {
 
-            let products = await this.read()
-            let product = products.find(p => p.id === pid)
-            console.log("product", product)
-
-            if (product) {
-                for (let prop in data) {
-                    product[prop] = data[prop]
-                }
-
-                products = JSON.stringify(products, null, 2)
-                await fs.promises.writeFile(this.path, products)
-                console.log("producto actualizado")
-                return product
-
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
-            }
-
-        } catch (error) {
-            throw error
-
-        }
-    }
 }
 
 /*async function test() {

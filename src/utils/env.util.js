@@ -4,7 +4,7 @@ import argsUtil from "./args.util.js"
 const { env } = argsUtil //me traigo en que ambiente estoy
 // si env es dev debo usar env.dev
 //si env es prod debo usar env.prod
-const path = env === "prod" ? "./.env.prod" : "./.env.dev"
+const path = env === "prod" ? "./.env.prod" : env === "test" ? "./.env.test" : "./.env.dev";
 //carga las variables de entorno desde el archivo especificado por path,estas variables se almacenan en process.env
 config({ path })
 //creo un objeto con acceso a esas variables 
@@ -15,7 +15,9 @@ const environment = {
     SECRET_SESSION: process.env.SECRET_SESSION,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-    SECRET_JWT: process.env.SECRET_JWT
+    SECRET_JWT: process.env.SECRET_JWT,
+    GOOGLE_EMAIL: process.env.GOOGLE_EMAIL,
+    GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD
 }
 
 export default environment;

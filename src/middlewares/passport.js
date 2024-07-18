@@ -1,16 +1,18 @@
 import passport from "passport";
 import environment from "../utils/env.util.js";
-
-import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt"
-
+//import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt"
 import { Strategy as localStrategy } from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2"
-import gestorDeUsuarios from "../app/mongo/UserManager.mongo.js";
+//import gestorDeUsuarios from "../app/mongo/UserManager.mongo.js";
+import dao from "../app/dao.factory.js"
 import { createHash, veryfyHash } from "../utils/hash.util.js";
-
 import { createToken } from "../utils/token.util.js";
+import usersRepository from "../repositories/users.rep.js";
+import UsersDTO from "../dto/users.dto.js";
+import sendEmail from "../utils/mailing.util.js";
+//import crypto from "crypto";
 
-
+const { usersManager } = dao
 passport.use(
     "register",
     new localStrategy(
@@ -22,27 +24,32 @@ passport.use(
 
                 if (!email || !password) {//no necesito desestructurar las propiedades (email,password) la callback ya las necesita y las configura
 
-
-                    const error = new Error("Please enter email and password")
-                    error.statusCode = 401
+                    const error = new Error("Invalid data")
+                    error.statusCode = 400;
                     return done(null, null, error)// el done se encarga directamente, no hace falta arrojar el error para que lo tome el catch
 
-
-
                 }
-
-                const one = await gestorDeUsuarios.readByEmail(email);
+                const one = await usersRepository.readByEmailRepository(email);
                 if (one) {
                     const error = new Error("Bad auth from register!")
-                    error.statusCode = 401;
+                    error.statusCode = 401
+
                     return done(error)
 
                 }
 
-                const hashPassword = createHash(password);//se hashea l contraseña
-                req.body.password = hashPassword //le asignamos el valor de la contraseña hasheada a la propiedad password
+                const data = new UsersDTO(req.body)
 
-                const user = await gestorDeUsuarios.create(req.body)//la creación se tiene que dar también en la estrategía
+                const user = await usersRepository.createRepository(data)//la creación se tiene que dar también en la estrategía
+                //una vez que el usuario se crea
+                //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
+
+                await sendEmail({
+
+                    email,
+                    to: email,
+                    code: user.verifyCode
+                })
 
                 return done(null, user)
 
@@ -62,16 +69,20 @@ passport.use(
         { passReqToCallback: true, usernameField: "email" },//passResqToCallback , para acceder al objeto requerimiento de la solicitud
         async (req, email, password, done) => {
             try {
-                const user = await gestorDeUsuarios.readByEmail(email);
+                const user = await usersRepository.readByEmailRepository(email);
                 if (!user) {
                     const error = new Error("Bad auth from login!")
                     error.statusCode = 401;
                     return done(error)
 
                 }
-                const verify = veryfyHash(password, user.password)
+               console.log("uuuser",user)
+                //verificamos la contraseña
+                const verifyPass = veryfyHash(password, user.password)
+                //verificamos el usuario
+                const verifyAccount = user.verify
 
-                if (verify) {
+                if (verifyPass && verifyAccount) {
 
                     //req.session.email = email
                     //req.session.role = user.role
@@ -114,14 +125,14 @@ passport.use("google",
                 //profile es el ojeto que devuelve google con tosdos los datos del usuario
                 //nosotros vamos a registrar un id en lugar de un email
                 const { id, picture } = profile
-                let user = await gestorDeUsuarios.readByEmail(id)
+                let user = await usersManager.readByEmail(id)
                 if (!user) {
                     user = {
                         email: id,
                         password: createHash(id),
                         photo: picture
                     }
-                    user = await gestorDeUsuarios.create(user)
+                    user = await usersManager.create(user)
                 }
 
                 req.session.email = user.email;
@@ -138,7 +149,7 @@ passport.use("google",
     )
 )
 
-passport.use("jwt",
+/*passport.use("jwt",
     new JWTStrategy({
         jwtFromRequest: ExtractJwt.fromExtractors([(req) => req?.cookies["token"]]),
         secretOrKey: environment.SECRET_JWT
@@ -158,6 +169,6 @@ passport.use("jwt",
             }
         }
 
-    ))
+    ))*/
 
 export default passport

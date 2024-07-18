@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cart(); // Llama a la función cart() cuando se carga el DOM
 });
 async function destroy(cid) {
+    console.log(cid)
     try {
 
 

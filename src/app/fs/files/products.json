@@ -1,323 +1,86 @@
 [
   {
-    "id": "db8ef251d700cb15fbc3ac51",
-    "title": "zapatilla",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 75000,
-    "stock": 500
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac52",
-    "title": "remera",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 15000,
-    "stock": 200
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac53",
-    "title": "pantalón",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 30000,
-    "stock": 500
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac54",
-    "title": "bufanda",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 12000,
-    "stock": 150
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac55",
-    "title": "camisa",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 45000,
-    "stock": 300
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac56",
-    "title": "botas",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 95000,
-    "stock": 300
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac57",
-    "title": "pollera",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 25000,
-    "stock": 200
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac58",
-    "title": "short",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 45000,
-    "stock": 100
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac59",
-    "title": "gorra",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 15000,
-    "stock": 900
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac60",
-    "title": "cinto",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 25000,
-    "stock": 150
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac61",
-    "title": "sandalia",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 60000,
-    "stock": 250
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac62",
-    "title": "pantalón corto",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 18000,
-    "stock": 120
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac63",
+    "_id": "b35a291afe5be1c5b129d2ff",
     "title": "mochila",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "accesorio",
-    "price": 40000,
-    "stock": 90
+    "price": "40000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:23:48.584Z",
+    "updatedAt": "2024-06-26T19:23:48.584Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac64",
-    "title": "falda",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 28000,
-    "stock": 110
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac65",
-    "title": "gafas de sol",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "accesorio",
-    "price": 30000,
-    "stock": 80
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac66",
+    "_id": "10058a7250e497cae44d3080",
     "title": "abrigo",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "ropa",
-    "price": 70000,
-    "stock": 70
+    "price": "70000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:27:59.272Z",
+    "updatedAt": "2024-06-26T19:27:59.272Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac67",
-    "title": "botines",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 90000,
-    "stock": 180
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac68",
-    "title": "suéter",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 35000,
-    "stock": 100
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac69",
-    "title": "zapatos",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 85000,
-    "stock": 50
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac70",
-    "title": "chanclas",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 45000,
-    "stock": 100
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac71",
-    "title": "chaqueta",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 120000,
-    "stock": 30
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac72",
-    "title": "bufanda de invierno",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 25000,
-    "stock": 150
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac73",
-    "title": "mochila de montaña",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "accesorio",
-    "price": 60000,
-    "stock": 80
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac74",
-    "title": "gafas de buceo",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "accesorio",
-    "price": 20000,
-    "stock": 120
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac75",
-    "title": "botas de senderismo",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 85000,
-    "stock": 50
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac76",
-    "title": "sandalias de playa",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 45000,
-    "stock": 100
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac77",
-    "title": "chaqueta de cuero",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 120000,
-    "stock": 30
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac78",
-    "title": "bufanda de lana",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 25000,
-    "stock": 150
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac79",
-    "title": "mochila de senderismo",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "accesorio",
-    "price": 60000,
-    "stock": 80
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac80",
+    "_id": "be2d7a7f6cee2641ea6feadd",
     "title": "gafas de natación",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "accesorio",
-    "price": 20000,
-    "stock": 120
+    "price": "20000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:28:46.048Z",
+    "updatedAt": "2024-06-26T19:28:46.048Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac81",
-    "title": "zapatos de vestir",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 80000,
-    "stock": 120
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac82",
-    "title": "zapatos deportivos",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "calzado",
-    "price": 70000,
-    "stock": 180
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac83",
+    "_id": "59daf41660a6d91dfe8687e0",
     "title": "calcetines",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "ropa",
-    "price": 5000,
-    "stock": 300
+    "price": "13000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:29:33.054Z",
+    "updatedAt": "2024-06-26T19:29:33.054Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac84",
-    "title": "sombrero de paja",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "_id": "e18f224a595e1407c821ccc1",
+    "title": "gorro de lana ",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "ropa",
-    "price": 20000,
-    "stock": 100
+    "price": "23000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:29:58.249Z",
+    "updatedAt": "2024-06-26T19:29:58.249Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac85",
-    "title": "bandana",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 10000,
-    "stock": 200
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac86",
-    "title": "bufanda de seda",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 30000,
-    "stock": 80
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac87",
-    "title": "bikini",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "ropa",
-    "price": 40000,
-    "stock": 50
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac88",
-    "title": "gafas de esquí",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "_id": "b105e4528ee0ac8653880e83",
+    "title": "mochila de viaje ",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "accesorio",
-    "price": 35000,
-    "stock": 70
+    "price": "23000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:30:20.816Z",
+    "updatedAt": "2024-06-26T19:30:20.816Z"
   },
   {
-    "id": "db8ef251d700cb15fbc3ac89",
-    "title": "gorro de lana",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
+    "_id": "8de026bad38136a73dcae0b5",
+    "title": "bufanda ",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
     "category": "ropa",
-    "price": 15000,
-    "stock": 100
-  },
-  {
-    "id": "db8ef251d700cb15fbc3ac90",
-    "title": "mochila de viaje",
-    "photo": "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg",
-    "category": "accesorio",
-    "price": 60000,
-    "stock": 120
+    "price": "53000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:30:46.646Z",
+    "updatedAt": "2024-06-26T19:30:46.646Z"
   }
-  
 ]

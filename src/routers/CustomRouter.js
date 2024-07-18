@@ -1,14 +1,14 @@
 import { Router } from "express"
-import { verifyToken } from "../../utils/token.util.js"
-import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js"
-
+import { verifyToken } from "../utils/token.util.js"
+//import gestorDeUsuarios from "../../app/mongo/UserManager.mongo.js"
+import usersRepository from "../repositories/users.rep.js"
 class CustomRouter {
     //para construir y configurar cada instancia del enrutador
     constructor() {
         this.router = Router()
         this.init()
     }
-    //para obtener todas las rutas del enrutador definido
+    //para obtener todas las rutas del enrutador definido 
     getRouter() {
         return this.router
     }
@@ -35,6 +35,8 @@ class CustomRouter {
         res.error400 = (message) => res.json({ statusCode: 400, message });
         res.error401 = () =>
             res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
+        res.error401 = (message) =>
+            res.json({ statusCode: 401, message });
         res.error403 = () =>
             res.json({ statusCode: 403, message: "Forbidden from poliecies!" });
         res.error404 = () =>
@@ -44,20 +46,22 @@ class CustomRouter {
     policies = (policies) => async (req, res, next) => {
         if (policies.includes("PUBLIC")) return next();
         else {
-            let token = req.cookies["token"];
-            if (!token) return res.error401();
+            let token = req.cookies["token"];//me traigo el token
+            if (!token) return res.error401();//error de autenticación
             else {
                 try {
-                    token = verifyToken(token)
-                    const { role, email } = token;
+                    token = verifyToken(token)//verificamos el token/me devuelve el destokenizado
+                    //el rol lo necesitopara autorizaciones 
+                    //el email para buscar el usuario y agregar la propiedad user al objeto de req
+                    const { role, email, online } = token;
                     if ((policies.includes("USER") && role === 0) || (policies.includes("ADMIN") && role === 1)) {
-                        const user = await gestorDeUsuarios.readByEmail(email);
+                        const user = await usersRepository.readByEmailRepository(email);
                         //proteger contraseña del usuario!!!
+                        user.online=online //le agregamos la propiedad online al objeto user
                         req.user = user;
                         delete user.password
-                        console.log(req.user)
                         return next();
-                    } else return res.error403();
+                    } else return res.error403(); 
                 } catch (error) {
                     return res.error400(error.message);
                 }
@@ -66,7 +70,7 @@ class CustomRouter {
     };
 
 
-    //create("/products",isValidAdmin,isTitle,create)
+    //create("/products",isValidAdmin,isTitle,create) 
     create(path, arrayPolicies, ...callbacks) {
         this.router.post(path, this.response, this.policies(arrayPolicies), this.applyCbs(callbacks))
     }

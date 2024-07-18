@@ -3,17 +3,18 @@ async function read(req, res, next) {
     try {
 
         const { category } = req.query
+        let filter = {}
         let products
-        let filter
-        if (filter) {
+
+        if (category !== undefined && category !== null && category !== '') {
             filter = { category }
             products = await readService(filter);
         } else {
-            filter = {}
             products = await readService(filter);
         }
 
         if (products) {
+            console.log("soy el producto", products)
             /*return res.json({
                 statusCode: 200,
                 response: products,
@@ -21,9 +22,7 @@ async function read(req, res, next) {
             })*/
             return res.response200(products)
         } else {
-            const error = new Error("NOT FOUND")
-            error.statusCode = 404
-            throw error
+            return res.error404()
         }
 
 
@@ -35,8 +34,8 @@ async function read(req, res, next) {
 async function paginate(req, res, next) {
     try {
         const filter = {}
-        const opts = {
-        }
+        const opts = {}
+
 
         if (req.query.limit) {
             opts.limit = req.query.limit
@@ -47,6 +46,7 @@ async function paginate(req, res, next) {
         if (req.query.user_id) {
             filter.user_id = req.query.user_id
         }
+
         const products = await paginateService({ filter, opts })
 
 
@@ -107,10 +107,9 @@ async function create(req, res, next) {
             message: "PRODUCT CREATED: " + product.id,
 
         })*/
-        return res.message201("PRODUCT CREATED: " + product.id)
+        return res.message201("PRODUCT CREATED: " + product._id)
 
     } catch (error) {
-        console.log(error)
         return next(error)
     }
 }

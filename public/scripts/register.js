@@ -6,7 +6,6 @@ document.querySelector("#registerUser").addEventListener("click", async () => {
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         }
-        console.log("soy la data", data)
         const opts = {
             method: "POST",
             headers: {
@@ -19,7 +18,7 @@ document.querySelector("#registerUser").addEventListener("click", async () => {
         response = await response.json()
         console.log(response)
         if (response.statusCode === 201) {
-            location.replace("/pages/login.html")
+            location.replace("/pages/verified.html")
 
         }
         return alert(response.message)

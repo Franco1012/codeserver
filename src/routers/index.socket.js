@@ -1,4 +1,4 @@
-import gestorDeProductos from "../app/fs/ProductManager.js"
+/*import gestorDeProductos from "../app/fs/ProductManager.js"
 import { socketServer } from "../../server.js"
 
 export default async (socket) => {
@@ -9,4 +9,4 @@ export default async (socket) => {
         await gestorDeProductos.create(data)
         socketServer.emit("products", await gestorDeProductos.read())
     })
-}
+}*/

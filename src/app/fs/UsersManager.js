@@ -28,30 +28,25 @@ class UserManager {
     }
 
     async create(data) {
-        //se desestructura el objeto
-        const { photo, email, password } = data
+
 
         try {
 
-            const user = {
-                id: crypto.randomBytes(12).toString("hex"),
-                photo: photo || 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png',
-                email: email,
-                password: password,
-                role: 0
+            if (data.email || data.password) {
+                //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable users
+                let users = await fs.promises.readFile(this.path, "utf8")
+                //se convierte el contenido del archivo ,que es una cadena json , en un objeto
+                users = JSON.parse(users)
+                //se agrega el usuario creado al array de objetos
+                users.push(data)
+                //se convierte el array de objetos en una cadena json
+                users = JSON.stringify(users, null, 2)
+                //se sobrescribe el contenido del archivo
+                await fs.promises.writeFile(this.path, users)
+                console.log(`usuario creado`)
+                return data
+
             }
-            //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable users
-            let users = await fs.promises.readFile(this.path, "utf8")
-            //se convierte el contenido del archivo ,que es una cadena json , en un objeto
-            users = JSON.parse(users)
-            //se agrega el usuario creado al array de objetos
-            users.push(user)
-            //se convierte el array de objetos en una cadena json
-            users = JSON.stringify(users, null, 2)
-            //se sobrescribe el contenido del archivo
-            await fs.promises.writeFile(this.path, users)
-            console.log(`usuario creado`)
-            return user
 
         }
         //se captura la excepción y se maneja el error
@@ -60,29 +55,35 @@ class UserManager {
         }
 
     }
-    async read(role = "") {
-
+    async read(filter) {
+        const { role } = filter
         try {
             let users = await fs.promises.readFile(this.path, "utf-8")
             users = JSON.parse(users)
-            if (role !== "") {
+
+            // Comprobar si role es un valor válido antes de filtrar
+            if (role !== undefined && role !== null && role !== '') {
+
                 users = users.filter(user => user.role === parseInt(role));
+
             }
 
             return users
 
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error)
             throw error
         }
     }
-    async readOne(uid) {
+
+    //programar paginate en fs
+    async readOne(id) {
         try {
-            let users = await this.read()
+            let filter = {}
+            let users = await this.read(filter)
 
             //se utiliza el método find para encontrar el usuario cuyo id coincide con el id que se pasa por parámetro en el método readOne
-            let one = users.find((user) => user.id === uid)
+            let one = users.find((user) => user._id === id)
 
             return one
 
@@ -92,37 +93,23 @@ class UserManager {
             throw error
         }
     }
-    async destroy(uid) {
+    async readByEmail(email) {
         try {
-            let users = await this.read()
-
-            let one = users.find((user) => user.id === uid)
-            //verificamos que exista el usuario a eliminar
-            if (one) {
-                //filtramos los usuarios cuyo id No coincidan con el id que se pasa como parámetro del método destroy
-                let filtered = users.filter((user) => user.id !== uid)
-                filtered = JSON.stringify(filtered, null, 2)
-                await fs.promises.writeFile(this.path, filtered)
-                console.log(`usuario eliminado`)
-                return one
-            } else {
-                const error = new Error("NOT FOUND")
-                error.statusCode = 404
-                throw error
-
-            }
-
-        }
-        catch (error) {
-            throw error
+            let users = await fs.promises.readFile(this.path, "utf-8");
+            users = JSON.parse(users);
+            let one = users.find((user) => user.email === email);
+            return one;
+        } catch (error) {
+            console.log(error);
+            throw error;
         }
     }
-
-    async update(uid, data) {
+    async update(id, data) {
+        let filter = {}
         try {
 
-            let users = await this.read()
-            let user = users.find(u => u.id === uid)
+            let users = await this.read(filter)
+            let user = users.find(u => u._id === id)
             console.log("user", user)
 
             if (user) {
@@ -146,6 +133,34 @@ class UserManager {
 
         }
     }
+
+    async destroy(id) {
+        try {
+            let users = await this.read()
+
+            let one = users.find((user) => user.id === id)
+            //verificamos que exista el usuario a eliminar
+            if (one) {
+                //filtramos los usuarios cuyo id No coincidan con el id que se pasa como parámetro del método destroy
+                let filtered = users.filter((user) => user.id !== id)
+                filtered = JSON.stringify(filtered, null, 2)
+                await fs.promises.writeFile(this.path, filtered)
+                console.log(`usuario eliminado`)
+                return one
+            } else {
+                const error = new Error("NOT FOUND")
+                error.statusCode = 404
+                throw error
+
+            }
+
+        }
+        catch (error) {
+            throw error
+        }
+    }
+    //agregar aggregate
+
 }
 
 
