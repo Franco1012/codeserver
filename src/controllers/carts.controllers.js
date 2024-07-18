@@ -56,9 +56,7 @@ async function readOne(req, res, next) {
                 response: productCart,
             });
         } else {
-            const error = new Error("Not found!");
-            error.statusCode = 404;
-            throw error;
+            return res.error404()
         }
     } catch (error) {
         return next(error);
@@ -69,10 +67,11 @@ async function update(req, res, next) {
         const { cid } = req.params;
         const data = req.body;
         const productCart = await updateService(cid, data);
-        return res.json({
+        /*return res.json({
             statusCode: 200,
             response: productCart,
-        });
+        });*/
+        return res.response200(productCart)
     } catch (error) {
         return next(error);
     }
@@ -82,11 +81,7 @@ async function destroy(req, res, next) {
     try {
         const { cid } = req.params
         const productCart = await destroyService(cid)
-        return res.json({
-            statusCode: 200,
-            response: productCart
-
-        })
+        return res.response200(productCart)
     } catch (error) {
         console.log(error)
         return next(error)

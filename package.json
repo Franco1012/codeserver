@@ -10,8 +10,10 @@
     "argv": "nodemon server.js -p 8080 --env=prod",
     "memory": "nodemon server.js  --env=prod --persistence=memory",
     "fs": "node server.js  --env=test --persistence=fs",
-    "products":"node ./src/mocks/products.mock.js",
-    "users":"node ./src/mocks/users.mock.js"
+
+    "products": "node ./src/mocks/products.mock.js",
+    "users": "node ./src/mocks/users.mock.js"
+
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
+    "express-compression": "^1.0.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",

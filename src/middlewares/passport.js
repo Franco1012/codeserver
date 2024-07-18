@@ -12,6 +12,10 @@ import UsersDTO from "../dto/users.dto.js";
 import sendEmail from "../utils/mailing.util.js";
 //import crypto from "crypto";
 
+import CustomError from "../utils/errors/CustomError.js";
+import errors from "../utils/errors/errors.js";
+
+
 const { usersManager } = dao
 passport.use(
     "register",
@@ -24,15 +28,17 @@ passport.use(
 
                 if (!email || !password) {//no necesito desestructurar las propiedades (email,password) la callback ya las necesita y las configura
 
-                    const error = new Error("Invalid data")
-                    error.statusCode = 400;
+
+                    const error = CustomError.new(errors.invalid)
+
                     return done(null, null, error)// el done se encarga directamente, no hace falta arrojar el error para que lo tome el catch
 
                 }
                 const one = await usersRepository.readByEmailRepository(email);
                 if (one) {
-                    const error = new Error("Bad auth from register!")
-                    error.statusCode = 401
+
+                    const error = CustomError.new(errors.auth)
+
 
                     return done(error)
 
@@ -44,7 +50,9 @@ passport.use(
                 //una vez que el usuario se crea
                 //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
 
+
                 await sendEmail({
+
 
                     email,
                     to: email,
@@ -71,12 +79,12 @@ passport.use(
             try {
                 const user = await usersRepository.readByEmailRepository(email);
                 if (!user) {
-                    const error = new Error("Bad auth from login!")
-                    error.statusCode = 401;
+                    const error = CustomError.new(errors.auth)
                     return done(error)
 
                 }
-               console.log("uuuser",user)
+
+
                 //verificamos la contraseña
                 const verifyPass = veryfyHash(password, user.password)
                 //verificamos el usuario
@@ -102,9 +110,8 @@ passport.use(
 
 
                 }
-
-                const error = new Error("Invalid credentials")
-                error.statusCode = 401;
+                //utilizamos el CustomError como ejemplo
+                const error = CustomError.new(errors.invalid)
                 return done(error)
 
             } catch (error) {
