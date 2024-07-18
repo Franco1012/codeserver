@@ -3,6 +3,7 @@
     "counters": {
       "vusers.created_by_name.0": 20,
       "vusers.created": 20,
+
       "http.requests": 127,
       "http.codes.200": 113,
       "http.responses": 113,
@@ -62,10 +63,12 @@
         "p95": 174617.4,
         "p99": 174617.4,
         "p999": 174617.4
+
       }
     },
     "histograms": {
       "http.response_time": {
+
         "min": 1401,
         "max": 9159,
         "count": 113,
@@ -103,6 +106,7 @@
         "p95": 174617.4,
         "p99": 174617.4,
         "p999": 174617.4
+
       }
     }
   },
@@ -111,6 +115,7 @@
       "counters": {
         "vusers.created_by_name.0": 20,
         "vusers.created": 20,
+
         "http.requests": 29,
         "http.codes.200": 12,
         "http.responses": 12,
@@ -233,10 +238,12 @@
           "p95": 6702.6,
           "p99": 6702.6,
           "p999": 6702.6
+
         }
       },
       "histograms": {
         "http.response_time": {
+
           "min": 6758,
           "max": 9159,
           "count": 3,
@@ -945,6 +952,7 @@
           "p95": 1720.2,
           "p99": 1720.2,
           "p999": 1720.2
+
         }
       }
     },
@@ -1464,10 +1472,12 @@
           "p95": 174617.4,
           "p99": 174617.4,
           "p999": 174617.4
+
         }
       },
       "histograms": {
         "http.response_time": {
+
           "min": 1411,
           "max": 1468,
           "count": 4,
@@ -1505,6 +1515,7 @@
           "p95": 174617.4,
           "p99": 174617.4,
           "p999": 174617.4
+
         }
       }
     }

@@ -23,7 +23,9 @@ import errorHandler from "./src/middlewares/errorHandler.js";
 import pathHandler from "./src/middlewares/pathHandler.js";
 import __dirname from './utils.js';
 //import dbConnect from "./src/utils/dbConnect.js";
+
 //console.log(process.env.MONGO_URI);
+
 
 const server = express();
 const port = environment.PORT || argsUtil.p;
@@ -36,6 +38,7 @@ const ready = async () => {
 const nodeServer = createServer(server);
 //creo un servidor tcp, construyendo una instancia del servidor de socket pasando como "base" el servidor de node (ya que tcp, está basado en HTPP)
 const socketServer = new Server(nodeServer)
+
 const numOfProc = cpus().length //chequeo la cantidad de procesos disponibles según mi hardware(número de nuclesos en la pc)
 if (cluster.isPrimary) { //si estoy en un proceso primario puedo forkear,crear procesos hijos
     for (let i = 1; i <= numOfProc; i++) {
@@ -46,6 +49,7 @@ if (cluster.isPrimary) { //si estoy en un proceso primario puedo forkear,crear p
     console.log("proceso worker" + process.pid)
     nodeServer.listen(port, ready);
 }
+
 
 //socketServer.on("connection", socketCb)
 export { socketServer }
@@ -97,6 +101,12 @@ server.use(
         brotli: { enabled: true, zlib: {} },
     })
 );
+
+//middleware compresión para mejorar el rendimiento del sitio web
+server.use(compression({
+    brotli: { enabled: true, zlib: {} }
+}
+))
 
 /*process.on("exit",(code=>{
     console.log("justo antes de cerrarse");

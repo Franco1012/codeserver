@@ -3,6 +3,7 @@
     "counters": {
       "vusers.created_by_name.0": 20,
       "vusers.created": 20,
+
       "http.requests": 2000,
       "http.codes.200": 2000,
       "http.responses": 2000,
@@ -60,11 +61,13 @@
         "p95": 37432.7,
         "p99": 37432.7,
         "p999": 37432.7
+
       }
     },
     "histograms": {
       "http.response_time": {
         "min": 3,
+
         "max": 996,
         "count": 2000,
         "mean": 192.1,
@@ -101,6 +104,7 @@
         "p95": 37432.7,
         "p99": 37432.7,
         "p999": 37432.7
+
       }
     }
   },
@@ -109,6 +113,7 @@
       "counters": {
         "vusers.created_by_name.0": 20,
         "vusers.created": 20,
+
         "http.requests": 118,
         "http.codes.200": 105,
         "http.responses": 105,
@@ -152,6 +157,7 @@
           "p95": 432.7,
           "p99": 450.4,
           "p999": 450.4
+
         }
       },
       "histograms": {
@@ -180,11 +186,13 @@
           "p95": 432.7,
           "p99": 450.4,
           "p999": 450.4
+
         }
       }
     },
     {
       "counters": {
+
         "http.downloaded_bytes": 7672,
         "plugins.metrics-by-endpoint./simplex.codes.200": 548,
         "http.requests": 548,
@@ -228,6 +236,7 @@
           "p95": 685.5,
           "p99": 837.3,
           "p999": 982.6
+
         }
       },
       "histograms": {
@@ -332,11 +341,13 @@
           "p95": 685.5,
           "p99": 772.9,
           "p999": 820.7
+
         }
       }
     },
     {
       "counters": {
+
         "http.codes.200": 536,
         "http.responses": 536,
         "http.downloaded_bytes": 7518,
@@ -395,10 +406,12 @@
           "p95": 31266.3,
           "p99": 31266.3,
           "p999": 31266.3
+
         }
       },
       "histograms": {
         "http.response_time": {
+
           "min": 48,
           "max": 904,
           "count": 536,
@@ -436,11 +449,13 @@
           "p95": 31266.3,
           "p99": 31266.3,
           "p999": 31266.3
+
         }
       }
     },
     {
       "counters": {
+
         "http.downloaded_bytes": 3836,
         "plugins.metrics-by-endpoint./simplex.codes.200": 274,
         "http.requests": 259,
@@ -448,11 +463,13 @@
         "http.responses": 266,
         "vusers.failed": 0,
         "vusers.completed": 15
+
       },
       "rates": {
         "http.request_rate": 50
       },
       "http.request_rate": null,
+
       "firstCounterAt": 1720830980000,
       "firstHistogramAt": 1720830980000,
       "lastCounterAt": 1720830985258,
@@ -499,10 +516,12 @@
           "p95": 37432.7,
           "p99": 37432.7,
           "p999": 37432.7
+
         }
       },
       "histograms": {
         "plugins.metrics-by-endpoint.response_time./simplex": {
+
           "min": 48,
           "max": 843,
           "count": 274,
@@ -540,6 +559,7 @@
           "p95": 37432.7,
           "p99": 37432.7,
           "p999": 37432.7
+
         }
       }
     }

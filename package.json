@@ -7,13 +7,16 @@
   "scripts": {
     "start": "node server.js -p 9090",
     "dev": "nodemon server.js",
+
     "argv": "node server.js -p 8080 --env=prod",
     "memory": "nodemon server.js  --env=prod --persistence=memory",
     "fs": "node server.js  --env=test --persistence=fs",
+
     "products": "node ./src/mocks/products.mock.js",
     "users": "node ./src/mocks/users.mock.js",
     "simplex": "artillery quick --count 20 --num 100 http://localhost:8080/simplex -o ./test/artillery/simplex.json",
     "complex": "artillery quick --count 20 --num 100 http://localhost:8080/complex -o ./test/artillery/complex.json",
+
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
     "report": "artillery report ./test/artillery/flow.json",
     "image": "docker build -t matilda .",
@@ -22,6 +25,7 @@
     "publish": "docker push franco1604/matilda:1.0.0",
     "orq":"kubectl apply -f ./orq.yaml",
     "minikube":"minikube service matilda"
+
   },
   "keywords": [],
   "author": "",
