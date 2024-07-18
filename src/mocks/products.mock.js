@@ -1,4 +1,6 @@
+
 import '../utils/env.util.js';//carga las variables de entorno
+
 import { faker } from '@faker-js/faker';
 import dbConnect from "../utils/dbConnect.js"
 import productsRepository from "../repositories/products.rep.js"
@@ -6,6 +8,7 @@ import productsRepository from "../repositories/products.rep.js"
 
 
 async function createData() {
+
 
     try {
         const category = ["calzado", "ropa", "accesorio"]
@@ -15,6 +18,7 @@ async function createData() {
                 title: faker.commerce.product(),
                 photo: faker.image.business(),
                 category: category[faker.number.int({ min: 0, max: 2 })],
+
                 price: faker.commerce.price({ min: 100, max: 200, dec: 0 }),
                 stock: faker.number.int({ min: 10, max: 100 })
             }
