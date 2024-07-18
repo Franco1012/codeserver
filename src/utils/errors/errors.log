@@ -1,0 +1,3 @@
+ERROR: POST /api/sessions/login 400 - 09:46:34-Invalid credentials
+FATAL: This is a FATAL log
+ERROR: This is an ERROR log

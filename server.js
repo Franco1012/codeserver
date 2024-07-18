@@ -2,7 +2,8 @@ import environment from "./src/utils/env.util.js";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import morgan from "morgan";
+//import morgan from "morgan";
+import winston from "./src/middlewares/winston.js"
 import cookieParser from "cookie-parser";
 import cors from "cors"
 //importo el resultado de args.opts() desde args.util.js y le asigno un nombre de variable argsUtil
@@ -70,7 +71,7 @@ server.use(session({
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"))
-server.use(morgan("dev"));
+server.use(winston);
 
 
 server.use("/", indexRouter);

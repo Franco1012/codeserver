@@ -1,0 +1,29 @@
+config:
+  plugins:
+    metrics-by-endpoint: {}
+  target: http://localhost:8080/api
+  phases:
+    - duration: 10
+      arrivalRate: 10
+scenarios:
+  - name: login
+    flow:
+      - log: "login"
+      - post: 
+          url: "/sessions/login"
+          json:
+            email: "lisa@hotmail.com"
+            password: "1234"
+      - log: "read all products"
+      - get:
+          url: "/products"
+      - log: "create product"
+      - post:
+          url: "/products"
+          json:
+            title: "camisa"
+            category: "ropa"
+
+
+
+  

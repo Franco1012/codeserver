@@ -14,7 +14,6 @@ async function createData() {
                 password:"1234",
                 role:faker.datatype.number({ min: 0, max: 1 }),
 
-               
                 verify: true
             }
             await usersRepository.createRepository(user)

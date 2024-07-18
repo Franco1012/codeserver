@@ -21,7 +21,6 @@ class UsersControllers {
 
                 /*return res.json({
 
-               
                     statusCode: 200,
                     response: users,
 
@@ -46,6 +45,8 @@ class UsersControllers {
         try {
 
             const uid = req.user._id
+            const user = await readOneService(uid)
+
 
             const user = await readOneService(uid)
             

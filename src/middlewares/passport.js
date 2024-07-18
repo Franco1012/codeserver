@@ -84,11 +84,13 @@ passport.use(
 
                 }
 
-
                 //verificamos la contraseña
                 const verifyPass = veryfyHash(password, user.password)
                 //verificamos el usuario
                 const verifyAccount = user.verify
+
+                //console.log(verifyPass)
+                //console.log(verifyAccount)
 
                 if (verifyPass && verifyAccount) {
 

@@ -1,4 +1,6 @@
-import '../utils/env.util.js';
+
+import '../utils/env.util.js';//carga las variables de entorno
+
 import { faker } from '@faker-js/faker';
 import dbConnect from "../utils/dbConnect.js"
 import productsRepository from "../repositories/products.rep.js"
