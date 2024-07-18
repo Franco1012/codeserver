@@ -34,7 +34,11 @@ async function read(req, res, next) {
 async function paginate(req, res, next) {
     try {
         const filter = {}
+
         const opts = { sort: "title" }
+
+        
+
 
 
         if (req.query.limit) {

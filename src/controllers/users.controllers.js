@@ -18,7 +18,10 @@ class UsersControllers {
             }
 
             if (users.length > 0) {
+
                 /*return res.json({
+
+               
                     statusCode: 200,
                     response: users,
 
@@ -41,9 +44,11 @@ class UsersControllers {
 
     async readOne(req, res, next) {
         try {
-            const uid = req.user._id
-            const user = await readOneService(uid)
 
+            const uid = req.user._id
+
+            const user = await readOneService(uid)
+            
             if (user) {
 
                 /*return res.json({

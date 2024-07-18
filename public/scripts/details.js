@@ -2,7 +2,7 @@
 //console.log(location)
 const queries = new URL(location.href)
 const pid = queries.searchParams.get("id")
-//console.log(pid)
+
 
 const template = (data) => `<div class="container d-flex flex-wrap justify-content-center">
     <div class="card" style="width: 18rem;">

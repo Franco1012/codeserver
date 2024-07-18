@@ -7,6 +7,7 @@ import productsRepository from "../repositories/products.rep.js"
 
 async function createData() {
 
+
     try {
         const category = ["calzado", "ropa", "accesorio"]
         dbConnect()
@@ -15,6 +16,7 @@ async function createData() {
                 title: faker.commerce.product(),
                 photo: faker.image.business(),
                 category: category[faker.number.int({ min: 0, max: 2 })],
+
                 price: faker.commerce.price({ min: 100, max: 200, dec: 0 }),
                 stock: faker.number.int({ min: 10, max: 100 })
             }

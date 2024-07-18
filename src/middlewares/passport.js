@@ -11,8 +11,10 @@ import usersRepository from "../repositories/users.rep.js";
 import UsersDTO from "../dto/users.dto.js";
 import sendEmail from "../utils/mailing.util.js";
 //import crypto from "crypto";
+
 import CustomError from "../utils/errors/CustomError.js";
 import errors from "../utils/errors/errors.js";
+
 
 const { usersManager } = dao
 passport.use(
@@ -26,13 +28,17 @@ passport.use(
 
                 if (!email || !password) {//no necesito desestructurar las propiedades (email,password) la callback ya las necesita y las configura
 
+
                     const error = CustomError.new(errors.invalid)
+
                     return done(null, null, error)// el done se encarga directamente, no hace falta arrojar el error para que lo tome el catch
 
                 }
                 const one = await usersRepository.readByEmailRepository(email);
                 if (one) {
+
                     const error = CustomError.new(errors.auth)
+
 
                     return done(error)
 
@@ -44,7 +50,9 @@ passport.use(
                 //una vez que el usuario se crea
                 //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
 
+
                 await sendEmail({
+
 
                     email,
                     to: email,
@@ -75,6 +83,8 @@ passport.use(
                     return done(error)
 
                 }
+
+
                 //verificamos la contraseña
                 const verifyPass = veryfyHash(password, user.password)
                 //verificamos el usuario

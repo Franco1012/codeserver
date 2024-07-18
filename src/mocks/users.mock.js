@@ -9,9 +9,12 @@ async function createData() {
         dbConnect()
         for (let i = 1; i <= 4; i++) {
             const user = {
+
                 email: faker.internet.email(),
                 password:"1234",
                 role:faker.datatype.number({ min: 0, max: 1 }),
+
+               
                 verify: true
             }
             await usersRepository.createRepository(user)
