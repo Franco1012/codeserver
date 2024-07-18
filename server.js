@@ -12,6 +12,8 @@ import compression from "express-compression";
 import session from "express-session";
 //import fileStore from "session-file-store"
 import MongoStore from "connect-mongo";
+import cluster from "cluster";
+import { cpus } from "os";
 
 /*import { engine } from "express-handlebars"*/
 
@@ -21,12 +23,10 @@ import errorHandler from "./src/middlewares/errorHandler.js";
 import pathHandler from "./src/middlewares/pathHandler.js";
 import __dirname from './utils.js';
 //import dbConnect from "./src/utils/dbConnect.js";
-console.log(process.env.MONGO_URI);
+//console.log(process.env.MONGO_URI);
 
 const server = express();
-
 const port = environment.PORT || argsUtil.p;
-
 const ready = async () => {
     console.log("server ready on port " + port);
     //await dbConnect()
@@ -36,7 +36,17 @@ const ready = async () => {
 const nodeServer = createServer(server);
 //creo un servidor tcp, construyendo una instancia del servidor de socket pasando como "base" el servidor de node (ya que tcp, está basado en HTPP)
 const socketServer = new Server(nodeServer)
-nodeServer.listen(port, ready);
+const numOfProc = cpus().length //chequeo la cantidad de procesos disponibles según mi hardware(número de nuclesos en la pc)
+if (cluster.isPrimary) { //si estoy en un proceso primario puedo forkear,crear procesos hijos
+    for (let i = 1; i <= numOfProc; i++) {
+        cluster.fork()
+    }
+    console.log("proceso primario")
+} else {
+    console.log("proceso worker" + process.pid)
+    nodeServer.listen(port, ready);
+}
+
 //socketServer.on("connection", socketCb)
 export { socketServer }
 
@@ -79,13 +89,14 @@ server.use(errorHandler);
 server.use(pathHandler);
 //console.log(argsUtil)
 
-console.log(environment)
+//console.log(environment)
 
 //middleware compresión para mejorar el rendimiento del sitio web
-server.use(compression({
-    brotli: { enabled: true, zlib: {} }
-}
-))
+server.use(
+    compression({
+        brotli: { enabled: true, zlib: {} },
+    })
+);
 
 /*process.on("exit",(code=>{
     console.log("justo antes de cerrarse");
