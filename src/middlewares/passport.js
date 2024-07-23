@@ -23,11 +23,12 @@ passport.use(
         { passReqToCallback: true, usernameField: "email" },//passResqToCallback , para acceder al objeto requerimiento de la solicitud
         async (req, email, password, done) => {
             try {
+              
                 //La estrategia necesaria para registrar a un usuario
                 //Que consta de todo lo que validamos en los middlewares
 
                 if (!email || !password) {//no necesito desestructurar las propiedades (email,password) la callback ya las necesita y las configura
-
+               
 
                     const error = CustomError.new(errors.invalid)
 
