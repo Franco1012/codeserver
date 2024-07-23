@@ -35,6 +35,7 @@ passport.use(
 
                 }
                 const one = await usersRepository.readByEmailRepository(email);
+                
                 if (one) {
 
                     const error = CustomError.new(errors.auth)
@@ -50,14 +51,16 @@ passport.use(
                 //una vez que el usuario se crea
                 //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
 
-
-                await sendEmail({
-
-
-                    email,
+                const dataSend = {
                     to: email,
-                    code: user.verifyCode
-                })
+                    subject: `USER ${email.toUpperCase()} REGISTERED!`,
+                    html: `
+                        <h1 style="color:red">WELCOME TO MATILDA</h1>
+                        <p>VERIFY CODE: ${user.verifyCode}</p>
+                    `
+                };
+
+                await sendEmail(dataSend)
 
                 return done(null, user)
 

@@ -6,7 +6,7 @@ document.querySelector("#login").addEventListener("click", async () => {
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         }
-        
+
         const opts = {
             method: "POST",
             headers: {
@@ -35,3 +35,18 @@ document.querySelector("#login").addEventListener("click", async () => {
     }
 })
 
+// Manejar la solicitud de restablecimiento de contraseña
+document.querySelector('#resetPasswordButton').addEventListener('click', async (e) => {
+    const email = document.querySelector("#email").value
+    if (!email) {
+        alert("Ingrese su email");
+        return;
+    }
+    const response = await fetch('/api/sessions/password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+    });
+    const result = await response.json();
+    alert(result.message);
+});
