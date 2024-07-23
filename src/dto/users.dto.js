@@ -15,7 +15,6 @@ class UsersDTO {
         this.photo = data.photo || "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png";
         this.verify = data.verify || false;
         this.verifyCode = crypto.randomBytes(12).toString("hex");
-        //this.resetToken = null;
         (persistence !== "mongo") && (this.createAt = new Date());
         (persistence !== "mongo") && (this.updatedAt = new Date());
 
