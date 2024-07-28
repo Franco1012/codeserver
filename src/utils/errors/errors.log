@@ -4,3 +4,22 @@ ERROR: This is an ERROR log
 
 ERROR: GET /complex undefined - 21:33:42-connect ETIMEDOUT 18.230.79.189:27017
 
+ERROR: POST /api/sessions/register undefined - 18:52:23-to is not defined
+ERROR: POST /api/sessions/register 401 - 18:57:42-Bad auth
+ERROR: POST /api/sessions/register undefined - 19:01:19-to is not defined
+ERROR: POST /api/sessions/register undefined - 23:11:45-to is not defined
+ERROR: POST /password 400 - 23:19:06-User not found
+ERROR: POST /password 400 - 00:03:06-User not found
+ERROR: POST /api/sessions/login 400 - 00:04:52-Invalid credentials
+ERROR: POST /api/sessions/login 400 - 00:09:18-Invalid credentials
+ERROR: POST /api/sessions/login 401 - 00:10:04-Bad auth
+ERROR: POST /api/sessions/login 400 - 00:10:18-Invalid credentials
+ERROR: POST /api/sessions/login 400 - 00:18:01-Invalid credentials
+ERROR: POST /password 400 - 20:16:58-User not found
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:25:32-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: POST /api/sessions/password undefined - 20:26:12-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /api/sessions/password undefined - 20:26:34-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /api/sessions/password undefined - 20:28:46-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /password 400 - 21:02:37-User not found
+ERROR: POST /api/sessions/register 400 - 21:11:45-el email debe ser válido
+ERROR: POST /verify 400 - 21:22:18-Invalid credentials

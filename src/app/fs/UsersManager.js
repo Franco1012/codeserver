@@ -33,6 +33,7 @@ class UserManager {
         try {
 
             if (data.email || data.password) {
+                console.log("funcion fs crear", data.email)
                 //se lee el contenido del archivo ubicado en la ruta path y lo guarda en la variable users
                 let users = await fs.promises.readFile(this.path, "utf8")
                 //se convierte el contenido del archivo ,que es una cadena json , en un objeto
@@ -94,6 +95,7 @@ class UserManager {
         }
     }
     async readByEmail(email) {
+
         try {
             let users = await fs.promises.readFile(this.path, "utf-8");
             users = JSON.parse(users);

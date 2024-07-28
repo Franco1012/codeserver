@@ -6,6 +6,7 @@ document.querySelector("#registerUser").addEventListener("click", async () => {
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         }
+        
         const opts = {
             method: "POST",
             headers: {
@@ -13,7 +14,7 @@ document.querySelector("#registerUser").addEventListener("click", async () => {
             },
             body: JSON.stringify(data)
         }
-
+        
         let response = await fetch("/api/sessions/register", opts)
         response = await response.json()
         console.log(response)
