@@ -1,5 +1,7 @@
 import { updateService, readByEmailService } from "../services/users.service.js";
-
+import { createToken, verifyToken } from "../utils/token.util.js";
+import { createHash } from "../utils/hash.util.js";
+import sendEmail from "../utils/mailing.util.js";
 class SessionsController {
     async register(req, res, next) {
         try {
@@ -25,17 +27,67 @@ class SessionsController {
             return next(error);
         }
     }
+    async resetPassword(req, res, next) {
+        try {
+            const { email } = req.body
+
+            const one = await readByEmailService(email)
+            if (!one) {
+                return res.error400("User not found")
+            }
+            // Generar un token de restablecimiento de contraseña
+            const resetToken = createToken({ email });
+            // Actualizar el token de restablecimiento en el usuario
+            await updateService(one._id, { resetToken });
+            // Enviar correo electrónico de restablecimiento de contraseña
+            await sendEmail({
+                to: email,
+                subject: "Password Reset Request",
+                html: `
+                    <h1>Reset Your Password</h1>
+                    <p>Click the link below to reset your password:</p>
+                    <a href="http://localhost:8080/pages/resetPassword.html?token=${resetToken}">Reset Password</a>
+                `
+            });
+            return res.message200("Reset password email sent");
+        } catch (error) {
+            return next(error)
+        }
+    }
+    async updatePassword(req, res, next) {
+        try {
+            const { token, newPassword } = req.body;
+            // Verificar el token
+            const decoded = verifyToken(token);
+            if (!decoded) {
+                return res.error400('Invalid or expired token')
+            }
+
+            const email = decoded.email;
+            const user = await readByEmailService(email);
+            if (!user) {
+                return res.error404();
+            }
+
+            // Actualizar la contraseña del usuario
+            const hashedPassword = createHash(newPassword);
+            await updateService(user._id, { password: hashedPassword });
+            return res.message200('Password successfully updated')
+        } catch (error) {
+            return next(error);
+        }
+    }
     async verifyCode(req, res, next) {
         try {
             const { email, code } = req.body
             //console.log(email)
             console.log(code)
             const one = await readByEmailService(email)
-            console.log("one controllers",one)
+            console.log("one controllers", one)
             const verify = code === one.verifyCode//la comparacion devuelve un booleano 
             console.log(verify)
             if (verify) {
-                const userUpdate=await updateService(one._id,{ verify })
+                const userUpdate = await updateService(one._id, { verify })
                 //console.log("userUpdate",userUpdate)
                 return res.message200("Verified User!")
             } else {
@@ -47,7 +99,7 @@ class SessionsController {
     }
 
     async profile(req, res, next) {
-       //console.log("profile",req.user)
+        //console.log("profile",req.user)
         try {
             //if (req.session.online)
             if (req.user.online) {
@@ -92,5 +144,5 @@ class SessionsController {
 }
 
 const sessionsController = new SessionsController()
-const { register, login, signout, profile, google,verifyCode } = sessionsController;
-export { register, login, signout, profile, google,verifyCode }
+const { register, login, signout, profile, google, verifyCode, resetPassword, updatePassword } = sessionsController;
+export { register, login, signout, profile, google, verifyCode, resetPassword, updatePassword }

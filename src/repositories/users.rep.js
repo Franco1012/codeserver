@@ -9,7 +9,6 @@ class UsersRepository {
     }
     createRepository = async (data) => {
         try {
-
             data = new UsersDTO(data)
 
             const user = await this.model.create(data)

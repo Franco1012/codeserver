@@ -47,8 +47,6 @@ class UsersControllers {
             const uid = req.user._id
             const user = await readOneService(uid)
 
-
-            const user = await readOneService(uid)
             
             if (user) {
 

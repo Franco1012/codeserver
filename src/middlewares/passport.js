@@ -23,11 +23,12 @@ passport.use(
         { passReqToCallback: true, usernameField: "email" },//passResqToCallback , para acceder al objeto requerimiento de la solicitud
         async (req, email, password, done) => {
             try {
+              
                 //La estrategia necesaria para registrar a un usuario
                 //Que consta de todo lo que validamos en los middlewares
 
                 if (!email || !password) {//no necesito desestructurar las propiedades (email,password) la callback ya las necesita y las configura
-
+               
 
                     const error = CustomError.new(errors.invalid)
 
@@ -35,6 +36,7 @@ passport.use(
 
                 }
                 const one = await usersRepository.readByEmailRepository(email);
+                
                 if (one) {
 
                     const error = CustomError.new(errors.auth)
@@ -50,14 +52,16 @@ passport.use(
                 //una vez que el usuario se crea
                 //la estrategia debe mandar un correo electronico con un codigo aleatorio para la verificacion del usuario
 
-
-                await sendEmail({
-
-
-                    email,
+                const dataSend = {
                     to: email,
-                    code: user.verifyCode
-                })
+                    subject: `USER ${email.toUpperCase()} REGISTERED!`,
+                    html: `
+                        <h1 style="color:red">WELCOME TO MATILDA</h1>
+                        <p>VERIFY CODE: ${user.verifyCode}</p>
+                    `
+                };
+
+                await sendEmail(dataSend)
 
                 return done(null, user)
 

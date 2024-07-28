@@ -5,9 +5,9 @@ const { GOOGLE_EMAIL, GOOGLE_PASSWORD } = environment
 console.log(GOOGLE_EMAIL)
 console.log(GOOGLE_PASSWORD)
 async function sendEmail(data) {
-    console.log("dataSend",data)
+    console.log("dataSend", data)
     try {
-       
+
         //crear transporte
         const transport = createTransport({
             host: "smtp.gmail.com",
@@ -19,15 +19,10 @@ async function sendEmail(data) {
         await transport.verify();
         await transport.sendMail({
             from: `MATILDA <${GOOGLE_EMAIL}>`,
-            to: data.to,
-            subject: `USER ${data.email.toUpperCase()} REGISTERED!`,
-            html: `
-                <h1 style="color:red">WELCOME TO MATILDA</h1>
-                <p>VERIFY CODE:${data.code}
-                
-            `
-
-        })
+            to:data.to,
+            subject:data.subject,
+            html:data.html
+        });
     } catch (error) {
         throw error;
     }
