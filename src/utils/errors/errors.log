@@ -23,6 +23,7 @@ ERROR: POST /api/sessions/password undefined - 20:28:46-Operation `users.findOne
 ERROR: POST /password 400 - 21:02:37-User not found
 ERROR: POST /api/sessions/register 400 - 21:11:45-el email debe ser válido
 ERROR: POST /verify 400 - 21:22:18-Invalid credentials
+
 ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:06:04-Operation `products.countDocuments()` buffering timed out after 10000ms
 ERROR: POST /api/sessions/login 401 - 21:27:31-Bad auth
 ERROR: POST / 403 - 21:28:13 - Forbidden from poliecies!
