@@ -1,14 +1,13 @@
 [
   {
-    "_id": "b1401a95c9c8614a391fa351",
+    "_id": "50d0a81e6c8fbcb343e7240f",
     "email": "solerfrancogerman@gmail.com",
-    "password": "$2b$10$AwMM/KKDMu31OBFFj.ugDuD2PNMC9uTUJKkfHhRMlCxkYAbWOunNK",
+    "password": "$2b$10$bKk7x6kuuI6Ti7vtcb7n2OTL2FpFyxiX8iUyufnJ6nK7oveJDpcia",
     "role": 0,
     "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png",
     "verify": true,
-    "verifyCode": "767003fc5a05a30351ca431d",
-    "createAt": "2024-07-23T04:15:30.850Z",
-    "updatedAt": "2024-07-23T04:15:30.850Z",
-    "resetToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNvbGVyZnJhbmNvZ2VybWFuQGdtYWlsLmNvbSIsImlhdCI6MTcyMTcwODI0MCwiZXhwIjoxNzIxNzk0NjQwfQ.HAWmhgSweFOemvIHMNJ9so5t1_9TImWblr1culCjTsI"
+    "verifyCode": "7a158161e2629a51d726e3de",
+    "createAt": "2024-07-23T19:39:26.689Z",
+    "updatedAt": "2024-07-23T19:39:26.689Z"
   }
 ]
