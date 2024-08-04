@@ -59,3 +59,26 @@ ERROR: GET /api/products/2255 undefined - 10:21:30-Cast to ObjectId failed for v
 ERROR: POST / 401 - 10:31:51 - Bad auth from poliecies!
 ERROR: GET /online 401 - 10:33:12 - Bad auth from poliecies!
 ERROR: GET /online 401 - 10:33:14 - Bad auth from poliecies!
+ERROR: GET /api/docs/swagger-ui-init.js undefined - 08:57:29-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/docs/favicon-32x32.png undefined - 08:57:30-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/docs/favicon-16x16.png undefined - 08:57:30-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/docs/ undefined - 08:57:37-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 08:57:37-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/docs/ undefined - 08:57:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 08:57:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 08:57:48-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 08:57:48-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/docs/ undefined - 08:58:41-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 08:58:42-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /online 400 - 08:59:42-invalid signature
+ERROR: GET /online 400 - 08:59:44-invalid signature
+ERROR: POST /api/sessions/login 400 - 09:00:07-Invalid credentials
+ERROR: POST /api/sessions/login 400 - 09:00:12-Invalid credentials
+ERROR: GET / undefined - 10:23:04-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 10:23:12-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 10:23:13-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 10:23:13-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: POST /api/sessions/login undefined - 10:23:25-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: POST /login undefined - 18:44:10-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /online 400 - 19:46:29-jwt expired
+ERROR: GET /online 400 - 19:46:41-jwt expired
