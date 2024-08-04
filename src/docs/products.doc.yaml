@@ -74,7 +74,9 @@ components:
             category: calzado
             price: 1500
             stock: 10
+
     Response201:
+
       type: object
       properties:
         statusCode:
@@ -84,6 +86,7 @@ components:
         message:
           type: string
           description: Texto descriptivo con el éxito en la creación y el id del producto
+
         response:
           type: object
           description: Objeto con los datos del recurso solicitado 
@@ -96,6 +99,7 @@ components:
           category: ropa
           price: 1500
           stock: 10
+
     Paginate:
       type: object
       properties:
@@ -239,7 +243,9 @@ paths:
           content:
             application/json:
               schema:
+
                 $ref: '#/components/responses/Response201'
+
         '400':
           description: Invalid or incomplete data
           content:
@@ -268,6 +274,7 @@ paths:
       summary: Get all products
       tags:
         - Product
+
       parameters:
         - name: category
           in: query
@@ -275,6 +282,7 @@ paths:
           required: false
           schema:
             type: string
+
       responses:
         '200':
           description: Product get success
