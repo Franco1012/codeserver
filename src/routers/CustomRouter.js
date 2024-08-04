@@ -42,11 +42,11 @@ class CustomRouter {
             return res.json({ statusCode: 400, message: message });
         }
 
-        res.error401 = () =>
-            res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
-        res.error401 = (message) =>
-            res.json({ statusCode: 401, message });
-
+        res.error401 = () => {
+            const errorMessage = `${req.method} ${req.url} 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!`;
+            winston.ERROR(errorMessage)
+            return res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
+        }
         res.error403 = () => {
             const errorMessage = `${req.method} ${req.url} 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!`;
             winston.ERROR(errorMessage)

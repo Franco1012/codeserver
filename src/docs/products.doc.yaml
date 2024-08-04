@@ -1,0 +1,429 @@
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Name of the product
+        photo:
+          type: string
+          description: Photo of the product
+        category:
+          type: string
+          description: Name of the category
+        price:
+          type: number
+          description: price of the product
+        stock:
+          type: number
+          description: stock of the product
+        
+      example:
+        title: chaleco
+        photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+        category: ropa
+        price: 1500
+        stock: 10
+  responses:
+    Response200one:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al éxito devolviendo datos
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado   
+      example:
+        statusCode: 200
+        response:
+          title: chaleco
+          photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+          category: ropa
+          price: 1500
+          stock: 10
+    Response200all:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al éxito devolviendo datos
+        response:
+          type: array
+          description: Array de objetos del recurso solicitado
+          items:
+            $ref: '#/components/schemas/Product'
+      example:
+        statusCode: 200
+        response:
+          - title: chaleco
+            photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+            category: ropa
+            price: 1500
+            stock: 10
+          - title: campera
+            photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+            category: ropa
+            price: 1500
+            stock: 10
+          - title: zapatillas
+            photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+            category: calzado
+            price: 1500
+            stock: 10
+    Message201:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al éxito en la creación
+        message:
+          type: string
+          description: Texto descriptivo con el éxito en la creación y el id del producto
+      example:
+        statusCode: 201
+        message: 'PRODUCT CREATED: 1234567890abcdef'
+    Paginate:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al éxito devolviendo datos paginados
+        response:
+          type: array
+          description: Array de objetos del recurso solicitado paginados y ordenados
+          items:
+            $ref: '#/components/schemas/Product'
+        info:
+          type: object
+          properties:
+            limit:
+              type: integer
+            nextPages:
+              type: integer
+            page:
+              type: integer
+            prevPages:
+              type: integer
+            totalDocs:
+              type: integer
+            totalPages:
+              type: integer
+      example:
+        statusCode: 200
+        response:
+          - title: chaleco
+            photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+            category: ropa
+            price: 1500
+            stock: 10
+          - title: campera
+            photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+            category: ropa
+            price: 1500
+            stock: 10
+          - title: zapatillas
+            photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+            category: calzado
+            price: 1500
+            stock: 10
+        info:
+          limit: 5
+          nextPages: 2
+          page: 1
+          prevPages: null
+          totalDocs: 40
+          totalPages: 8
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso por problemas del cliente
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error por parte del cliente
+      example:
+        statusCode: 400
+        message: Bad request
+    Error401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso de autenticación
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autenticacion
+      example:
+        statusCode: 401
+        message: Bad auth from policies!
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso de autorización
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autorizacion
+      example:
+        statusCode: 403
+        message: Forbidden from policies!
+    Error404:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso por no encontrar lo solocitado
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de no encontrado el recurso
+      example:
+        statusCode: 404
+        message: NOT FOUND
+    Error500:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso por error fatal en el servidor
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error por parte del servidor
+      example:
+        statusCode: 500
+        message: 'CODER API ERROR'
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/products:
+    post:
+      summary: Create a new product
+      tags:
+        - Product
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        description: Datos para poder crear un producto
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Product creation success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message201'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error403'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    get:
+      summary: Get all products
+      tags:
+        - Product
+      responses:
+        '200':
+          description: Product get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200all'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+  /api/products/{pid}:
+    get:
+      summary: Get a product by ID
+      tags:
+        - Product
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200one'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    put:
+      summary: Update a product by ID
+      tags:
+        - Product
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to update
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Successfully updated the product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200one'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    delete:
+      summary: Delete a product by ID
+      tags:
+        - Product
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to delete
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully deleted the product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200one'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
