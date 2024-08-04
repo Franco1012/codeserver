@@ -8,13 +8,16 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 //importo el resultado de args.opts() desde args.util.js y le asigno un nombre de variable argsUtil
 import argsUtil from "./src/utils/args.util.js";
+import swaggerJSDoc from "swagger-jsdoc";
+import { serve, setup } from "swagger-ui-express";
+
 import compression from "express-compression";
 import session from "express-session";
 //import fileStore from "session-file-store"
 import MongoStore from "connect-mongo";
 import cluster from "cluster";
 import { cpus } from "os";
-
+import configs from "./src/utils/swagger.util.js"
 /*import { engine } from "express-handlebars"*/
 
 import indexRouter from "./src/routers/index.router.js";
@@ -59,7 +62,7 @@ export { socketServer }
 /*server.engine("handlebars", engine())
 server.set('view engine', 'handlebars')
 server.set('views', __dirname + '/src/views')*/
-
+const specs = swaggerJSDoc(configs);
 
 //middlewares
 server.use(cookieParser(environment.SECRET_COOKIE))
@@ -86,6 +89,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"))
 server.use(winston);
+server.use("/api/docs", serve, setup(specs));
 
 
 server.use("/", indexRouter);
