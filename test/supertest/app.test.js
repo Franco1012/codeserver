@@ -11,7 +11,7 @@ describe(
         this.timeout(30000)
         const user = {
             email: "solerfrancogerman@gmail.com",
-            password: "1234",
+            password: "12345",
             //role: 1,
             //verify: true
         }
