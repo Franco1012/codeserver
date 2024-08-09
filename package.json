@@ -21,12 +21,10 @@
     "rename": "docker tag matilda franco1604/matilda:1.0.0",
     "publish": "docker push franco1604/matilda:1.0.0",
     "orq": "kubectl apply -f ./orq.yaml",
-
     "minikube": "minikube service matilda",
     "mocha": "mocha ./test/mocha",
     "chai": "mocha ./test/chai",
     "super": "mocha ./test/supertest"
-
   },
   "keywords": [],
   "author": "",
@@ -64,6 +62,7 @@
     "passport-local": "^1.0.0",
     "session-file-store": "^1.5.0",
     "socket.io": "^4.7.5",
+    "stripe": "^16.6.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.13.0"

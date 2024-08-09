@@ -17,7 +17,10 @@ const environment = {
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     SECRET_JWT: process.env.SECRET_JWT,
     GOOGLE_EMAIL: process.env.GOOGLE_EMAIL,
-    GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD
+    GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD,
+    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
+    STRIPE_SECRET: process.env.STRIPE_SECRET
+
 }
 
 export default environment;

@@ -23,7 +23,10 @@ ERROR: POST /api/sessions/password undefined - 20:28:46-Operation `users.findOne
 ERROR: POST /password 400 - 21:02:37-User not found
 ERROR: POST /api/sessions/register 400 - 21:11:45-el email debe ser válido
 ERROR: POST /verify 400 - 21:22:18-Invalid credentials
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912
 ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:06:04-Operation `products.countDocuments()` buffering timed out after 10000ms
 ERROR: POST /api/sessions/login 401 - 21:27:31-Bad auth
 ERROR: POST / 403 - 21:28:13 - Forbidden from poliecies!
@@ -83,4 +86,7 @@ ERROR: POST /api/sessions/login undefined - 10:23:25-connect ETIMEDOUT 54.232.22
 ERROR: POST /login undefined - 18:44:10-connect ETIMEDOUT 54.232.22.99:27017
 ERROR: GET /online 400 - 19:46:29-jwt expired
 ERROR: GET /online 400 - 19:46:41-jwt expired
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912

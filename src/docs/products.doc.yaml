@@ -74,9 +74,13 @@ components:
             category: calzado
             price: 1500
             stock: 10
+<<<<<<< HEAD
 
     Response201:
 
+=======
+    Response201:
+>>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912
       type: object
       properties:
         statusCode:
@@ -86,7 +90,10 @@ components:
         message:
           type: string
           description: Texto descriptivo con el éxito en la creación y el id del producto
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912
         response:
           type: object
           description: Objeto con los datos del recurso solicitado 
@@ -99,7 +106,10 @@ components:
           category: ropa
           price: 1500
           stock: 10
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912
     Paginate:
       type: object
       properties:
@@ -243,9 +253,7 @@ paths:
           content:
             application/json:
               schema:
-
                 $ref: '#/components/responses/Response201'
-
         '400':
           description: Invalid or incomplete data
           content:
@@ -274,7 +282,6 @@ paths:
       summary: Get all products
       tags:
         - Product
-
       parameters:
         - name: category
           in: query
@@ -282,7 +289,6 @@ paths:
           required: false
           schema:
             type: string
-
       responses:
         '200':
           description: Product get success

@@ -1,6 +1,5 @@
 [
   {
-
     "_id": "50d0a81e6c8fbcb343e7240f",
     "email": "solerfrancogerman@gmail.com",
     "password": "$2b$10$bKk7x6kuuI6Ti7vtcb7n2OTL2FpFyxiX8iUyufnJ6nK7oveJDpcia",
@@ -10,6 +9,5 @@
     "verifyCode": "7a158161e2629a51d726e3de",
     "createAt": "2024-07-23T19:39:26.689Z",
     "updatedAt": "2024-07-23T19:39:26.689Z"
-
   }
 ]
