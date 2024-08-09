@@ -74,7 +74,9 @@ components:
             category: calzado
             price: 1500
             stock: 10
-    Message201:
+
+    Response201:
+
       type: object
       properties:
         statusCode:
@@ -84,9 +86,20 @@ components:
         message:
           type: string
           description: Texto descriptivo con el éxito en la creación y el id del producto
+
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado 
       example:
         statusCode: 201
         message: 'PRODUCT CREATED: 1234567890abcdef'
+        response:
+          title: chaleco
+          photo: https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg
+          category: ropa
+          price: 1500
+          stock: 10
+
     Paginate:
       type: object
       properties:
@@ -230,7 +243,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/responses/Message201'
+
+                $ref: '#/components/responses/Response201'
+
         '400':
           description: Invalid or incomplete data
           content:
@@ -259,6 +274,15 @@ paths:
       summary: Get all products
       tags:
         - Product
+
+      parameters:
+        - name: category
+          in: query
+          description: The category to filter products by
+          required: false
+          schema:
+            type: string
+
       responses:
         '200':
           description: Product get success

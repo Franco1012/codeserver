@@ -33,7 +33,7 @@ async function read(req, res, next) {
 
 async function paginate(req, res, next) {
     try {
-      
+
         const filter = {}
 
         const opts = { sort: "title" }
@@ -110,7 +110,7 @@ async function create(req, res, next) {
             message: "PRODUCT CREATED: " + product.id,
 
         })*/
-        return res.message201("PRODUCT CREATED: " + product._id)
+        return res.response201("PRODUCT CREATED: " + product._id, product)
 
     } catch (error) {
         return next(error)

@@ -4,25 +4,31 @@ config:
   target: http://localhost:8080/api
   phases:
     - duration: 10
-      arrivalRate: 10
+      arrivalRate: 1
 scenarios:
-  - name: login
+  - name: iniciar sesión y manipular productos
     flow:
-      - log: "login"
+      - log: "iniciar sesión"
       - post: 
           url: "/sessions/login"
           json:
-            email: "lisa@hotmail.com"
+            email: "solerfrancogerman@gmail.com"
             password: "1234"
-      - log: "read all products"
+      - log: "leer todos los productos"
       - get:
           url: "/products"
-      - log: "create product"
+      - log: "crear producto"
       - post:
           url: "/products"
           json:
             title: "camisa"
             category: "ropa"
+          capture:
+            json: $.response._id
+            as: productId
+      - log: "eliminar producto"
+      - delete:
+          url: "/products/{{ productId }}"
 
 
 
