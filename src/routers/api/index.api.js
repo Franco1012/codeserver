@@ -4,6 +4,7 @@ import productsRouter from "./products.api.js"
 import usersRouter from "./users.api.js"
 import cartsRouter from "./carts.api.js"
 import ticketsRouter from "./tickets.api.js"
+import paymentRouter from "./payment.api.js"
 
 //import cookiesRouter from "./cookie.api.js"
 import sessionsRouter from "./session.api.js"
@@ -15,6 +16,7 @@ class ApiRouter extends CustomRouter {
         this.use("/carts", cartsRouter)
         this.use("/tickets", ticketsRouter)
         this.use("/sessions", sessionsRouter)
+        this.use("/payment", paymentRouter)
     }
 }
 
