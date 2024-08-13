@@ -90,3 +90,14 @@ ERROR: GET /online 400 - 19:46:41-jwt expired
 
 =======
 >>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912
+ERROR: GET /online 401 - 17:24:07 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:24:14 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:24:15 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:24:16 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:24:17-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 17:24:18 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:24:24 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:24:24-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:24:25-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 17:24:32 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:24:35 - Bad auth from poliecies!
