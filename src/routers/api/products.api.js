@@ -6,6 +6,7 @@ import { create, read, readOne, paginate, update, destroy } from "../../controll
 //import uploader from "../../middlewares/multer.js"
 //import isPhoto from "../../middlewares/isPhoto.js"
 //import isValidAdmin from "../../middlewares/isValidAdmin.js"
+import checkProductManagementPermission from "../../middlewares/checkProductManagementPermission.js"
 
 
 
@@ -16,10 +17,10 @@ class ProductsRouter extends CustomRouter {
         this.read("/:pid", ["PUBLIC"], readOne)
         //this.create("/", uploader.single("photo"), ["PUBLIC"], isValidAdmin, isTitle, isPhoto, create)
 
-        this.create("/", ["ADMIN"], create)
+        this.create("/", ["ADMIN", "PREMIUM"], create)
 
-        this.update("/:pid", ["ADMIN"], update)
-        this.destroy("/:pid", ["ADMIN"], destroy)
+        this.update("/:pid", ["ADMIN", "PREMIUM"], checkProductManagementPermission, update)
+        this.destroy("/:pid", ["ADMIN","PREMIUM"],checkProductManagementPermission, destroy)
     }
 }
 

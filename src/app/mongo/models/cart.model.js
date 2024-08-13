@@ -13,6 +13,6 @@ const cartSchema = new Schema({
 )
 
 cartSchema.pre("find", function () { this.populate("user_id", "email rol -_id") })
-cartSchema.pre("find", function () { this.populate("product_id", "title photo price -_id") })
+cartSchema.pre("find", function () { this.populate("product_id", "title photo price  supplier_id  -_id") })
 const Cart = model(colecction, cartSchema);
 export default Cart;

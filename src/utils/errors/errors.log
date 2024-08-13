@@ -90,3 +90,140 @@ ERROR: GET /online 400 - 19:46:41-jwt expired
 
 =======
 >>>>>>> a1a1732bde4dd3b312110e80ee28bda317275912
+ERROR: POST /api/sessions/login 400 - 15:12:22-Invalid credentials
+ERROR: POST /api/products undefined - 15:13:12-products validation failed: title: Path `title` is required., supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:14:18-products validation failed: title: Path `title` is required., supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:25:11-products validation failed: title: Path `title` is required., supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:26:06-products validation failed: title: Path `title` is required., supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:27:06-products validation failed: supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:27:53-products validation failed: supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:30:36-products validation failed: supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:31:00-products validation failed: supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:36:48-products validation failed: supplier_id: Path `supplier_id` is required.
+ERROR: POST /api/products undefined - 15:40:46-products validation failed: supplier_id: Path `supplier_id` is required.
+ERROR: POST / 403 - 16:24:24 - Forbidden from poliecies!
+ERROR: GET / undefined - 16:33:41-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /scripts/home.js undefined - 16:33:41-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /scripts/updateNavbar.js undefined - 16:33:41-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: DELETE /api/products/?pid=66b905e0abf70e01e00ada1a undefined - 16:33:46-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: DELETE /api/products/?pid=66b905e0abf70e01e00ada1a undefined - 16:33:50-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 16:43:58 - Bad auth from poliecies!
+ERROR: PUT /api/products/?pid=66b905e0abf70e01e00ada1a undefined - 16:56:43-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: PUT /api/products/?pid=66b905e0abf70e01e00ada1a undefined - 16:56:47-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: DELETE /api/products/?pid=66b905e0abf70e01e00ada1a undefined - 16:57:22-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 16:59:39-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 16:59:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /scripts/signout.js undefined - 16:59:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 16:59:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 16:59:40 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:59:45 - Bad auth from poliecies!
+ERROR: POST / 401 - 17:02:37 - Bad auth from poliecies!
+ERROR: DELETE /66b905e0abf70e01e00ada1a 403 - 17:15:43 - Forbidden from poliecies!
+ERROR: DELETE /66b905e0abf70e01e00ada1a 403 - 17:16:24 - Forbidden from poliecies!
+ERROR: GET /online 401 - 17:22:48 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:31:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:32:05 - Bad auth from poliecies!
+ERROR: GET /online 403 - 20:32:26 - Forbidden from poliecies!
+ERROR: GET /online 403 - 20:41:42 - Forbidden from poliecies!
+ERROR: GET /online 403 - 20:41:44 - Forbidden from poliecies!
+ERROR: GET /online 403 - 20:42:07 - Forbidden from poliecies!
+ERROR: GET /online 403 - 20:44:41 - Forbidden from poliecies!
+ERROR: GET /online 403 - 20:44:46 - Forbidden from poliecies!
+ERROR: GET /scripts/signout.js undefined - 20:45:53-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:45:53-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/sessions/online undefined - 20:45:53-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:45:53-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:45:57-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:45:57-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:45:59-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:45:59-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:46:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:46:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:46:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:46:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:46:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:46:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:46:27-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:46:30-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:46:30-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:46:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:46:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / 403 - 20:48:48 - Forbidden from poliecies!
+ERROR: POST / 403 - 20:48:54 - Forbidden from poliecies!
+ERROR: GET / 403 - 20:48:58 - Forbidden from poliecies!
+ERROR: POST / 403 - 20:49:05 - Forbidden from poliecies!
+ERROR: GET / 403 - 20:49:10 - Forbidden from poliecies!
+ERROR: POST / 403 - 20:51:02 - Forbidden from poliecies!
+ERROR: GET / 403 - 20:51:05 - Forbidden from poliecies!
+ERROR: GET / undefined - 20:52:37-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:52:37-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:52:39-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:52:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:52:47-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:52:48-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:52:51-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:52:51-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: POST /checkout 403 - 22:24:39 - Forbidden from poliecies!
+ERROR: POST /checkout 403 - 22:25:20 - Forbidden from poliecies!
+ERROR: GET /session 403 - 22:28:28 - Forbidden from poliecies!
+ERROR: GET /session 403 - 22:28:36 - Forbidden from poliecies!
+ERROR: GET /session 403 - 22:30:15 - Forbidden from poliecies!
+ERROR: GET /session 403 - 22:30:18 - Forbidden from poliecies!
+ERROR: POST /checkout 400 - 22:49:39-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /checkout 400 - 22:49:53-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /checkout 400 - 22:50:11-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:54:10-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:54:15-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:54:15-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:55:02-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: POST /api/sessions/login undefined - 23:23:52-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /api/sessions/login undefined - 23:36:40-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 23:43:29-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /pages/details.html?id=66b92a3e17fcd1ce373f4c13 undefined - 00:01:11-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:01:11-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/details.html?id=66b92a3e17fcd1ce373f4c13 undefined - 00:01:13-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:01:13-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/details.html?id=66b92a3e17fcd1ce373f4c13 undefined - 00:01:15-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:01:15-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:01:21-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/cart.html undefined - 00:01:24-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:01:24-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 400 - 00:02:22-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST / 400 - 00:02:45-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /api/sessions/login undefined - 00:03:07-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:51:42-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:51:48-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:51:52-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: POST /signout 403 - 17:52:28 - Forbidden from poliecies!
+ERROR: POST /signout 403 - 17:52:30 - Forbidden from poliecies!
+ERROR: POST /signout 403 - 17:52:32 - Forbidden from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:53:58-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /online 401 - 17:53:59 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:54:11-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /online 401 - 17:54:11 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:55:03-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /online 401 - 17:55:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:55:30 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:55:30-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /online 401 - 17:56:01 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:56:24-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:56:27-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 17:56:46-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /online 401 - 17:56:46 - Bad auth from poliecies!
+ERROR: GET /online 401 - 18:05:04 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 18:05:05-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 18:05:34-Cannot destructure property 'role' of 'req.user' as it is undefined.
+ERROR: GET /online 401 - 18:05:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:04:56 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:05:06 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:05:10 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:05:25 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:05:30 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:06:20 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:06:37 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:07:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:08:14 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:08:53 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:14:43 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:17:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:17:40 - Bad auth from poliecies!

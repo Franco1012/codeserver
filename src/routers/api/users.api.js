@@ -9,7 +9,7 @@ import { read, readOne, create, update, destroy } from "../../controllers/users.
 class UsersRouter extends CustomRouter {
     init() {
         this.read("/", ["PUBLIC"], read)
-        this.read("/session", ["USER","ADMIN"], readOne)//usuario que está en sesion
+        this.read("/session", ["USER","ADMIN","PREMIUM"], readOne)//usuario que está en sesion
         this.create("/", ["PUBLIC"], uploader.single("photo"), isPhoto, create)
         this.update("/:uid", ["ADMIN"], update)
         this.destroy("/:uid", ["ADMIN"], destroy)

@@ -35,10 +35,17 @@ async function paginate(req, res, next) {
     try {
 
         const filter = {}
-
         const opts = { sort: "title" }
+        // Verificar si el usuario está autenticado
+        if (req.user) {
+            const { role } = req.user; // Extraer el rol y el ID del usuario autenticado
+            const userId = req.user._id; // ID del usuario que hace la solicitud
 
-
+            // Verificación del rol del usuario
+            if (role === 2) { // Si es usuario premium
+                filter["product_id.supplier_id"] = { $ne: userId }; // Excluir productos del usuario
+            }
+        }
 
         if (req.query.limit) {
             opts.limit = req.query.limit
@@ -46,9 +53,7 @@ async function paginate(req, res, next) {
         if (req.query.page) {
             opts.page = req.query.page
         }
-        if (req.query.user_id) {
-            filter.user_id = req.query.user_id
-        }
+
 
         const products = await paginateService({ filter, opts })
 
@@ -103,8 +108,14 @@ async function readOne(req, res, next) {
 
 async function create(req, res, next) {
     try {
+        const userId = req.user._id
+        console.log("userid", userId)
         const data = req.body
-        const product = await createService(data)
+        const productData = {
+            ...data, // Incluye todos los campos existentes del cuerpo de la solicitud
+            supplier_id: userId // Añadir el ID del usuario al campo supplier_id
+        }
+        const product = await createService(productData)
         /*return res.json({
             statusCode: 201,
             message: "PRODUCT CREATED: " + product.id,
