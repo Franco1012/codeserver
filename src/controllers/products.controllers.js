@@ -36,16 +36,7 @@ async function paginate(req, res, next) {
 
         const filter = {}
         const opts = { sort: "title" }
-        // Verificar si el usuario está autenticado
-        if (req.user) {
-            const { role } = req.user; // Extraer el rol y el ID del usuario autenticado
-            const userId = req.user._id; // ID del usuario que hace la solicitud
 
-            // Verificación del rol del usuario
-            if (role === 2) { // Si es usuario premium
-                filter["product_id.supplier_id"] = { $ne: userId }; // Excluir productos del usuario
-            }
-        }
 
         if (req.query.limit) {
             opts.limit = req.query.limit
@@ -53,6 +44,18 @@ async function paginate(req, res, next) {
         if (req.query.page) {
             opts.page = req.query.page
         }
+        // Verificar si se debe excluir productos de un usuario premium
+
+        // Verificar si la ruta incluye '/me'
+        if (req.originalUrl.includes('/api/products/me')) {
+            // Asumir que `req.user` contiene información del usuario autenticado
+            const userId = req.query.userId; // Obtén el ID del usuario desde el middleware de autenticación
+            filter.supplier_id = userId; // Mostrar solo productos del usuario autenticado
+        } else if (parseInt(req.query.userRole) === 2) {
+            // Si el usuario es premium, excluir productos de su propio usuario
+            filter.supplier_id = { $ne: req.query.userId };
+        }
+
 
 
         const products = await paginateService({ filter, opts })

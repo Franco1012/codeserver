@@ -14,13 +14,14 @@ class ProductsRouter extends CustomRouter {
     init() {
         this.read("/", ["PUBLIC"], read)
         this.read("/paginate", ["PUBLIC"], paginate) //ojo que los verbos no van en los endpoints, esto es una excepción a la regla
+        this.read("/me", ["PREMIUM"], paginate)
         this.read("/:pid", ["PUBLIC"], readOne)
         //this.create("/", uploader.single("photo"), ["PUBLIC"], isValidAdmin, isTitle, isPhoto, create)
 
         this.create("/", ["ADMIN", "PREMIUM"], create)
 
         this.update("/:pid", ["ADMIN", "PREMIUM"], checkProductManagementPermission, update)
-        this.destroy("/:pid", ["ADMIN","PREMIUM"],checkProductManagementPermission, destroy)
+        this.destroy("/:pid", ["ADMIN", "PREMIUM"], checkProductManagementPermission, destroy)
     }
 }
 

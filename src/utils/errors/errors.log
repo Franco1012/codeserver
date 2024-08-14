@@ -227,3 +227,268 @@ ERROR: GET /online 401 - 17:08:53 - Bad auth from poliecies!
 ERROR: GET /online 401 - 17:14:43 - Bad auth from poliecies!
 ERROR: GET /online 401 - 17:17:27 - Bad auth from poliecies!
 ERROR: GET /online 401 - 17:17:40 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:12:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:12:57 - Bad auth from poliecies!
+ERROR: GET /scripts/signout.js undefined - 19:49:16-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/sessions/online undefined - 19:49:16-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 19:49:16-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:49:16-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 19:49:21-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:49:21-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 19:53:05 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:53:08 - Bad auth from poliecies!
+ERROR: GET /online 400 - 19:59:55-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 19:59:55-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 20:00:00-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:00:00-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:24:45-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:24:59-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 20:24:59-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 20:27:04 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:28:00 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:28:02 - Bad auth from poliecies!
+ERROR: GET /online 400 - 20:28:37-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:29:22-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 20:29:28-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 20:29:38-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /session 400 - 20:29:38-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /session 400 - 20:29:42-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 20:29:42-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:38:10-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 20:38:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:38:20 - Bad auth from poliecies!
+ERROR: POST /signout 400 - 20:38:21-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /pages/login.html undefined - 20:39:22-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:39:22-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:39:22-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:39:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:39:25-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:39:27-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:39:27-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 20:39:28-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 20:39:28-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 20:40:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:40:12 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:40:13-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 20:40:19 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:40:22-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 20:40:29-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 20:41:01 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:41:03 - Bad auth from poliecies!
+ERROR: POST /api/sessions/login 401 - 20:41:19-Bad auth
+ERROR: GET /online 401 - 20:42:41 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:42:43 - Bad auth from poliecies!
+ERROR: GET /online 400 - 22:39:59-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:40:08-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:40:08-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:40:10-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:40:10-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:40:21-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:40:25-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:40:27-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:40:31-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:40:35-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:40:35-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:40:45-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&&limit=5 undefined - 22:41:07-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:41:07-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 22:41:17-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: POST /signout 400 - 22:42:32-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /online 401 - 22:43:14 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:43:14 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:43:20 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:55:56 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:55:59 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:56:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:56:36 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:59:43 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:07:47 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:13:45 - Bad auth from poliecies!
+ERROR: GET / undefined - 23:14:37-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:14:38-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:14:39-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:14:40-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:14:46-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:14:46-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:14:51-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:14:52-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 23:15:50 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:17:31 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:20:07 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:21:44 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:21:52 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:22:09 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:24:18 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:24:20 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:24:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:25:00 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:25:01 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:25:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:25:04 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:30:42 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:30:44 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:31:21 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:33:16 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:33:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:33:54 - Bad auth from poliecies!
+ERROR: GET / undefined - 23:37:38-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:37:39-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:37:39-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:37:41-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/register.html undefined - 23:38:37-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:38:38-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/register.html undefined - 23:38:42-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:38:42-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:38:45-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:38:46-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:38:47-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:38:55-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:38:55-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 23:38:59-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:39:00-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 23:39:12 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:42:08 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:43:29 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:43:36 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:43:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:44:06 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:47:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:47:32 - Bad auth from poliecies!
+ERROR: GET /scripts/updateNavbar.js undefined - 23:49:49-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 23:49:50-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 23:54:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:54:04 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:54:57 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:54:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:56:08 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:56:10 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:56:11 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:56:12 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:56:16 - Bad auth from poliecies!
+ERROR: POST /api/sessions/signout undefined - 00:08:35-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: POST /api/sessions/signout undefined - 00:08:35-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:08:35-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:08:36-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:09:28-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:09:28-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:09:59-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:10:00-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:10:01-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 00:10:47 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:10:47 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:10:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:10:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:10:57 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:27:15 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:27:15 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:27:19 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:27:20 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:30:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:30:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:30:36 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:30:36 - Bad auth from poliecies!
+ERROR: GET / undefined - 00:31:59-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:31:59-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:32:02-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 00:32:35 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:32:36 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:34:06 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:34:06 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:34:09 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:36:52-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:36:56-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 00:37:34-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:37:34-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /online 400 - 00:37:38-Operation `users.findOne()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:37:38-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:41:47-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:41:51-Operation `products.countDocuments()` buffering timed out after 10000ms
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:42:37-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:44:02 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:44:02-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:44:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:44:05 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:44:05-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:44:05 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:45:26 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:45:27 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:45:27-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:45:31 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:45:31-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:45:31 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:45:38 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:45:38-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:45:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 00:46:28 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:46:28-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:46:28 - Bad auth from poliecies!
+ERROR: GET / undefined - 00:47:28-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:47:28-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:47:34-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:47:34-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:47:35-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:47:35-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:47:36-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:47:36-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:48:05-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:48:05-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 00:48:13-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 00:48:14-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 00:48:50 - Bad auth from poliecies!
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=undefined&userRole=undefined undefined - 00:48:50-Cast to ObjectId failed for value "undefined" (type string) at path "supplier_id" for model "products"
+ERROR: GET /online 401 - 00:48:50 - Bad auth from poliecies!
+ERROR: GET /scripts/signout.js undefined - 16:25:09-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/sessions/online undefined - 16:25:10-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /api/sessions/online undefined - 16:25:10-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 16:25:10-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 16:25:23-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 16:43:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:43:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:44:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:44:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:44:04 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:44:05 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:44:08 - Bad auth from poliecies!
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 17:55:14-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 17:55:21-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /online 401 - 17:55:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:55:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:56:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:56:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:56:21 - Bad auth from poliecies!
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 17:56:39-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 18:00:50-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 18:05:29-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 18:07:59-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 18:09:43-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /api/products/me?page=1&limit=5 undefined - 18:09:44-Cast to ObjectId failed for value "me" (type string) at path "_id" for model "products"
+ERROR: GET /scripts/updateNavbar.js undefined - 18:13:53-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 18:14:55 - Bad auth from poliecies!
+ERROR: GET /online 401 - 18:14:55 - Bad auth from poliecies!
+ERROR: GET /online 401 - 18:14:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:29:39 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:29:39 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:29:43 - Bad auth from poliecies!
+ERROR: GET / undefined - 19:38:23-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 19:38:23-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 19:38:23-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 19:38:23-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/userDate.html undefined - 19:38:23-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:38:24-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/userDate.html undefined - 19:38:32-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:38:32-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:38:33-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /pages/myProducts.html undefined - 19:38:34-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:38:34-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:38:35-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET / undefined - 19:38:36-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /favicon.ico undefined - 19:38:36-connect ETIMEDOUT 18.230.79.189:27017
+ERROR: GET /online 401 - 20:06:20 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:06:20 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:06:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:06:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:06:25 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:27:05 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:30:35 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:30:39 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:32:56 - Bad auth from poliecies!
