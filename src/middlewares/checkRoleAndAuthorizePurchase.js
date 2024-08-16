@@ -13,7 +13,7 @@ const checkRoleAndAuthorizePurchase = async (req, res, next) => {
 
 
         if (!product) {
-            return res.status(404).json({ message: "Product not found" });
+            return res.error404()
         }
 
         const { supplier_id } = product;
@@ -22,10 +22,10 @@ const checkRoleAndAuthorizePurchase = async (req, res, next) => {
         // Verifica si el usuario tiene permiso para comprar productos
         if (role === 1) {
             //Si es administrador no puede agregar productos al carrito
-            return res.status(403).json({ message: "Access denied" });
+            return res.error400("You can't buy  products")
         }
         if (role === 2 && supplier_id.equals(userId)) {
-            return res.status(403).json({ message: "Access denied" }); // No puede comprar sus propios productos
+            return res.error400("You can't buy your own product"); // No puede comprar sus propios productos
 
         } else {
             return next();

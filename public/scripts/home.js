@@ -82,3 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector('#next').addEventListener('click', NextPage);
 document.querySelector('#prev').addEventListener('click', PrevPage);
+

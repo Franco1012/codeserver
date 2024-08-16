@@ -32,9 +32,7 @@
         <li class="nav-item" id="my_product">
             <a class="nav-link" href="./createProduct.html">Create Product</a>
         </li>
-        <li class="nav-item" id="my_product">
-            <a class="nav-link" href="./createProduct.html">Create Product</a>
-        </li>
+       
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item" id="cart">
@@ -72,14 +70,10 @@
 
         <!-- Stock -->
         <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" min="1" placeholder="1">
+        <input type="number" id="stock" name="stock" min="1" placeholder="1">>
 
-        <!-- Supplier ID -->
-        <label for="supplier_id">Supplier ID:</label>
-        <input type="text" id="supplier_id" name="supplier_id">
-
-        <!-- Submit Button -->
-        <button type="submit">Submit</button>
+        <input class="btn btn-primary d-block mx-auto" type="button" id="createProduct" value="CREATE PRODUCT">
+        <input class="btn btn-primary d-block mx-auto" type="button" id="updateProduct" value="UPDATE PRODUCT">
     </form>
 
 </body>
@@ -89,7 +83,7 @@
 
 <script src="../scripts/updateNavbar.js"></script>
 <script src="../scripts/signout.js"></script>
-<script src="../scripts/register.js"></script>
+<script src="../scripts/createProducts.js"></script>
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
