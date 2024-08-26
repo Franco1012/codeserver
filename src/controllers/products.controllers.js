@@ -35,9 +35,7 @@ async function paginate(req, res, next) {
     try {
 
         const filter = {}
-
         const opts = { sort: "title" }
-
 
 
         if (req.query.limit) {
@@ -46,9 +44,19 @@ async function paginate(req, res, next) {
         if (req.query.page) {
             opts.page = req.query.page
         }
-        if (req.query.user_id) {
-            filter.user_id = req.query.user_id
+        // Verificar si se debe excluir productos de un usuario premium
+
+        // Verificar si la ruta incluye '/me'
+        if (req.originalUrl.includes('/api/products/me')) {
+            // Asumir que `req.user` contiene información del usuario autenticado
+            const userId = req.query.userId; // Obtén el ID del usuario desde el middleware de autenticación
+            filter.supplier_id = userId; // Mostrar solo productos del usuario autenticado
+        } else if (parseInt(req.query.userRole) === 2) {
+            // Si el usuario es premium, excluir productos de su propio usuario
+            filter.supplier_id = { $ne: req.query.userId };
         }
+
+
 
         const products = await paginateService({ filter, opts })
 
@@ -103,8 +111,14 @@ async function readOne(req, res, next) {
 
 async function create(req, res, next) {
     try {
+        const userId = req.user._id
+        console.log("userid", userId)
         const data = req.body
-        const product = await createService(data)
+        const productData = {
+            ...data, // Incluye todos los campos existentes del cuerpo de la solicitud
+            supplier_id: userId // Añadir el ID del usuario al campo supplier_id
+        }
+        const product = await createService(productData)
         /*return res.json({
             statusCode: 201,
             message: "PRODUCT CREATED: " + product.id,

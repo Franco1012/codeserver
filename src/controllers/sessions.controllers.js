@@ -101,13 +101,13 @@ class SessionsController {
     async profile(req, res, next) {
         //console.log("profile",req.user)
         try {
+            const user = {
+                userId: req.user._id,
+                userRole: req.user.role
+            }
             //if (req.session.online)
             if (req.user.online) {
-                return res.json({
-                    statusCode: 200,
-                    message: "Is online",
-                    //userId: req.user._id,
-                });
+                return res.response200(user)
             }
 
             return res.json({

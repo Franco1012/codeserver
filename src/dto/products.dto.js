@@ -12,6 +12,7 @@ class ProductsDTO {
         this.category = data.category ||"uncategorized"
         this.price = data.price || 1;
         this.stock = data.stock || 1;
+        this.supplier_id = data.supplier_id;  // Agregado
         persistence !== "mongo" && (this.createdAt = new Date());
         persistence !== "mongo" && (this.updatedAt = new Date());
     }

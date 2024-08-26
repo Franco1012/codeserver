@@ -68,7 +68,9 @@ class CustomRouter {
                     //el rol lo necesitopara autorizaciones 
                     //el email para buscar el usuario y agregar la propiedad user al objeto de req
                     const { role, email, online } = token;
-                    if ((policies.includes("USER") && role === 0) || (policies.includes("ADMIN") && role === 1)) {
+                    if ((policies.includes("USER") && role === 0) ||
+                        (policies.includes("ADMIN") && role === 1) ||
+                        (policies.includes("PREMIUM") && role === 2)) {
                         const user = await usersRepository.readByEmailRepository(email);
                         //proteger contraseña del usuario!!!
 

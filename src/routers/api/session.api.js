@@ -30,12 +30,12 @@ class SessionRouter extends CustomRouter {
         this.create("/password", ["PUBLIC"], resetPassword)
         this.update("/password", ["PUBLIC"], updatePassword)
         this.read("/online",
-            ["USER", "ADMIN"],
+            ["USER", "ADMIN","PREMIUM"],
             //passport.authenticate("jwt", { session: false }),
             //passportCb("jwt"),//probar de sacar autenticación de jwt con passport y dejar solo jwt en policies
             profile)
 
-        this.create("/signout", ["USER", "ADMIN"], signout)
+        this.create("/signout", ["USER", "ADMIN","PREMIUM"], signout)
 
         this.read("/google", ["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }))
         this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false, failureRedirect: "/" }), google)
