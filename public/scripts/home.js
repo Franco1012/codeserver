@@ -13,19 +13,51 @@ const template = (data) => `
 let currentPage = 1;
 const limitPerPage = 5;
 let totalPages;
+
+
+
 // Función para cargar la página inicial de productos
-function InitialPage(currentPage) {
-  fetch(`/api/products/paginate?page=${currentPage}&&limit=${limitPerPage}`)
-    .then(res => res.json())
-    .then(res => {
-      console.log(res);
-      const products = res.response;
-      const productsHtml = products.map(product => template(product)).join("");
-      document.querySelector("#products").innerHTML = productsHtml;
-      totalPages = res.info.totalPages
-    })
-    .catch(err => console.log(err));
+async function InitialPage(currentPage) {
+  try {
+    const sessionRes = await fetch("/api/sessions/online");
+    const sessionData = await sessionRes.json();
+    //El operador "?" se utiliza por si alguna parte de la cadena es null o undefined,
+    // el acceso se detiene y devuelve undefined en lugar de lanzar un error.
+    const userId = sessionData.response?.userId;
+    const userRole = sessionData.response?.userRole;
+
+    //console.log("userId", userId);
+    //console.log("userRole", userRole);
+
+    let apiUrl;
+
+    // Si el usuario es premium y está en la página "My Products", cambia la URL
+    if (userRole === 2 && window.location.pathname.includes("/myProducts")) {
+      apiUrl = `/api/products/me?page=${currentPage}&limit=${limitPerPage}`;
+    } else {
+      apiUrl = `/api/products/paginate?page=${currentPage}&limit=${limitPerPage}`;
+    }
+    // Si userId y userRole están disponibles, agréguelos a la URL
+    if (userId && userRole) {
+      apiUrl += `&userId=${userId}&userRole=${userRole}`;
+    }
+
+    const productsRes = await fetch(apiUrl);
+    const productsData = await productsRes.json();
+
+    console.log(productsData);
+
+    const products = productsData.response;
+    const productsHtml = products.map(product => template(product)).join("");
+    document.querySelector("#products").innerHTML = productsHtml;
+
+    totalPages = productsData.info.totalPages;
+
+  } catch (err) {
+    console.error(err);
+  }
 }
+
 
 // Función para cargar la siguiente página de productos
 function NextPage() {
@@ -50,3 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector('#next').addEventListener('click', NextPage);
 document.querySelector('#prev').addEventListener('click', PrevPage);
+
