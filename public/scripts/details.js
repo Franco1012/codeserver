@@ -1,9 +1,9 @@
 // Obtener el id del producto de la url
 const queries = new URL(location.href);
 const pid = queries.searchParams.get("id");
-
+console.log(pid)
 // Función para crear el template del producto
-const template = (data, isAdmin, isPremium) => `
+const template = (data, isAdmin, isPremium, userId) => `
   <div class="container d-flex flex-wrap justify-content-center">
     <div class="card" style="width: 18rem;">
       <img src="${data.photo}" class="card-img-top" alt="${data.title}" />
@@ -18,9 +18,13 @@ const template = (data, isAdmin, isPremium) => `
                <input type="button" value="Delete Product" class="btn btn-danger" onclick="deleteProduct('${data._id}')">`
         : ''
     }
-        ${isPremium && !isAdmin && data.supplier_id === sessionData.response.userId
+        ${isPremium && !isAdmin && data.supplier_id === userId
         ? `<a href="/pages/createProduct.html?id=${data._id}" class="btn btn-primary">Update</a>
                <input type="button" value="Delete Product" class="btn btn-danger" onclick="deleteProduct('${data._id}')">`
+        : ''
+    }
+      ${isPremium && !isAdmin && data.supplier_id !== userId
+        ? `<input type="button" value="Add Cart" class="btn btn-primary" onclick="addToCartButton('${data._id}')">`
         : ''
     }
       </div>
@@ -32,6 +36,7 @@ async function loadProduct(pid) {
     try {
         const sessionRes = await fetch("/api/sessions/online");
         const sessionData = await sessionRes.json();
+        const userId = sessionData.response?.userId;
         const userRole = sessionData.response?.userRole;
         const isAdmin = userRole === 1; // Administrador
         const isPremium = userRole === 2; // Usuario Premium
@@ -40,7 +45,7 @@ async function loadProduct(pid) {
         const productData = await productRes.json();
         const product = productData.response;
 
-        const productHtml = template(product, isAdmin, isPremium);
+        const productHtml = template(product, isAdmin, isPremium, userId);
         document.querySelector("#product").innerHTML = productHtml;
 
     } catch (err) {

@@ -1,12 +1,11 @@
 document.querySelector("#registerUser").addEventListener("click", async () => {
     try {
-        const photoInput = document.querySelector("#photo").value;
         const data = {
-            photo: photoInput ? photoInput : undefined,
+            photo: document.querySelector("#photo").value || undefined,
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         }
-        
+        console.log(data)
         const opts = {
             method: "POST",
             headers: {

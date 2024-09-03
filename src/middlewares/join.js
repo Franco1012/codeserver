@@ -1,5 +1,5 @@
 import CustomError from "../utils/errors/CustomError.js";
-//es un a funcon que depende del esquema de validacion
+//es un a funcion que depende del esquema de validacion
 //y que devuelve un middleware "para poder estar"entre la solicitud y la respuesta
 function validator(schema) {
     return (req, res, next) => {

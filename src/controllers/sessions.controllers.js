@@ -33,9 +33,9 @@ class SessionsController {
 
             const one = await readByEmailService(email)
             if (!one) {
-                return res.error400("User not found")
+                return res.error404()
             }
-            // Generar un token de restablecimiento de contraseña
+            // Generar un resetToken de restablecimiento de contraseña
             const resetToken = createToken({ email });
             // Actualizar el token de restablecimiento en el usuario
             await updateService(one._id, { resetToken });
@@ -46,7 +46,7 @@ class SessionsController {
                 html: `
                     <h1>Reset Your Password</h1>
                     <p>Click the link below to reset your password:</p>
-                    <a href="http://localhost:8080/pages/resetPassword.html?token=${resetToken}">Reset Password</a>
+                    <a href="http://localhost:8080/pages/resetPassword.html?resetToken=${resetToken}">Reset Password</a>
                 `
             });
             return res.message200("Reset password email sent");
@@ -56,9 +56,10 @@ class SessionsController {
     }
     async updatePassword(req, res, next) {
         try {
-            const { token, newPassword } = req.body;
-            // Verificar el token
-            const decoded = verifyToken(token);
+            const { resetToken, newPassword } = req.body;
+          
+            // Verificar el resetToken
+            const decoded = verifyToken(resetToken);
             if (!decoded) {
                 return res.error400('Invalid or expired token')
             }

@@ -1,0 +1,347 @@
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: ID of the user
+        product_id:
+          type: string
+          description: ID of the product
+        quantity:
+          type: number
+          description: Quantity of the product
+      example:
+        user_id: '66d31234fbf6f0d6a0c72914'
+        product_id: '66b929ac0ee55efb5987ceff'
+        quantity: 1
+  responses:
+    Response201Cart:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al éxito en la creación
+        message:
+          type: string
+          description: Texto descriptivo con el éxito en la creación y el id del carrito
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado
+      example:
+        statusCode: 201
+        message: CART CREATED
+        response:
+          user_id: '66d31234fbf6f0d6a0c72914'
+          product_id: '66b929ac0ee55efb5987ceff'
+          quantity: 1
+    Response200allCarts:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud devolviendo datos
+        response:
+          type: array
+          description: Array de objetos del recurso solicitado
+      example:
+        statusCode: 200
+        response:
+          - user_id: '66d31234fbf6f0d6a0c72914'
+            product_id: '66b929ac0ee55efb5987ceff'
+            quantity: 1
+          - user_id: '66d31234fbf6f0d6a0c72914'
+            product_id: '66b929ac0ee55efb5987ceff'
+            quantity: 1
+    Response200oneCart:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al éxito devolviendo datos
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado   
+      example:
+        statusCode: 200
+        response:
+          user_id: '66d31234fbf6f0d6a0c72914'
+          product_id: '66b929ac0ee55efb5987ceff'
+          quantity: 1
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la solicitud por problemas del cliente
+        message:
+          type: string
+          description: Descripción del error por parte del cliente
+      example:
+        statusCode: 400
+        message: Invalid credentials
+    Error400Cart:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la solicitud por problemas del cliente
+        message:
+          type: string
+          description: Descripción del error por parte del cliente
+      example:
+        statusCode: 400
+        message: You can't buy  products/You can't buy your own product
+    Error401Policy:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la autenticación
+        message:
+          type: string
+          description: Descripción del error de autenticación relacionado con políticas
+      example:
+        statusCode: 401
+        message: Bad auth from policies!
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso de autorización
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autorizacion
+      example:
+        statusCode: 403
+        message: Forbidden from policies!
+    Error404:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso por no encontrar lo solocitado
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de no encontrado el recurso
+      example:
+        statusCode: 404
+        message: NOT FOUND
+    Error500:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correrspondiente a la solicitud al fracaso por error fatal en el servidor
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error por parte del servidor
+      example:
+        statusCode: 500
+        message: 'CODER API ERROR'
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/carts:
+    post:
+      summary: Create a new Cart
+      tags:
+        - Cart
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        description: Datos para poder crear un carrito
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+      responses:
+        201:
+          description: Cart creation success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response201Cart'
+        400:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400Cart'
+        401:
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401Policy'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    get:
+      summary: Get all carts
+      tags:
+        - Cart
+      responses:
+        200:
+          description: Carts get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200allCarts'
+        401:
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401Policy'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500' 
+  /api/carts/{cid}:
+    get:
+      summary: Get a cart by ID
+      tags:
+        - Cart
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: Unique identifier of the cart to retrieve
+          schema:
+            type: string
+      responses:
+        200:
+          description: Cart get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200oneCart'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    put:
+      summary: Update a cart by ID
+      tags:
+        - Cart
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: Unique identifier of the cart to update
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+      responses:
+        200:
+          description: Successfully updated the cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200oneCart'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    delete:
+      summary: Delete a cart by ID
+      tags:
+        - Cart
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: Unique identifier of the cart to delete
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted the cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200oneCart'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'

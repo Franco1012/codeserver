@@ -21,8 +21,9 @@ async function read(req, res, next) {
     try {
         const user_id = req.user._id
         const filter = { user_id }
-        console.log(filter)
+        //console.log(filter)
         const carts = await readService(filter)
+        //console.log("carts",carts)
 
         if (carts.length > 0) {
             /*return res.json({
@@ -50,6 +51,7 @@ async function readOne(req, res, next) {
     try {
         const { cid } = req.params;
         const productCart = await readOneService(cid);
+        console.log("productCart",productCart)
         if (productCart) {
             return res.json({
                 statusCode: 200,

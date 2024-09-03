@@ -1,7 +1,8 @@
 // Manejar el restablecimiento de la contraseña
 document.querySelector('#updatePassword').addEventListener('click', async (e) => {
     const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
+    const resetToken = urlParams.get('resetToken');
+
     const newPassword = document.querySelector('#newPassword').value;
 
     // Validar que el nuevo password no esté vacío
@@ -13,7 +14,7 @@ document.querySelector('#updatePassword').addEventListener('click', async (e) =>
     const response = await fetch('/api/sessions/password', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, newPassword })
+        body: JSON.stringify({ resetToken, newPassword })
     });
 
     // Manejar posibles errores en la respuesta

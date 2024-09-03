@@ -1,13 +1,14 @@
 const template = (data) => `
   <div class="card m-2" style="width: 10rem;">
     <img src="${data.photo}" class="card-img-top img-fluid" alt="${data.title}">
-    <div class="card-body d-flex flex-column align-items-center">
-      <h5 class="card-title">${data.title}</h5>
-      <h3>${data.price}</h3>
-      <a href="/pages/details.html?id=${data._id}" class="btn btn-primary">Detail</a>
+    <div class="card-body d-flex flex-column justify-content-between align-items-center" style="min-height: 12rem;">
+      <h5 class="card-title text-center">${data.title}</h5>
+      <h3 class="mt-2">${data.price}</h3>
+      <a href="/pages/details.html?id=${data._id}" class="btn btn-primary mt-2">Detail</a>
     </div>
   </div>
 `;
+
 
 
 let currentPage = 1;

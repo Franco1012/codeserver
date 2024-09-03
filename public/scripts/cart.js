@@ -1,3 +1,5 @@
+import {vaciarCarrito} from "./vaciarCarrito.js";
+
 const template = (data) => `<div class="container d-flex flex-wrap justify-content-center">
 <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -44,6 +46,7 @@ async function cart() {
 document.addEventListener("DOMContentLoaded", function () {
     cart(); // Llama a la función cart() cuando se carga el DOM
 });
+
 async function destroy(cid) {
     console.log(cid)
     try {
@@ -62,22 +65,37 @@ async function destroy(cid) {
         console.error(error);
     }
 }
+// Exponer la función destroy al contexto global
+window.destroy = destroy;
+
+document.querySelector("#vaciarCarrito").addEventListener("click", vaciarCarrito);
 
 
-document.querySelector("#vaciarCarrito").addEventListener("click", vaciarCarrito)
-async function vaciarCarrito() {
+document.querySelector("#finishPursh").addEventListener("click", async () => {
     try {
-
         const opts = {
-            method: "DELETE",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
         };
-        const response = await fetch("/api/carts/all", opts);
-        location.reload()//recarga la página
+        const response = await fetch("/api/payment/checkout", opts);
+        const intent = await response.json();
+        if (intent.response.id) {
+            // Redirige a la página de pago de Stripe
+            window.location.href = intent.response.url;
+        } else {
+            console.error("No session ID returned from server.");
+        }
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+});
 
+document.querySelector("#cancel_purchase").addEventListener("click", async () => {
+    try {
+        window.location.href = "http://localhost:8080"
+    } catch (error) {
+        console.log(error);
+    }
+});
