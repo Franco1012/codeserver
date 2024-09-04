@@ -234,3 +234,12 @@ ERROR: GET /online 401 - 22:07:01 - Bad auth from poliecies!
 ERROR: POST /api/payment/checkout 400 - 22:08:42-The `line_items` parameter is required in payment mode.
 ERROR: GET /online 401 - 22:15:17 - Bad auth from poliecies!
 ERROR: GET /online 401 - 22:15:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:13:08 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:13:08 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:13:10 - Bad auth from poliecies!
+ERROR: POST /api/payment/checkout 400 - 23:13:34-Invalid URL: undefined/pages/thankYou.html. URLs must begin with http or https.
+ERROR: POST /api/payment/checkout 400 - 23:13:42-Invalid URL: undefined/pages/thankYou.html. URLs must begin with http or https.
+ERROR: POST /api/payment/checkout 400 - 23:13:48-Invalid URL: undefined/pages/thankYou.html. URLs must begin with http or https.
+ERROR: POST /api/payment/checkout 400 - 23:25:44-Invalid URL: undefined/pages/thankYou.html. URLs must begin with http or https.
+ERROR: POST /api/payment/checkout 400 - 23:27:32-Invalid URL: undefined/pages/thankYou.html. URLs must begin with http or https.
+ERROR: POST /api/payment/checkout 400 - 23:29:21-Invalid URL: undefined/pages/thankYou.html. URLs must begin with http or https.

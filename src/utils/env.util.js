@@ -19,7 +19,8 @@ const environment = {
     GOOGLE_EMAIL: process.env.GOOGLE_EMAIL,
     GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
-    STRIPE_SECRET: process.env.STRIPE_SECRET
+    STRIPE_SECRET: process.env.STRIPE_SECRET,
+    BASE_URL:process.env.BASE_URL
 
 }
 

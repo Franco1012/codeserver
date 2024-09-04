@@ -5,7 +5,7 @@ import Stripe from "stripe";
 
 
 const stripe = new Stripe(environment.STRIPE_SECRET);//la variable me permite acceder a los servicios de pago de stripe
-
+const success_url = `${environment.BASE_URL}/pages/thankYou.html`
 const createPaymentRepository = async (user_id) => {
     try {
         console.log(stripe)
@@ -17,7 +17,7 @@ const createPaymentRepository = async (user_id) => {
 
         const line_items = productsOnCarts
         const mode = "payment"
-        const success_url = "http://localhost:8080/pages/thankYou.html"
+        success_url
         const intent = await stripe.checkout.sessions.create({
             line_items,
 
