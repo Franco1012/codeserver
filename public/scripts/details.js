@@ -70,7 +70,17 @@ async function addToCartButton(pid) {
 
         let response = await fetch("/api/carts", opts);
         response = await response.json();
-        return alert(response.message);
+        console.log(response);
+        if(response.statusCode===201){
+            return await Swal.fire({
+                title: "¡Producto agregado!",
+                text: response.message,
+                icon: "success",
+                timer: 3000, // Tiempo en milisegundos (2000 ms = 2 segundos)
+                timerProgressBar: true
+            });
+        
+        }
     } catch (error) {
         console.error(error);
     }

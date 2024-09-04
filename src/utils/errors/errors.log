@@ -208,3 +208,29 @@ ERROR: GET /online 401 - 20:40:29 - Bad auth from poliecies!
 ERROR: GET /online 401 - 20:40:32 - Bad auth from poliecies!
 ERROR: GET /online 401 - 20:41:01 - Bad auth from poliecies!
 ERROR: GET /online 401 - 20:41:01 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:49:11 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:49:16 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:26 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:29 - Bad auth from poliecies!
+ERROR: POST /api/sessions/login 400 - 21:50:44-Invalid credentials
+ERROR: POST /api/sessions/login 401 - 21:50:57-Bad auth
+ERROR: GET /online 401 - 21:53:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:53:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:53:26 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:53:54 - Bad auth from poliecies!
+ERROR: POST /verify 400 - 21:55:56-Invalid credentials
+ERROR: GET /online 401 - 21:56:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:56:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:56:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:56:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:06:47 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:06:47 - Bad auth from poliecies!
+ERROR: POST / 401 - 22:06:50 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:07:01 - Bad auth from poliecies!
+ERROR: POST /api/payment/checkout 400 - 22:08:42-The `line_items` parameter is required in payment mode.
+ERROR: GET /online 401 - 22:15:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:15:17 - Bad auth from poliecies!
