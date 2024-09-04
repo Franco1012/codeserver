@@ -1,0 +1,86 @@
+[
+  {
+    "_id": "b35a291afe5be1c5b129d2ff",
+    "title": "mochila",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "accesorio",
+    "price": "40000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:23:48.584Z",
+    "updatedAt": "2024-06-26T19:23:48.584Z"
+  },
+  {
+    "_id": "10058a7250e497cae44d3080",
+    "title": "abrigo",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "ropa",
+    "price": "70000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:27:59.272Z",
+    "updatedAt": "2024-06-26T19:27:59.272Z"
+  },
+  {
+    "_id": "be2d7a7f6cee2641ea6feadd",
+    "title": "gafas de natación",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "accesorio",
+    "price": "20000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:28:46.048Z",
+    "updatedAt": "2024-06-26T19:28:46.048Z"
+  },
+  {
+    "_id": "59daf41660a6d91dfe8687e0",
+    "title": "calcetines",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "ropa",
+    "price": "13000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:29:33.054Z",
+    "updatedAt": "2024-06-26T19:29:33.054Z"
+  },
+  {
+    "_id": "e18f224a595e1407c821ccc1",
+    "title": "gorro de lana ",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "ropa",
+    "price": "23000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:29:58.249Z",
+    "updatedAt": "2024-06-26T19:29:58.249Z"
+  },
+  {
+    "_id": "b105e4528ee0ac8653880e83",
+    "title": "mochila de viaje ",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "accesorio",
+    "price": "23000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:30:20.816Z",
+    "updatedAt": "2024-06-26T19:30:20.816Z"
+  },
+  {
+    "_id": "8de026bad38136a73dcae0b5",
+    "title": "bufanda ",
+    "photo": [
+      "https://i.pinimg.com/originals/41/9d/a7/419da75a3b816eca96a908f5ba9a25c8.jpg"
+    ],
+    "category": "ropa",
+    "price": "53000",
+    "stock": 1,
+    "createdAt": "2024-06-26T19:30:46.646Z",
+    "updatedAt": "2024-06-26T19:30:46.646Z"
+  }
+]

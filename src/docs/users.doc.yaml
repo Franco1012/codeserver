@@ -1,0 +1,633 @@
+components:
+  schemas: 
+    UserRegister:
+      type: object
+      properties:
+        photo:
+          type: string
+          description: URL de la foto del usuario
+        email:
+          type: string
+          description: Email del usuario que quiere registrarse
+        password:
+          type: string
+          description: Contraseña del usuario que quiere registrarse
+        role:
+          type: number
+          description: Permisos según el rol
+        verify:
+          type: boolean
+          description: Si una cuenta fue o no verificada
+        verifyCode:
+          type: string
+          description: Código de verificación de la cuenta
+      example:
+        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png"
+        email: "solerfrancogerman@gmail.com"
+        password: "1234"
+    UserLogin:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email del usuario que quiere iniciar sesión
+        password:
+          type: string
+          description: Contraseña del usuario que quiere iniciar sesión
+      example:
+        email: "solerfrancogerman@gmail.com"
+        password: "1234"
+        
+    VerifyCode:
+      type: object
+      properties:
+        email:
+          type: string
+          description: El email del usuario que quiere verificar su cuenta
+        code:
+          type: string
+          description: El código de verificación enviado al correo del usuario
+      example:
+        email: "solerfrancogerman@gmail.com"
+        code: "7a158161e2629a51d726e3de"
+    ResetPassword:
+      type: object
+      properties:
+        email:
+          type: string
+          description: El email del usuario que quiere restablecer su contraseña
+      example:
+        email: "solerfrancogerman@gmail.com"
+    UpdatePassword:
+      type: object
+      properties:
+        resetToken:
+          type: string
+          description: El resetToken de restablecimiento de contraseña generado por el sistema
+        newPassword:
+          type: string
+          description: La nueva contraseña del usuario
+      example:
+        resetToken: "ingrese el resetToken del usuario"
+        newPassword: "12345"
+    UserSession:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: El ID del usuario que inicio sesión
+        userRole:
+          type: number
+          description: El rol del usuario que inicio sesión
+      example:
+        userId: "66d31234fbf6f0d6a0c72914"
+        userRole: 1
+  responses:
+    Message200Verified:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud
+        message:
+          type: string
+          description: Descripción del éxito en la verificación del usuario
+      example:
+        statusCode: 200
+        message: Verified user!
+    Message200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud
+        message:
+          type: string
+          description: Descripción del éxito en la operación
+      example:
+        statusCode: 200
+        message: Logged in!
+    Message200ResetPassword:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud
+        message:
+          type: string
+          description: Descripción del éxito en la operación
+      example:
+        statusCode: 200
+        message: Reset password email sent
+    Message200UpdatePassword:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud
+        message:
+          type: string
+          description: Descripción del éxito en la operación
+      example:
+        statusCode: 200
+        message: Password successfully updated
+    Message200SignoutUser:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud
+        message:
+          type: string
+          description: Descripción del éxito en la operación
+      example:
+        statusCode: 200
+        message: signed out!
+    Message201:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito en la creación
+        message:
+          type: string
+          description: Descripción del éxito en la creación
+      example:
+        statusCode: 201
+        message: Registered!
+    Response200oneUser:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud devolviendo datos
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado
+      example:
+        statusCode: 200
+        response:
+          photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png"
+          email: "solerfrancogerman@gmail.com"
+          password: "1234"
+    Response200allUsers:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud devolviendo datos
+        response:
+          type: array
+          description: Array de objetos del recurso solicitado
+      example:
+        statusCode: 200
+        response:
+          - photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png"
+            email: "solerfrancogerman@gmail.com"
+            password: "1234"
+          - photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png"
+            email: "germansoler@gmail.com"
+            password: "1234"
+    Response200Online:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al éxito de la solicitud devolviendo datos
+        response:
+          type: object
+          description: Objeto con datos del usuario en línea solicitado
+      example:
+        statusCode: 200
+        response:
+            userId: 66d31234fbf6f0d6a0c72914 
+            userRole: 1
+
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la solicitud por problemas del cliente
+        message:
+          type: string
+          description: Descripción del error por parte del cliente
+      example:
+        statusCode: 400
+        message: Invalid credentials
+    
+    Error401Policy:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la autenticación
+        message:
+          type: string
+          description: Descripción del error de autenticación relacionado con políticas
+      example:
+        statusCode: 401
+        message: Bad auth from policies!
+    Error401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la autenticación
+        message:
+          type: string
+          description: Descripción del error de autenticación
+      example:
+        statusCode: 401
+        message: Bad auth!
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso de la autorización
+        message:
+          type: string
+          description: Descripción del error de autorización
+      example:
+        statusCode: 403
+        message: Forbidden from policies!
+    Error404:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso por no encontrar lo solicitado
+        message:
+          type: string
+          description: Descripción del error de recurso no encontrado
+      example:
+        statusCode: 404
+        message: Not found docs
+    Error500:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente al fracaso por error fatal en el servidor
+        message:
+          type: string
+          description: Descripción del error por parte del servidor
+      example:
+        statusCode: 500
+        message: CODER API ERROR
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/sessions/register:
+    post:
+      summary: Ruta para el registro de un nuevo usuario en nuestro servidor
+      tags:
+        - User
+      requestBody:
+        required: true
+        description: Datos para registrar un usuario
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+      responses:
+        201:
+          description: Éxito en el registro de un usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message201'
+        400:
+          description: Fracaso por datos incompletos o mal pasados
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        500:
+          description: Fracaso por error fatal en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+
+  /api/sessions/login:
+    post:
+      summary: Ruta para el inicio de sesión de un usuario en nuestro servidor
+      tags:
+        - User
+      requestBody:
+        required: true
+        description: Datos para iniciar sesión
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        200:
+          description: Éxito en el inicio de sesión
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200'
+        400:
+          description: Fracaso por datos incompletos o mal pasados
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        401:
+          description: Fracaso por credenciales incorrectas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        500:
+          description: Fracaso por error fatal en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+
+  /api/sessions/verify:
+    post:
+      summary: Verificación de cuenta mediante código enviado por email
+      tags:
+        - User
+      requestBody:
+        required: true
+        description: Datos necesarios para la verificación del código
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyCode'
+      responses:
+        200:
+          description: Éxito en la verificación de la cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200Verified'
+        400:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+  
+  /api/sessions/password:
+    post:
+      summary: Solicitar restablecimiento de contraseña
+      description: Envía un correo electrónico al usuario con un enlace para restablecer su contraseña.
+      tags:
+        - User
+      requestBody:
+        required: true
+        description: Dirección de correo electrónico del usuario que solicita el restablecimiento de la contraseña.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPassword'
+      responses:
+        200:
+          description: Éxito en el restablecimiento de contraseña
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200ResetPassword'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+
+    put:
+      summary: Actualizar contraseña
+      description: Permite al usuario actualizar su contraseña utilizando un token de restablecimiento.
+      tags:
+        - User
+      requestBody:
+        required: true
+        description: El token y la nueva contraseña.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePassword'
+      responses:
+        200:
+          description: Éxito en la actualización de la contraseña
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200UpdatePassword'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+  /api/sessions/online:
+    get:
+      summary: "Obtener perfil del usuario online"
+      description: "Devuelve el perfil del usuario que está actualmente online si está autenticado."
+      tags:
+        - User
+      security:
+        - cookieAuth: []
+      content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSession'
+      responses:
+        200:
+          description: Éxito usuario online
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200Online'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+  /api/sessions/signout:
+    post:
+      summary: "Cerrar sesión del usuario"
+      description: "Permite al usuario cerrar sesión, limpiando la cookie de autenticación."
+      tags:
+        - User
+      security:
+        - cookieAuth: []  # Seguridad basada en la cookie de autenticación
+      responses:
+        200:
+          description: "Sesión cerrada con éxito"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200SignoutUser'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+  
+  /api/users:
+    
+    get:
+      summary: Get all users
+      tags:
+        - User
+      responses:
+        200:
+          description: Users get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200allUsers'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500' 
+  /api/users/{uid}:
+    
+    put:
+      summary: Update a user by ID
+      tags:
+        - User
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: Unique identifier of the user to update
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+      responses:
+        200:
+          description: Successfully updated the user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200oneUser'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'
+    delete:
+      summary: Delete a user by ID
+      tags:
+        - User
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: Unique identifier of the user to delete
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully deleted the user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200oneUser'
+        401: 
+          description: Código de estado correspondiente al fracaso de la autenticación
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error401Policy'
+        404:
+          description: Fracaso por datos incorrectos o código inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        500:
+          description: Error interno en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'

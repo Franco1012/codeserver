@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Ensures the body takes up at least the full height of the viewport */
+      html, body {
+        height: 100%;
+      }
+
+      /* Flex container to ensure the footer stays at the bottom */
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Pushes the footer to the bottom */
+      .content {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="content-wrapper">
+      <nav
+        class="navbar navbar-expand-lg text-bg-success p-3"
+        id="navbar"
+        style="display: none"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">MATILDA</a>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item" id="register">
+                <a class="nav-link" href="./register.html">Register</a>
+              </li>
+              <li class="nav-item" id="profile">
+                <a class="nav-link" href="./userDate.html">Profile</a>
+              </li>
+              <li class="nav-item" id="my_product">
+                <a class="nav-link" href="./myProducts.html">My Products</a>
+              </li>
+              <li class="nav-item" id="create_product">
+                <a class="nav-link" href="./createProduct.html">Create Product</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item" id="cart">
+                <a class="btn btn-warning me-2" href="./cart.html">Cart</a>
+              </li>
+              <li class="nav-item" id="loginNav">
+                <a class="btn btn-dark" href="./login.html">Login</a>
+              </li>
+              <li class="nav-item" id="sessionNav">
+                <button id="signout" class="btn btn-dark">cerrar sesion</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="content d-flex justify-content-center flex-column gap-3 m-5">
+        <span id="productsOnCart"></span>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-success me-2" id="finishPursh">
+            Finalizar Compra
+          </button>
+          <button class="btn btn-danger" id="cancel_purchase">
+            Cancelar Compra
+          </button>
+        </div>
+
+        <div>
+          <button class="btn btn-danger" id="vaciarCarrito">
+            Vaciar Carrito
+          </button>
+        </div>
+      </div>
+      
+      <footer
+        class="navbar navbar-dark bg-dark footer"
+        style="height: 10vh;"
+      >
+        <!-- Contenido del footer -->
+      </footer>
+    </div>
+
+    <script src="../scripts/cart.js" type="module"></script>
+    <script src="../scripts/updateNavbar.js"></script>
+    <script src="../scripts/signout.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+ERROR: GET /online 400 - 16:55:49-jwt expired
+ERROR: GET /online 400 - 16:55:49-jwt expired
+ERROR: GET / undefined - 17:00:44-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:00:44-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 17:00:54-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:00:55-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 17:01:06-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:01:07-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 17:01:08-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:01:08-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 17:01:22-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:01:22-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /online 400 - 17:01:54-jwt expired
+ERROR: GET /online 400 - 17:01:54-jwt expired
+ERROR: GET /online 400 - 17:02:08-jwt expired
+ERROR: GET /online 400 - 17:02:10-jwt expired
+ERROR: GET /online 400 - 17:02:12-jwt expired
+ERROR: GET /online 400 - 17:02:14-jwt expired
+ERROR: GET /online 400 - 17:02:21-jwt expired
+ERROR: GET /online 401 - 17:12:00 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:12:00 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:12:08 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:42:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:42:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:42:53 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:56:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:56:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:57:12 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:00:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:00:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:05:30 - Bad auth from poliecies!
+ERROR: GET /scripts/signout.js undefined - 20:29:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/sessions/online undefined - 20:29:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/sessions/online undefined - 20:29:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /api/products/paginate?page=1&limit=5 undefined - 20:29:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 20:29:39-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 20:29:49-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 20:29:49-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 20:29:51-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /scripts/signout.js undefined - 20:32:33-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /online 401 - 20:33:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:33:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:24:54 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:24:54 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:25:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:25:24 - Bad auth from poliecies!
+ERROR: POST / 401 - 16:25:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 16:29:11 - Bad auth from poliecies!
+ERROR: GET / undefined - 17:26:27-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:26:28-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET / undefined - 17:26:32-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /favicon.ico undefined - 17:26:33-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /online 401 - 20:19:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:19:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:14:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:14:13 - Bad auth from poliecies!
+ERROR: POST /api/sessions/login undefined - 23:14:46-data must be a string or Buffer and hash must be a string
+ERROR: POST /api/sessions/login undefined - 23:21:56-data must be a string or Buffer and hash must be a string
+ERROR: POST /api/sessions/login 400 - 23:29:53-Invalid credentials
+ERROR: POST /api/sessions/login 401 - 23:33:22-Bad auth
+ERROR: POST / 403 - 23:37:45 - Forbidden from poliecies!
+ERROR: POST / 403 - 23:40:44 - Forbidden from poliecies!
+ERROR: POST / 403 - 23:44:18 - Forbidden from poliecies!
+ERROR: POST / 403 - 23:46:14 - Forbidden from poliecies!
+ERROR: GET /online 401 - 23:48:07 - Bad auth from poliecies!
+ERROR: GET /online 401 - 23:48:07 - Bad auth from poliecies!
+ERROR: GET /online 400 - 08:43:34-jwt expired
+ERROR: GET /online 400 - 08:43:34-jwt expired
+ERROR: POST /api/sessions/register 400 - 08:44:00-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 08:45:47-Unexpected token 'h', ..." "photo": https://up"... is not valid JSON
+ERROR: POST /api/sessions/register 400 - 08:46:08-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 08:59:37-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 09:05:26-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 09:06:08-"photo" is not allowed
+ERROR: GET /online 400 - 09:08:04-jwt expired
+ERROR: GET /online 400 - 09:08:04-jwt expired
+ERROR: GET /online 400 - 09:08:07-jwt expired
+ERROR: GET /online 400 - 09:08:24-jwt expired
+ERROR: POST /api/sessions/register 400 - 09:09:13-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 09:10:23-"photo" is not allowed
+ERROR: GET /online 400 - 09:14:39-jwt expired
+ERROR: POST /verify 400 - 09:15:29-Invalid credentials
+ERROR: GET /online 400 - 09:15:59-jwt expired
+ERROR: GET /online 400 - 09:15:59-jwt expired
+ERROR: GET /online 400 - 09:18:15-jwt expired
+ERROR: POST /api/sessions/register 400 - 09:19:04-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 09:27:47-"photo" is not allowed
+ERROR: POST /api/sessions/register 400 - 09:31:46-"photo" is not allowed
+ERROR: GET /online 400 - 09:33:24-jwt expired
+ERROR: POST /api/sessions/register 400 - 09:33:41-"photo" is not allowed
+ERROR: GET /online 400 - 09:50:45-jwt expired
+ERROR: GET /online 400 - 09:51:16-jwt expired
+ERROR: GET /online 400 - 09:51:54-jwt expired
+ERROR: GET /online 400 - 09:51:54-jwt expired
+ERROR: GET /online 400 - 10:00:15-jwt expired
+ERROR: GET /online 400 - 10:00:16-jwt expired
+ERROR: GET /online 400 - 10:00:24-jwt expired
+ERROR: GET /api/products/paginate?page=1&limit=5&userId=66d31234fbf6f0d6a0c72914&userRole=1 undefined - 10:01:23-connect ETIMEDOUT 54.232.22.99:27017
+ERROR: GET /online 401 - 10:01:29 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:01:29 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:01:31 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:01:41 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:09:09 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:09:09 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:26:12 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:26:56 - Bad auth from poliecies!
+ERROR: GET /online 401 - 10:27:19 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:27:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:27:34 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:27:38 - Bad auth from poliecies!
+ERROR: PUT /api/sessions/password undefined - 11:54:06-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 11:58:56-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 12:01:32-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 12:11:50-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 12:11:55-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 12:15:42-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 12:16:04-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:02:51-jwt malformed
+ERROR: PUT /api/sessions/password undefined - 18:03:10-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:05:53-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:17:59-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:20:10-jwt must be provided
+ERROR: GET /online 401 - 18:29:19 - Bad auth from poliecies!
+ERROR: PUT /api/sessions/password undefined - 18:29:50-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:30:07-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:30:20-jwt must be provided
+ERROR: PUT /api/sessions/password undefined - 18:45:29-jwt malformed
+ERROR: PUT /api/sessions/password undefined - 18:45:41-jwt malformed
+ERROR: PUT /api/sessions/password undefined - 18:45:46-jwt malformed
+ERROR: PUT /api/sessions/password undefined - 19:02:46-token is not defined
+ERROR: PUT /api/sessions/password undefined - 19:04:20-token is not defined
+ERROR: POST /api/sessions/login 400 - 19:04:49-Invalid credentials
+ERROR: POST /api/sessions/login 400 - 19:05:00-Invalid credentials
+ERROR: GET /online 401 - 19:05:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:05:51 - Bad auth from poliecies!
+ERROR: PUT /api/sessions/password undefined - 19:07:15-token is not defined
+ERROR: PUT /api/sessions/password undefined - 19:07:24-token is not defined
+ERROR: GET /online 401 - 19:13:43 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:14:11 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:14:11 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:14:13 - Bad auth from poliecies!
+ERROR: POST /api/sessions/login 400 - 19:14:29-Invalid credentials
+ERROR: GET /online 401 - 19:14:59 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:15:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:15:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:17:56 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:17:56 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:17:58 - Bad auth from poliecies!
+ERROR: GET /online 401 - 11:19:28 - Bad auth from poliecies!
+ERROR: GET /online 401 - 12:45:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 12:45:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 14:19:32 - Bad auth from poliecies!
+ERROR: GET /online 401 - 14:19:33 - Bad auth from poliecies!
+ERROR: POST / 401 - 16:46:47 - Bad auth from poliecies!
+ERROR: POST / 400 - 16:47:20-You can't buy  products
+ERROR: POST / 400 - 17:04:40-You can't buy  products
+ERROR: GET /api/products/66d4c926592675333567421b 404 - 20:49:54-NOT FOUND
+ERROR: GET /api/products/66d4c926592675333567421b 404 - 20:50:47-NOT FOUND
+ERROR: GET /api/products/66ce37f13e64b5d204b88034 404 - 20:53:02-NOT FOUND
+ERROR: POST / 400 - 21:24:04-You can't buy  products
+ERROR: POST /signout 400 - 23:51:28-Cannot set properties of null (setting 'online')
+ERROR: GET /online 400 - 23:51:42-Cannot set properties of null (setting 'online')
+ERROR: GET /online 400 - 23:51:43-Cannot set properties of null (setting 'online')
+ERROR: GET /online 400 - 18:02:39-jwt expired
+ERROR: GET /online 400 - 18:02:39-jwt expired
+ERROR: GET /online 400 - 18:02:43-jwt expired
+ERROR: GET /online 401 - 20:56:00 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:56:00 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:01:24 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:04:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:04:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:08:02 - Bad auth from poliecies!
+ERROR: POST / 403 - 21:08:37 - Forbidden from poliecies!
+ERROR: GET /online 401 - 21:08:54 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:08:54 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:09:10 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:22:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:22:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:22:49 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:35:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:35:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:45:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:30:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:30:38 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:30:42 - Bad auth from poliecies!
+ERROR: POST /api/sessions/login 401 - 17:30:56-Bad auth
+ERROR: GET /online 401 - 17:31:18 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:31:18 - Bad auth from poliecies!
+ERROR: GET /online 401 - 17:32:26 - Bad auth from poliecies!
+ERROR: GET /online 401 - 18:07:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 18:07:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 18:08:04 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:49:21 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:49:21 - Bad auth from poliecies!
+ERROR: GET /online 401 - 19:49:33 - Bad auth from poliecies!
+ERROR: GET /pages/createProduct.html undefined - 20:08:54-getaddrinfo ENOTFOUND ac-da8heva-shard-00-02.u4bctzw.mongodb.net
+ERROR: GET /online 401 - 20:35:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:35:51 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:35:55 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:37:43 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:37:43 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:38:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:39:59 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:39:59 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:40:01 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:40:29 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:40:29 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:40:32 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:41:01 - Bad auth from poliecies!
+ERROR: GET /online 401 - 20:41:01 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:49:11 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:49:16 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:02 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:03 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:26 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:27 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:50:29 - Bad auth from poliecies!
+ERROR: POST /api/sessions/login 400 - 21:50:44-Invalid credentials
+ERROR: POST /api/sessions/login 401 - 21:50:57-Bad auth
+ERROR: GET /online 401 - 21:53:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:53:13 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:53:26 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:53:54 - Bad auth from poliecies!
+ERROR: POST /verify 400 - 21:55:56-Invalid credentials
+ERROR: GET /online 401 - 21:56:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:56:22 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:56:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 21:56:33 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:06:47 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:06:47 - Bad auth from poliecies!
+ERROR: POST / 401 - 22:06:50 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:07:01 - Bad auth from poliecies!
+ERROR: POST /api/payment/checkout 400 - 22:08:42-The `line_items` parameter is required in payment mode.
+ERROR: GET /online 401 - 22:15:17 - Bad auth from poliecies!
+ERROR: GET /online 401 - 22:15:17 - Bad auth from poliecies!

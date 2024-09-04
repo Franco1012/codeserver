@@ -1,0 +1,35 @@
+config:
+  plugins:
+    metrics-by-endpoint: {}
+  target: http://localhost:8080/api
+  phases:
+    - duration: 10
+      arrivalRate: 1
+scenarios:
+  - name: iniciar sesión y manipular productos
+    flow:
+      - log: "iniciar sesión"
+      - post: 
+          url: "/sessions/login"
+          json:
+            email: "solerfrancogerman@gmail.com"
+            password: "1234"
+      - log: "leer todos los productos"
+      - get:
+          url: "/products"
+      - log: "crear producto"
+      - post:
+          url: "/products"
+          json:
+            title: "camisa"
+            category: "ropa"
+          capture:
+            json: $.response._id
+            as: productId
+      - log: "eliminar producto"
+      - delete:
+          url: "/products/{{ productId }}"
+
+
+
+  

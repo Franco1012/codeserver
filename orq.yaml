@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: matilda-service
+spec:
+  selector:
+    app: matilda
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matilda
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: matilda
+  template:
+    metadata:
+      labels:
+        app: matilda
+    spec:
+      containers:
+      - name: matilda
+        image: franco1604/matilda:1.0.0
+        ports:
+          - containerPort: 8080
+        imagePullPolicy: Always

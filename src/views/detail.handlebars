@@ -1,0 +1,18 @@
+{{#if product}}
+  <div class="container d-flex flex-wrap justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <img
+        src="{{product.photo}}"
+        class="card-img-top"
+        alt="{{product.title}}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+        <a href="#" class="btn btn-primary">Add Cart</a>
+      </div>
+    </div>
+  </div>
+
+{{else}}
+  <p>PRODUCT NOT FOUND</p>
+{{/if}}
