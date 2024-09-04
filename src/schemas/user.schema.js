@@ -1,5 +1,11 @@
 import joi from "joi-oid"
 const usersSchema = joi.object({
+    photo: joi.string()
+        .uri()  // Validar como una URL
+        .optional()  // Hacerlo opcional si no es necesario en todos los casos
+        .messages({
+            "string.uri": "la foto debe ser una URL válida",
+        }),
     email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).min(3).max(50).required().messages({
         "any.required": "el email es requerido",
         "string.email": "el email debe ser válido",

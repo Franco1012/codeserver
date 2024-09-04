@@ -74,6 +74,7 @@ class UsersControllers {
     async create(req, res, next) {
         try {
             const data = req.body
+            console.log("viene photo?",data)
             const user = await createService(data)
             /*return res.json({
                 statusCode: 201,
@@ -99,7 +100,7 @@ class UsersControllers {
                 message: "UPDATE ID: " + user.id,
 
             })*/
-            return res.message200("UPDATE ID:")
+            return res.response200(user)
         } catch (error) {
             console.log(error)
             return next(error)
@@ -114,7 +115,7 @@ class UsersControllers {
                 message: "DELETE ID: " + user.id,
 
             })*/
-            return res.message200("DELETE ID:")
+            return res.response200(user)
         } catch (error) {
             console.log(error)
             return next(error)

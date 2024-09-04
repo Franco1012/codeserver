@@ -8,6 +8,7 @@ const stripe = new Stripe(environment.STRIPE_SECRET);//la variable me permite ac
 
 const createPaymentRepository = async (user_id) => {
     try {
+        console.log(stripe)
         const { cartsManager } = dao
         let productsOnCarts = await cartsManager.read({ user_id })
         console.log(productsOnCarts)
@@ -16,7 +17,7 @@ const createPaymentRepository = async (user_id) => {
 
         const line_items = productsOnCarts
         const mode = "payment"
-        const success_url = "http://localhost:8080"
+        const success_url = "http://localhost:8080/pages/thankYou.html"
         const intent = await stripe.checkout.sessions.create({
             line_items,
 

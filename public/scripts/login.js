@@ -19,15 +19,28 @@ document.querySelector("#login").addEventListener("click", async () => {
         response = await response.json()
         console.log(response)
         if (response.statusCode === 200) {
-
-            //guardamos el token en el localStorage
-            //localStorage.setItem("token",response.token);
-
-
-            location.replace("/")
-
+            // Mostrar SweetAlert
+            await Swal.fire({
+                title: "¡Inicio de sesión exitoso!",
+                text: response.message,
+                icon: "success",
+                timer: 3000, // Tiempo en milisegundos (2000 ms = 2 segundos)
+                timerProgressBar: true
+            });
+        
+            // Redirigir a otra página después de que SweetAlert se cierre
+            location.replace("/");
+        } else {
+            // Mostrar SweetAlert en caso de error
+            await Swal.fire({
+                title: "Error",
+                text: response.message,
+                icon: "error",
+                timer: 3000,
+                timerProgressBar: true
+            });
         }
-        return alert(response.message)
+        
 
 
     } catch (error) {

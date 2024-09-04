@@ -11,7 +11,7 @@ class SessionRouter extends CustomRouter {
     init() {
         this.create("/register",
             ["PUBLIC"],
-            validate(userSchema),
+            validate(userSchema),//validate es un middleware que valida el esquema de usuario
             //isValidData,
             //isValidEmail,
             // createHashPassword,
